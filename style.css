@@ -1,64 +1,24 @@
 .card {
-    width: 400px;
-    min-height: 400px;
-    position: relative;
-    margin-bottom: 48px;
+    width: 310px;
+    outline: solid 2px purple;
+    padding: 10px;
+}
+h1 {
+    text-align: center;
 }
 
-.expander {
-    background-color: aquamarine;
-    position: absolute;
-    inset: 0;
-    cursor: pointer;
-    opacity: 0.2;
+#add-event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 310px;
+    margin:auto;
 }
 
-.expandable-area {
-    background-color: red;
-    min-height: 200px;
-    width: 100%;
-    display: none;
-}
-
-.main-info {
-    background-color: pink;
-    height: 400px;
-}
-
-.top-content {
-    background-color: red;
-    height: 50%;
-    width: 100%;
-    position: relative;
-}
-
-.content-image {
-    position: relative;
-    background-color: gray;
-    width: 100%;
-    height: 100%;
-}
-
-.event-category {
-    width: 60px;
-    height: 40px;
-    background-color: white;
-    position:absolute;
-    top: 16px;
-    right: 16px;
-}
-
-
-.bottom-content {
-    background-color: tomato;
-    height: 200px;
-}
-
-
-* {
-    outline: 1px solid orange;
-}
-
-.show {
-    display: block;
+#event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 310px;
+    margin:auto;
 }
