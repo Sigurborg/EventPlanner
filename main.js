@@ -54,6 +54,7 @@ getEvents().then((events) => {
   console.log(events);
 });
 
+// Taking values from "Create event" input boxes and turning them into variables
 const submitEvent = () => {
   const eventTitle = document.getElementById("event-name").value;
   const eventDate = document.getElementById("event-date").value;
@@ -83,6 +84,7 @@ const submitEvent = () => {
     endTimeSplit[1] // minute
   );
 
+  // New event function. This is how the information is displayed. We use the values from submitEvent.
   const newEvent = {
     Title: eventTitle,
     Category: "Vísindaferð",
