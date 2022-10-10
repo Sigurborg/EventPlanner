@@ -1,5 +1,5 @@
 // Importing functions from API
-import { addEvent, deleteEvent, getEvents, updateEvent } from "./api.js";
+import { addEvent, deleteEvent, getEvents, updateEvent } from "../api.js";
 
 // Configuration for displayed time format (make it human readable)
 const timeFormat = {
