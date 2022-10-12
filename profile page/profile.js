@@ -1,5 +1,4 @@
-// Importing functions from API
-import { getEvents, updateEvent } from "../api.js";
+import { getEvents } from "../api.js";
 
 // This will redirect user to "Sign in" page if they are not logged in
 const name = localStorage.getItem("userName");
@@ -23,8 +22,12 @@ const dateFormat = {
 
 // Event list on main page
 getEvents().then((events) => {
-  const eventList = document.getElementById("event-list");
-  events.forEach((event) => {
+  const eventList = document.getElementById("my-events");
+  const result = events.filter((event) => {
+    return event.Attending.includes(localStorage.getItem("userName"));
+  });
+
+  result.forEach((event) => {
     const cardElement = document.createElement("div");
     const titleElement = document.createElement("h2");
     const categoryElement = document.createElement("p");
@@ -60,18 +63,7 @@ getEvents().then((events) => {
     cardElement.appendChild(ownerElement);
     cardElement.appendChild(attendBtnElement);
     eventList.appendChild(cardElement);
-
-    // Attend button
-    attendBtnElement.setAttribute("data-events_id", event._id);
-
-    attendBtnElement.onclick = function clickAttend() {
-      event.Attending.push(name);
-      updateEvent(event._id, event);
-
-      attendBtnElement.style.backgroundColor = "green";
-      attendBtnElement.innerText = "Going";
-    };
   });
 
-  console.log(events);
+  console.log(result);
 });

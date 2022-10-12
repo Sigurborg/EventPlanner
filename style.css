@@ -1,8 +1,4 @@
-.card {
-    width: 310px;
-    outline: solid 2px purple;
-    padding: 10px;
-}
+
 h1 {
     text-align: center;
 }
@@ -15,10 +11,52 @@ h1 {
     margin:auto;
 }
 
+
+
+
+/* Main page*/
+
+.card {
+    width: 310px;
+    outline: solid 2px purple;
+    padding: 10px;
+}
+
 #event-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
     max-width: 310px;
     margin:auto;
+}
+
+/* The code below is for profile*/
+
+body {
+    background-color: E5E5E5;
+    margin: 0;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+}
+.tlogo {
+    width: 130px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+.hideinmobile {
+    display: none;
+}
+.back {
+    width: 25px;
+    margin-top: 5%;
 }
