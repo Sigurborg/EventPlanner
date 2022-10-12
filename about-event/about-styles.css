@@ -1,0 +1,93 @@
+#container {
+    width: 400px;
+    margin: 0 auto;
+    padding: 0px 50px 0 50px;
+}
+
+
+input {
+    width: 334px;
+    height: 35px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    vertical-align: middle;
+    border-radius: 22px;
+    text-indent: 10px;
+}
+
+
+input:focus {
+    border: none;
+}
+
+
+::placeholder {
+    color: #7ead81;
+    font-style: italic;
+}
+
+
+button {
+    width: 31px;
+    height: 31px;
+    font-size: 16px;
+    border: none;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #579f5c;
+    color: white;
+    border-radius: 22px;
+}
+
+
+button:active {     
+    background-color: #6ac570;
+    color: black;
+}
+
+
+.message-styling {
+    font-size: 18px;
+    line-height: 35px;
+    padding: 10px 10px 10px 10px;
+    border: 2px solid #dde2ff;
+    background: #dde2ff;
+    border-radius: 22px;
+    color: black;
+    line-height: 25px;
+}   
+
+
+.date-styling {
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: -12px;
+}
+
+
+#inputBox {
+    border: 1px solid #686868;
+    border-radius: 22px;
+    margin-bottom: 10px;
+}
+
+
+#chatBox {
+    border: 1px solid rgb(195, 195, 195);
+    padding: 10px 10px 0px 10px;
+    margin-bottom: 10px;
+}
+
+
+#noCommentsYetMessage {
+    font-size: 18px;
+    line-height: 35px;
+    padding: 10px 10px 10px 10px;
+    border: 2px solid #dfdfdf;
+    background: #dfdfdf;
+    border-radius: 22px;
+    color: black;
+    line-height: 25px;
+    font-style: italic;
+}
