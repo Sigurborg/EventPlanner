@@ -1,8 +1,4 @@
-.card {
-    width: 310px;
-    outline: solid 2px purple;
-    padding: 10px;
-}
+
 h1 {
     text-align: center;
 }
@@ -15,6 +11,17 @@ h1 {
     margin:auto;
 }
 
+
+
+
+/* Main page*/
+
+.card {
+    width: 310px;
+    outline: solid 2px purple;
+    padding: 10px;
+}
+
 #event-list {
     display: flex;
     flex-direction: column;
@@ -22,3 +29,4 @@ h1 {
     max-width: 310px;
     margin:auto;
 }
+
