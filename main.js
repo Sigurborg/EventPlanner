@@ -1,11 +1,12 @@
 // Importing functions from API
 import { getEvents, updateEvent } from "../api.js";
 
-// This will redirect user to "Sign in" page if they are not logged in
-const name = localStorage.getItem("userName");
-if (name === null) {
-  window.location.replace("/sign-in/sign-in.html");
+function getName() {
+  const userName = new URL(window.location.href).searchParams.get("name");
+  localStorage.setItem("userName", userName);
 }
+
+getName();
 
 // Configuration for displayed time format (make it human readable)
 const timeFormat = {
@@ -65,6 +66,7 @@ getEvents().then((events) => {
     attendBtnElement.setAttribute("data-events_id", event._id);
 
     attendBtnElement.onclick = function clickAttend() {
+      const name = localStorage.getItem("userName");
       event.Attending.push(name);
       updateEvent(event._id, event);
 

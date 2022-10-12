@@ -44,13 +44,12 @@ const submitEvent = () => {
 
   addEvent(newEvent);
 };
-/** 
-const submitButton = document.getElementById("add-event");
-submitButton.addEventListener("click", submitEvent)
-**/
 
-const btn = document.getElementById('btn');
-/** 
+/*const submitButton = document.getElementById("add-event");
+submitButton.addEventListener("click", submitEvent);
+
+const btn = document.getElementById("btn");*/
+/**
 btn.addEventListener('click', function onClick() {
   btn.style.backgroundColor = 'greenyellow';
   btn.style.color = 'black';
@@ -60,7 +59,7 @@ btn.addEventListener('click', function handleClick() {
   btn.textContent = "Your event has been created";
 });
 **/
-/** The form validation code is written below 
+/** The form validation code is written below
 
 const validateForm = ()=> {
   return(
@@ -81,33 +80,25 @@ function validateInput(name) {
 document.querySelector('form').addEventListener('submit', validateForm);
 **/
 
- 
-
-
 // Checking if it is an emty string or does it have a value. If it is empty there will be a error message
 const setError = (element, message) => {
-const inputControl = element.parentElement;
-const errorDisplay = inputControl.querySelector('.error');
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".error");
 
   errorDisplay.innerText = message;
-  inputControl.classList.add('error'); // add the error class if it missing
-  inputControl.classList.remove('success'); // add the success class if it is present (red border from my css)
-
+  inputControl.classList.add("error"); // add the error class if it missing
+  inputControl.classList.remove("success"); // add the success class if it is present (red border from my css)
 };
 const setSuccess = (element) => {
-console.log(element)
-}
+  console.log(element);
+};
 
 // I have to then add every validation condition that I want for each value. Because they are required fields
 
- 
-
-document.querySelector('form').addEventListener('submit', (e)=> {
-
+document.querySelector("form").addEventListener("submit", (e) => {
   let errorCount = 0;
 
-
-  e.preventDefault()
+  e.preventDefault();
   const eventTitle = document.getElementById("eventTitle");
   const eventOwner = document.getElementById("eventOwner");
   const eventDescription = document.getElementById("eventDescription");
@@ -116,35 +107,34 @@ document.querySelector('form').addEventListener('submit', (e)=> {
   const eventOwnerValue = eventOwner.value.trim();
   const eventDescriptionValue = eventDescription.value.trim();
 
-  if(eventTitleValue === '') {
-    setError(eventTitle, 'Event title is required');
+  if (eventTitleValue === "") {
+    setError(eventTitle, "Event title is required");
     errorCount++;
-} else {
+  } else {
     setSuccess(eventTitle);
-}
+  }
 
-// Check if event owner is not empty
-if(eventOwnerValue === '') {
-    setError(eventOwner, 'Created by is required');
+  // Check if event owner is not empty
+  if (eventOwnerValue === "") {
+    setError(eventOwner, "Created by is required");
     errorCount++;
-} else {
+  } else {
     setSuccess(eventOwner);
-}
+  }
 
-// Check if description is not empty
-if(eventDescriptionValue === '') {
-    setError(eventDescription, 'Description is required');
+  // Check if description is not empty
+  if (eventDescriptionValue === "") {
+    setError(eventDescription, "Description is required");
     errorCount++;
-} else {
+  } else {
     setSuccess(eventDescription);
-}
-if(errorCount == 0 ) {
-  btn.style.backgroundColor = 'greenyellow';
-  btn.style.color = 'black';
-  btn.textContent = "Your event has been added/created";
-}
+  }
+  if (errorCount == 0) {
+    btn.style.backgroundColor = "greenyellow";
+    btn.style.color = "black";
+    btn.textContent = "Your event has been added/created";
+  }
 });
-
 
 // Check if I got any errors and If not I open the success popup
 /**if (errorCount === 0){
@@ -163,6 +153,3 @@ function closePopup(){
   popup.classList.remove("open-popup")
 }
 **/
-
-
-
