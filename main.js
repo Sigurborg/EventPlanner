@@ -1,5 +1,11 @@
 // Importing functions from API
-import { getEvents } from "../api.js";
+import { getEvents, updateEvent } from "../api.js";
+
+// This will redirect user to "Sign in" page if they are not logged in
+const name = localStorage.getItem("userName");
+if (name === null) {
+  window.location.replace("/sign-in/sign-in.html");
+}
 
 // Configuration for displayed time format (make it human readable)
 const timeFormat = {
@@ -25,6 +31,7 @@ getEvents().then((events) => {
     const attendingElement = document.createElement("p");
     const startDateElement = document.createElement("p");
     const ownerElement = document.createElement("p");
+    const attendBtnElement = document.createElement("button");
 
     titleElement.innerText = event.Title;
     categoryElement.innerText = event.Category;
@@ -35,6 +42,7 @@ getEvents().then((events) => {
       new Date(event.Ending).toLocaleTimeString("is", timeFormat);
 
     ownerElement.innerText = "Added by " + event.Owner;
+    attendBtnElement.innerText = "See you there?";
 
     // We use the class names here to reference later in CSS for styling
     titleElement.classList.add("card-title");
@@ -43,13 +51,27 @@ getEvents().then((events) => {
     startDateElement.classList.add("card-startdate");
     ownerElement.classList.add("card-owner");
     cardElement.classList.add("card");
+    attendBtnElement.classList.add("card-button");
 
     cardElement.appendChild(titleElement);
     cardElement.appendChild(categoryElement);
     cardElement.appendChild(attendingElement);
     cardElement.appendChild(startDateElement);
     cardElement.appendChild(ownerElement);
+    cardElement.appendChild(attendBtnElement);
     eventList.appendChild(cardElement);
+
+    // Attend button
+    attendBtnElement.setAttribute("data-events_id", event._id);
+
+    attendBtnElement.onclick = function clickAttend() {
+      event.Attending.push(name);
+      updateEvent(event._id, event);
+
+      attendBtnElement.style.backgroundColor = "green";
+      attendBtnElement.innerText = "Going";
+    };
   });
+
   console.log(events);
 });
