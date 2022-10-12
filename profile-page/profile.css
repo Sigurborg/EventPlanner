@@ -1,0 +1,28 @@
+body {
+    background-color: E5E5E5;
+    margin: 0;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+}
+.tlogo {
+    width: 130px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+.hideinmobile {
+    display: none;
+}
+.back {
+    width: 25px;
+    margin-top: 5%;
+}
