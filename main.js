@@ -27,7 +27,9 @@ const dateFormat = {
 getEvents().then((events) => {
   const eventList = document.getElementById("event-list");
   events.forEach((event) => {
-    const cardElement = document.createElement("a");
+    const cardElement = document.createElement("div");
+    const otherElements = document.createElement("a")
+
     const titleElement = document.createElement("h2");
     const categoryElement = document.createElement("p");
     const attendingElement = document.createElement("p");
@@ -45,7 +47,7 @@ getEvents().then((events) => {
 
     ownerElement.innerText = "Added by " + event.Owner;
     attendBtnElement.innerText = "See you there?";
-    cardElement.href = "about-event/about-event.html?eventid=" + event._id;
+    otherElements.href = "about-event/about-event.html?eventid=" + event._id;
 
     // We use the class names here to reference later in CSS for styling
     titleElement.classList.add("card-title");
@@ -56,12 +58,16 @@ getEvents().then((events) => {
     cardElement.classList.add("card");
     attendBtnElement.classList.add("card-button");
 
-    cardElement.appendChild(titleElement);
-    cardElement.appendChild(categoryElement);
-    cardElement.appendChild(attendingElement);
-    cardElement.appendChild(startDateElement);
-    cardElement.appendChild(ownerElement);
+    otherElements.appendChild(titleElement);
+    otherElements.appendChild(categoryElement);
+    otherElements.appendChild(attendingElement);
+    otherElements.appendChild(startDateElement);
+    otherElements.appendChild(ownerElement);
+
+    cardElement.appendChild(otherElements)
     cardElement.appendChild(attendBtnElement);
+
+
     eventList.appendChild(cardElement);
 
     // Attend button
