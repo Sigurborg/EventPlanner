@@ -75,9 +75,8 @@ getEvents().then((events) => {
       attendBtnElement.innerText = "Going";
     };
   });
-
   /*
-  If need to delete test events:
+  //If need to delete test events:
   events.forEach((event, i) => {
     if (i < 3) return;
     deleteEvent(event._id);

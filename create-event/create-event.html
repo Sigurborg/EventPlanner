@@ -9,8 +9,79 @@
     <title>Create Event</title>
   </head>
   <body>
+    <title>Create Event</title>
+  </head>
+  <body>
     <h1>Create an event</h1>
+
+    <!--Event form-->
     <div id="add-event-form">
+      <form  name="myForm" method="get" action="#">
+
+        <!--Event title-->
+        <div class="input-control">
+        <input placeholder="Event name*" type="text" id="event-name" name="name" />
+       <div class="error"></div>
+      </div>
+
+      <!--Event date-->
+      <div class="input-control">
+      <input type="date" id="event-date" name="event-date" />
+      <div class="error"></div>
+
+      </div>
+
+      <!--Start time-->
+      <div class="input-control">
+        <label for="start-time">Starts at:</label>
+      <input type="time" id="start-time" name="start-time" value="12:00" />
+      <div class="error"></div>
+      </div>
+
+      <!--End time-->
+      <div class="input-control">
+        <label for="end-time">Ends at:</label>
+      <input type="time" id="end-time" name="end-time" value="12:00" />
+      <div class="error"></div>
+    </div>
+
+      <!--Created by-->
+      <div class="input-control">
+      <input placeholder="Created by*" type="text" id="event-owner" name="createdby"/>
+      <div class="error"></div>
+
+      </div>
+
+      <!--Text box-->
+      <div class="input-control">
+      <label for="description">Description</label>
+      <textarea
+        placeholder="About this event*..."
+        id="event-description" name="description"
+      ></textarea>
+      <div class="error"></div>
+
+    </div>
+
+    <!--Submit button-->
+      <button id="add-event">Add event</button>
+
+      <!--<div class="popup" id="popup">
+        <img src="tick.png">
+        <h2>Thank you!</h2>
+        <p>The event has been added.</p>
+        <button type="button" onclick="closePopup()">OK</button>
+    </div>
+  -->
+
+    </form>
+  </div>
+    </div>
+  </body>
+</html>
+<!---
+<h1>Create an event</h1>
+    /<div id="add-event-form">
       <input placeholder="Event name" type="text" id="event-name" />
       <input type="date" id="event-date" name="event-date" />
       <label for="start-time">Starts at:</label>
@@ -23,7 +94,5 @@
         placeholder="About this event..."
         id="event-description"
       ></textarea>
-      <button id="add-event">Add event</button>
-    </div>
-  </body>
-</html>
+      <button id="add-event">Add event</button>*
+      ->
