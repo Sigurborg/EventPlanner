@@ -1,5 +1,6 @@
 // Importing functions from API
 import { getEvents, updateEvent } from "../api.js";
+import { deleteEvent } from "./api.js";
 
 function getName() {
   const userName = new URL(window.location.href).searchParams.get("name");
@@ -74,6 +75,13 @@ getEvents().then((events) => {
       attendBtnElement.innerText = "Going";
     };
   });
+
+  /*
+  If need to delete test events:
+  events.forEach((event, i) => {
+    if (i < 3) return;
+    deleteEvent(event._id);
+  });*/
 
   console.log(events);
 });

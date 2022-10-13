@@ -3,12 +3,12 @@ import { addEvent } from "../api.js";
 
 // Taking values from "Create event" input boxes and turning them into variables
 const submitEvent = () => {
-  const eventTitle = document.getElementById("eventTitle").value;
+  const eventTitle = document.getElementById("event-name").value;
   const eventDate = document.getElementById("event-date").value;
   const startTime = document.getElementById("start-time").value;
   const endTime = document.getElementById("end-time").value;
-  const eventOwner = document.getElementById("eventOwner").value;
-  const eventDescription = document.getElementById("eventDescription").value;
+  const eventOwner = document.getElementById("event-owner").value;
+  const eventDescription = document.getElementById("event-description").value;
 
   // Using split to get value from date input so that we can construct a "start datetime" and "end datetime" date object
   const dateSplit = eventDate.split("-"); // returns [year, month, day]
@@ -45,111 +45,7 @@ const submitEvent = () => {
   addEvent(newEvent);
 };
 
-/*const submitButton = document.getElementById("add-event");
+const submitButton = document.getElementById("add-event");
 submitButton.addEventListener("click", submitEvent);
 
-const btn = document.getElementById("btn");*/
-/**
-btn.addEventListener('click', function onClick() {
-  btn.style.backgroundColor = 'greenyellow';
-  btn.style.color = 'black';
-});
-
-btn.addEventListener('click', function handleClick() {
-  btn.textContent = "Your event has been created";
-});
-**/
-/** The form validation code is written below
-
-const validateForm = ()=> {
-  return(
-      validateInput("ename")
-      && validateInput("createdby")
-      && validateInput("description")
-  )
-}
-console.log(validateForm)
-function validateInput(name) {
-  let y = document.forms["myForm"][name].value;
-  if (y == "") {
-    alert("Mandatory fields(*) cannot be left blank!");
-    return false;
-  }
-  return true;
-}
-document.querySelector('form').addEventListener('submit', validateForm);
-**/
-
-// Checking if it is an emty string or does it have a value. If it is empty there will be a error message
-const setError = (element, message) => {
-  const inputControl = element.parentElement;
-  const errorDisplay = inputControl.querySelector(".error");
-
-  errorDisplay.innerText = message;
-  inputControl.classList.add("error"); // add the error class if it missing
-  inputControl.classList.remove("success"); // add the success class if it is present (red border from my css)
-};
-const setSuccess = (element) => {
-  console.log(element);
-};
-
-// I have to then add every validation condition that I want for each value. Because they are required fields
-
-document.querySelector("form").addEventListener("submit", (e) => {
-  let errorCount = 0;
-
-  e.preventDefault();
-  const eventTitle = document.getElementById("eventTitle");
-  const eventOwner = document.getElementById("eventOwner");
-  const eventDescription = document.getElementById("eventDescription");
-
-  const eventTitleValue = eventTitle.value.trim();
-  const eventOwnerValue = eventOwner.value.trim();
-  const eventDescriptionValue = eventDescription.value.trim();
-
-  if (eventTitleValue === "") {
-    setError(eventTitle, "Event title is required");
-    errorCount++;
-  } else {
-    setSuccess(eventTitle);
-  }
-
-  // Check if event owner is not empty
-  if (eventOwnerValue === "") {
-    setError(eventOwner, "Created by is required");
-    errorCount++;
-  } else {
-    setSuccess(eventOwner);
-  }
-
-  // Check if description is not empty
-  if (eventDescriptionValue === "") {
-    setError(eventDescription, "Description is required");
-    errorCount++;
-  } else {
-    setSuccess(eventDescription);
-  }
-  if (errorCount == 0) {
-    btn.style.backgroundColor = "greenyellow";
-    btn.style.color = "black";
-    btn.textContent = "Your event has been added/created";
-  }
-});
-
-// Check if I got any errors and If not I open the success popup
-/**if (errorCount === 0){
-  openPopup();
-  clearForm();
-};
-
-// Here we open the popup
-function openPopup(){
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
-  popup.classList.add("open-popup")
-}
-
-// Here we close the popup
-function closePopup(){
-  popup.classList.remove("open-popup")
-}
-**/
+/* The code section above is the basic function that adds a new event to the main - do not change! */
