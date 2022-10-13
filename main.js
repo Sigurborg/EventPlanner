@@ -34,6 +34,7 @@ getEvents().then((events) => {
     const startDateElement = document.createElement("p");
     const ownerElement = document.createElement("p");
     const attendBtnElement = document.createElement("button");
+    const linkElement = document.createElement("a");
 
     titleElement.innerText = event.Title;
     categoryElement.innerText = event.Category;
@@ -42,6 +43,8 @@ getEvents().then((events) => {
       new Date(event.Starting).toLocaleString("is", dateFormat) +
       " - " +
       new Date(event.Ending).toLocaleTimeString("is", timeFormat);
+      
+    linkElement.href="https://www.google.com/";
 
     ownerElement.innerText = "Added by " + event.Owner;
     attendBtnElement.innerText = "See you there?";
@@ -62,6 +65,7 @@ getEvents().then((events) => {
     cardElement.appendChild(ownerElement);
     cardElement.appendChild(attendBtnElement);
     eventList.appendChild(cardElement);
+    cardElement.appendChild(linkElement);
 
     // Attend button
     attendBtnElement.setAttribute("data-events_id", event._id);

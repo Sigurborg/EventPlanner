@@ -1,7 +1,79 @@
+import { getEvents } from "../api.js";
+
+getEvents().then((events) => {
+  const eventList = document.getElementById("about-event");
+  console.log("eventList: ",eventList)
+  const result = events.filter((event) => {
+    return event.Attending.includes(localStorage.getItem("userName"));
+  });
+
+  result.forEach((event) => {
+    console.log(event)
+    const cardElement = document.createElement("div");
+    const titleElement = document.createElement("h2");
+    const categoryElement = document.createElement("p");
+    const attendingElement = document.createElement("p");
+    const startDateElement = document.createElement("p");
+    const ownerElement = document.createElement("p");
+    const attendBtnElement = document.createElement("button");
+
+    titleElement.innerText = event.Title;
+    categoryElement.innerText = event.Category;
+    attendingElement.innerText = event.Attending.length;
+    startDateElement.innerText =
+      new Date(event.Starting).toLocaleString("is", dateFormat) +
+      " - " +
+      new Date(event.Ending).toLocaleTimeString("is", timeFormat);
+
+    ownerElement.innerText = "Added by " + event.Owner;
+    attendBtnElement.innerText = "See you there?";
+
+    // We use the class names here to reference later in CSS for styling
+    titleElement.classList.add("card-title");
+    categoryElement.classList.add("card-category");
+    attendingElement.classList.add("card-attending");
+    startDateElement.classList.add("card-startdate");
+    ownerElement.classList.add("card-owner");
+    cardElement.classList.add("card");
+    attendBtnElement.classList.add("card-button");
+
+    cardElement.appendChild(titleElement);
+    cardElement.appendChild(categoryElement);
+    cardElement.appendChild(attendingElement);
+    cardElement.appendChild(startDateElement);
+    cardElement.appendChild(ownerElement);
+    cardElement.appendChild(attendBtnElement);
+    eventList.appendChild(cardElement);
+  });
+
+  console.log(result);
+});
+
+
+
+
+
+
+//
+
+
+
+
+
+
+
+
+
 let inputField = document.getElementById('inputField');
 let addMessageButton = document.getElementById('addMessageButton');
 let chatMessages = document.getElementById('chatMessages');
 let noCommentsYetMessage = document.getElementById('noCommentsYetMessage');
+
+
+function getName() {
+  const userName = new URL(window.location.href).searchParams.get("name");
+  localStorage.setItem("userName", userName);
+}
 
 
 const timeFormat = {
@@ -45,4 +117,14 @@ inputField.addEventListener('keypress', function(addByEnterBtn) {
     if (addByEnterBtn.key === "Enter") {
       addMessageButton.click();
     }
+})
+
+
+
+let attendingButton = document.getElementById('attendingButton');
+console.log(attendingButton)
+attendingButton.addEventListener('click', function(){
+  var popup = document.getElementById("myPopup");
+  console.log(popup)
+  popup.classList.toggle("show");
 })

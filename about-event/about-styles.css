@@ -28,7 +28,7 @@ input:focus {
 }
 
 
-button {
+#addMessageButton {
     width: 31px;
     height: 31px;
     font-size: 16px;
@@ -41,7 +41,7 @@ button {
 }
 
 
-button:active {     
+#addMessageButton:active {     
     background-color: #6ac570;
     color: black;
 }
@@ -91,3 +91,51 @@ button:active {
     line-height: 25px;
     font-style: italic;
 }
+
+
+#attendingButton {
+    width: 400px;
+    height: 40px;
+    font-size: 16px;
+    border: 1px solid #3CAD99;
+    background: transparent;
+    cursor: pointer;
+    color: #3CAD99;
+    border-radius: 22px;
+}
+
+
+
+
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+  .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    margin-left: -80px;
+  }
+
+
+  /* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
