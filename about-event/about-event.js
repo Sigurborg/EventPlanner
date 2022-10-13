@@ -1,4 +1,4 @@
-import { getEvents } from "../api.js";
+import { getEvents, updateEvent } from "../api.js";
 
 getEvents().then((events) => {
   const eventList = document.getElementById("about-event");
@@ -46,9 +46,19 @@ getEvents().then((events) => {
     cardElement.appendChild(ownerElement);
     cardElement.appendChild(attendBtnElement);
     eventList.appendChild(cardElement);
+
+     // Attend button
+     attendBtnElement.setAttribute("data-events_id", event._id)
+     attendBtnElement.onclick = function clickAttend() {
+       const name = localStorage.getItem("userName");
+       event.Attending.push(name);
+       updateEvent(event._id, event);
+
+       attendBtnElement.style.backgroundColor = "green";
+       attendBtnElement.innerText = "Going";
+     };
   });
 
-  console.log(result);
 });
 
 //
