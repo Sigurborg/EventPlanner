@@ -4,70 +4,95 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style.css">
-    
+    <link rel="stylesheet" href="/style.css" />
+    <script type="module" defer src="./create-event.js"></script>
+    <title>Create Event</title>
+  </head>
+  <body>
     <title>Create Event</title>
   </head>
   <body>
     <h1>Create an event</h1>
+
+    <!--Event form-->
     <div id="add-event-form">
       <form  name="myForm" method="get" action="#">
-        <div class="input-control"> 
 
-          <input placeholder="Event name*" type="text" id="eventTitle" name="ename" />
+        <!--Event title-->
+        <div class="input-control">
+        <input placeholder="Event name*" type="text" id="event-name" name="name" />
        <div class="error"></div>
-       
       </div>
-      <div class="input-control"> 
+
+      <!--Event date-->
+      <div class="input-control">
       <input type="date" id="event-date" name="event-date" />
       <div class="error"></div>
-       
+
       </div>
-      
 
-      <div class="input-control"> 
+      <!--Start time-->
+      <div class="input-control">
         <label for="start-time">Starts at:</label>
-
       <input type="time" id="start-time" name="start-time" value="12:00" />
       <div class="error"></div>
-       
       </div>
-      
-      <div class="input-control"> 
+
+      <!--End time-->
+      <div class="input-control">
         <label for="end-time">Ends at:</label>
       <input type="time" id="end-time" name="end-time" value="12:00" />
       <div class="error"></div>
-       
-      </div>
-      <div class="input-control"> 
-      <input placeholder="Created by*" type="text" id="eventOwner" name="createdby"/>
-      <div class="error"></div>
-       
-      </div>
-      <div class="input-control"> 
-      <label for="description">Description</label>
+    </div>
 
+      <!--Created by-->
+      <div class="input-control">
+      <input placeholder="Created by*" type="text" id="event-owner" name="createdby"/>
+      <div class="error"></div>
+
+      </div>
+
+      <!--Text box-->
+      <div class="input-control">
+      <label for="description">Description</label>
       <textarea
         placeholder="About this event*..."
-        id="eventDescription" name="description"
+        id="event-description" name="description"
       ></textarea>
       <div class="error"></div>
-       
+
     </div>
-      <button id="btn">Add event</button>
-      
+
+    <!--Submit button-->
+      <button id="add-event">Add event</button>
+
       <!--<div class="popup" id="popup">
         <img src="tick.png">
         <h2>Thank you!</h2>
         <p>The event has been added.</p>
         <button type="button" onclick="closePopup()">OK</button>
-    </div> 
+    </div>
   -->
 
     </form>
   </div>
-
-
-    <script type="module" src="./create-event.js"></script>
+    </div>
   </body>
 </html>
+<!---
+<h1>Create an event</h1>
+    /<div id="add-event-form">
+      <input placeholder="Event name" type="text" id="event-name" />
+      <input type="date" id="event-date" name="event-date" />
+      <label for="start-time">Starts at:</label>
+      <input type="time" id="start-time" name="start-time" value="12:00" />
+      <label for="end-time">Ends at:</label>
+      <input type="time" id="end-time" name="end-time" value="12:00" />
+      <input placeholder="Created by" type="text" id="event-owner" />
+      <label for="description">Description</label>
+      <textarea
+        placeholder="About this event..."
+        id="event-description"
+      ></textarea>
+      <button id="add-event">Add event</button>*
+      ->

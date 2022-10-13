@@ -1,11 +1,5 @@
 import { getEvents } from "../api.js";
 
-// This will redirect user to "Sign in" page if they are not logged in
-const name = localStorage.getItem("userName");
-if (name === null) {
-  window.location.replace("/sign-in/sign-in.html");
-}
-
 // Configuration for displayed time format (make it human readable)
 const timeFormat = {
   hour: "2-digit",

@@ -3,12 +3,12 @@ import { addEvent } from "../api.js";
 
 // Taking values from "Create event" input boxes and turning them into variables
 const submitEvent = () => {
-  const eventTitle = document.getElementById("eventTitle").value;
+  const eventTitle = document.getElementById("event-name").value;
   const eventDate = document.getElementById("event-date").value;
   const startTime = document.getElementById("start-time").value;
   const endTime = document.getElementById("end-time").value;
-  const eventOwner = document.getElementById("eventOwner").value;
-  const eventDescription = document.getElementById("eventDescription").value;
+  const eventOwner = document.getElementById("event-owner").value;
+  const eventDescription = document.getElementById("event-description").value;
 
   // Using split to get value from date input so that we can construct a "start datetime" and "end datetime" date object
   const dateSplit = eventDate.split("-"); // returns [year, month, day]
@@ -45,22 +45,21 @@ const submitEvent = () => {
   addEvent(newEvent);
 };
 
-/*const submitButton = document.getElementById("add-event");
+const submitButton = document.getElementById("add-event");
 submitButton.addEventListener("click", submitEvent);
 
-const btn = document.getElementById("btn");*/
-/**
-btn.addEventListener('click', function onClick() {
-  btn.style.backgroundColor = 'greenyellow';
-  btn.style.color = 'black';
-});
+/* The code section above is the basic function that adds a new event to the main - do not change! */
 
+/**
+submitButton.addEventListener('click', function onClick() {
+  submitButton.style.backgroundColor = 'greenyellow';
+  submitButton.style.color = 'black';
+});
 btn.addEventListener('click', function handleClick() {
   btn.textContent = "Your event has been created";
 });
 **/
 /** The form validation code is written below
-
 const validateForm = ()=> {
   return(
       validateInput("ename")
@@ -99,9 +98,9 @@ document.querySelector("form").addEventListener("submit", (e) => {
   let errorCount = 0;
 
   e.preventDefault();
-  const eventTitle = document.getElementById("eventTitle");
-  const eventOwner = document.getElementById("eventOwner");
-  const eventDescription = document.getElementById("eventDescription");
+  const eventTitle = document.getElementById("event-name");
+  const eventOwner = document.getElementById("event-owner");
+  const eventDescription = document.getElementById("event-description");
 
   const eventTitleValue = eventTitle.value.trim();
   const eventOwnerValue = eventOwner.value.trim();
@@ -141,13 +140,11 @@ document.querySelector("form").addEventListener("submit", (e) => {
   openPopup();
   clearForm();
 };
-
 // Here we open the popup
 function openPopup(){
   document.body.scrollTop = document.documentElement.scrollTop = 0;
   popup.classList.add("open-popup")
 }
-
 // Here we close the popup
 function closePopup(){
   popup.classList.remove("open-popup")
