@@ -2,13 +2,15 @@ import { getEvents } from "../api.js";
 
 getEvents().then((events) => {
   const eventList = document.getElementById("about-event");
-  console.log("eventList: ",eventList)
+  const idLink = new URL(window.location.href).searchParams.get("eventid");
+  console.log(events);
   const result = events.filter((event) => {
-    return event.Attending.includes(localStorage.getItem("userName"));
+    return idLink == event._id;
+    //return event.Attending.includes(localStorage.getItem("userName"));
   });
 
   result.forEach((event) => {
-    console.log(event)
+    console.log(event);
     const cardElement = document.createElement("div");
     const titleElement = document.createElement("h2");
     const categoryElement = document.createElement("p");
@@ -49,82 +51,63 @@ getEvents().then((events) => {
   console.log(result);
 });
 
-
-
-
-
-
 //
 
-
-
-
-
-
-
-
-
-let inputField = document.getElementById('inputField');
-let addMessageButton = document.getElementById('addMessageButton');
-let chatMessages = document.getElementById('chatMessages');
-let noCommentsYetMessage = document.getElementById('noCommentsYetMessage');
-
+let inputField = document.getElementById("inputField");
+let addMessageButton = document.getElementById("addMessageButton");
+let chatMessages = document.getElementById("chatMessages");
+let noCommentsYetMessage = document.getElementById("noCommentsYetMessage");
 
 function getName() {
   const userName = new URL(window.location.href).searchParams.get("name");
   localStorage.setItem("userName", userName);
 }
 
-
 const timeFormat = {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  };
-  
-  const dateFormat = {
-    weekday: "short",
-    month: "long",
-    day: "2-digit",
-    ...timeFormat,
-  };
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
+};
 
+const dateFormat = {
+  weekday: "short",
+  month: "long",
+  day: "2-digit",
+  ...timeFormat,
+};
 
 function emptyInput() {
-    if (inputField.value==="") { 
-           return true 
-    } else { 
-           return false
-}}
+  if (inputField.value === "") {
+    return true;
+  } else {
+    return false;
+  }
+}
 
+addMessageButton.addEventListener("click", function () {
+  if (emptyInput()) return;
+  noCommentsYetMessage.remove();
+  var theDate = document.createElement("p");
+  var paragraph = document.createElement("p");
+  theDate.classList.add("date-styling");
+  theDate.innerText = new Date().toLocaleString("is", dateFormat);
+  paragraph.innerText = inputField.value;
+  paragraph.classList.add("message-styling");
+  chatMessages.appendChild(theDate);
+  chatMessages.appendChild(paragraph);
+  inputField.value = "";
+});
 
-addMessageButton.addEventListener('click', function(){
-    if (emptyInput()) return
-    noCommentsYetMessage.remove()
-    var theDate = document.createElement ('p')
-    var paragraph = document.createElement('p')
-    theDate.classList.add('date-styling')
-    theDate.innerText = new Date().toLocaleString("is", dateFormat)
-    paragraph.innerText = inputField.value
-    paragraph.classList.add('message-styling')
-    chatMessages.appendChild(theDate)
-    chatMessages.appendChild(paragraph)
-    inputField.value = ""
-})
+inputField.addEventListener("keypress", function (addByEnterBtn) {
+  if (addByEnterBtn.key === "Enter") {
+    addMessageButton.click();
+  }
+});
 
-
-inputField.addEventListener('keypress', function(addByEnterBtn) {
-    if (addByEnterBtn.key === "Enter") {
-      addMessageButton.click();
-    }
-})
-
-
-
-let attendingButton = document.getElementById('attendingButton');
-console.log(attendingButton)
-attendingButton.addEventListener('click', function(){
+let attendingButton = document.getElementById("attendingButton");
+console.log(attendingButton);
+attendingButton.addEventListener("click", function () {
   var popup = document.getElementById("myPopup");
-  console.log(popup)
+  console.log(popup);
   popup.classList.toggle("show");
-})
+});
