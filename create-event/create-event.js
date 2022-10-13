@@ -1,14 +1,22 @@
 // Importing functions from API
 import { addEvent } from "../api.js";
 
+const clearForm = () => {
+  document.getElementById("event-name").value = "";
+  document.getElementById("event-date").value = "";
+  document.getElementById("start-time").value = "12:00";
+  document.getElementById("end-time").value = "12:00";
+  document.getElementById("event-description").value = "";
+};
+
 // Taking values from "Create event" input boxes and turning them into variables
 const submitEvent = () => {
   const eventTitle = document.getElementById("event-name").value;
   const eventDate = document.getElementById("event-date").value;
   const startTime = document.getElementById("start-time").value;
   const endTime = document.getElementById("end-time").value;
-  const eventOwner = document.getElementById("event-owner").value;
   const eventDescription = document.getElementById("event-description").value;
+  const eventOwner = localStorage.getItem("userName");
 
   // Using split to get value from date input so that we can construct a "start datetime" and "end datetime" date object
   const dateSplit = eventDate.split("-"); // returns [year, month, day]
@@ -46,7 +54,8 @@ const submitEvent = () => {
 };
 
 const submitButton = document.getElementById("add-event");
-submitButton.addEventListener("click", submitEvent);
+
+/*submitButton.addEventListener("click", submitEvent);*/
 
 /* The code section above is the basic function that adds a new event to the main - do not change! */
 
@@ -99,11 +108,9 @@ document.querySelector("form").addEventListener("submit", (e) => {
 
   e.preventDefault();
   const eventTitle = document.getElementById("event-name");
-  const eventOwner = document.getElementById("event-owner");
   const eventDescription = document.getElementById("event-description");
 
   const eventTitleValue = eventTitle.value.trim();
-  const eventOwnerValue = eventOwner.value.trim();
   const eventDescriptionValue = eventDescription.value.trim();
 
   if (eventTitleValue === "") {
@@ -113,14 +120,6 @@ document.querySelector("form").addEventListener("submit", (e) => {
     setSuccess(eventTitle);
   }
 
-  // Check if event owner is not empty
-  if (eventOwnerValue === "") {
-    setError(eventOwner, "Created by is required");
-    errorCount++;
-  } else {
-    setSuccess(eventOwner);
-  }
-
   // Check if description is not empty
   if (eventDescriptionValue === "") {
     setError(eventDescription, "Description is required");
@@ -128,10 +127,12 @@ document.querySelector("form").addEventListener("submit", (e) => {
   } else {
     setSuccess(eventDescription);
   }
-  if (errorCount == 0) {
-    btn.style.backgroundColor = "greenyellow";
-    btn.style.color = "black";
-    btn.textContent = "Your event has been added/created";
+  if (errorCount === 0) {
+    submitButton.style.backgroundColor = "greenyellow";
+    submitButton.style.color = "black";
+    submitButton.textContent = "Your event has been added/created";
+    submitEvent();
+    clearForm();
   }
 });
 

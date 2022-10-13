@@ -28,7 +28,7 @@ getEvents().then((events) => {
   const eventList = document.getElementById("event-list");
   events.forEach((event) => {
     const cardElement = document.createElement("div");
-    const otherElements = document.createElement("a")
+    const otherElements = document.createElement("a");
 
     const titleElement = document.createElement("h2");
     const categoryElement = document.createElement("p");
@@ -64,9 +64,8 @@ getEvents().then((events) => {
     otherElements.appendChild(startDateElement);
     otherElements.appendChild(ownerElement);
 
-    cardElement.appendChild(otherElements)
+    cardElement.appendChild(otherElements);
     cardElement.appendChild(attendBtnElement);
-
 
     eventList.appendChild(cardElement);
 
@@ -83,7 +82,7 @@ getEvents().then((events) => {
     };
   });
   /*
-  //If need to delete test events:
+  //If we need to delete test events:
   events.forEach((event, i) => {
     if (i < 3) return;
     deleteEvent(event._id);
