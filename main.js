@@ -1,4 +1,3 @@
-console.log("hallo")
 // Importing functions from API
 import { getEvents, updateEvent } from "../api.js";
 import { deleteEvent } from "./api.js";
@@ -39,6 +38,7 @@ getEvents().then((events) => {
     const attendBtnElement = document.createElement("button");
     const imageElement = document.createElement("img")
 
+    attendBtnElement.innerText = "Join";
     titleElement.innerText = event.Title;
     categoryElement.innerText = event.Category;
     attendingElement.innerText = event.Attending.length;
@@ -46,9 +46,8 @@ getEvents().then((events) => {
       new Date(event.Starting).toLocaleString("is", dateFormat) +
       " - " +
       new Date(event.Ending).toLocaleTimeString("is", timeFormat);
-
     ownerElement.innerText = "Added by " + event.Owner;
-    attendBtnElement.innerText = "Join";
+
     otherElements.href = "about-event/about-event.html?eventid=" + event._id;
     if(event.Category==="Confernce"){
       imageElement.src = "images/conference.jpg"
@@ -57,7 +56,6 @@ getEvents().then((events) => {
     imageElement.src = "images/social.jpg"
    }
    if(event.Category==="Vísindaferð"){
-    console.log("insideIfstatement")
     imageElement.src = "images/visindaferd.jpg"
    }
 console.log(event.Category)
@@ -91,7 +89,7 @@ console.log(event.Category)
       event.Attending.push(name);
       updateEvent(event._id, event);
 
-      attendBtnElement.style.backgroundColor = "green";
+      attendBtnElement.style.backgroundColor = "#5E9991";
       attendBtnElement.innerText = "Going";
     };
   });
