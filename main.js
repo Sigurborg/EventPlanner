@@ -50,10 +50,10 @@ getEvents().then((events) => {
     ownerElement.innerText = "Added by " + event.Owner;
     attendBtnElement.innerText = "Join";
     otherElements.href = "about-event/about-event.html?eventid=" + event._id;
-    if(event.Category==="Confernce"){
+    if(event.Category==="Conference"){
       imageElement.src = "images/conference.jpg"
     }
-   if(event.Category==="social"){
+   if(event.Category==="Social"){
     imageElement.src = "images/social.jpg"
    }
    if(event.Category==="Vísindaferð"){
