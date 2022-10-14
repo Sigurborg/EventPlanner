@@ -59,6 +59,31 @@ getEvents().then((events) => {
      };
   });
 
+
+
+
+
+  let attendingButton = document.getElementById("attendingButton");
+
+
+  let test = document.createElement('ul')
+  console.log("test", result[0].Attending)
+  result[0].Attending.forEach(studentName => {
+    let listItem = document.createElement('li')
+    listItem.innerText = studentName;
+    test.appendChild(listItem)
+  })
+  test.classList.add("popup")
+  
+  attendingButton.addEventListener("click", function () {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+    popup.appendChild(test);
+  });
+
+
+
+
 });
 
 //
@@ -114,10 +139,42 @@ inputField.addEventListener("keypress", function (addByEnterBtn) {
   }
 });
 
-let attendingButton = document.getElementById("attendingButton");
-console.log(attendingButton);
-attendingButton.addEventListener("click", function () {
-  var popup = document.getElementById("myPopup");
-  console.log(popup);
-  popup.classList.toggle("show");
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// test.innerText = Attending.userName
+
+// const attendingUsers = event.Attending.values();
+
+
+// We want the value from the attending button.
+// Instead of the lenght, we want the names.
+
+
+
+// // Attend button
+// attendBtnElement.setAttribute("data-events_id", event._id);
+// 
+// attendBtnElement.onclick = function clickAttend() {
+//   const name = localStorage.getItem("userName");
+//   event.Attending.push(name);
+//   updateEvent(event._id, event);
+// 
+//   attendBtnElement.style.backgroundColor = "green";
+//   attendBtnElement.innerText = "Going";
+// };

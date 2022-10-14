@@ -105,20 +105,16 @@ input:focus {
 }
 
 
-
+/* The following are the styles for the pop up... this is a total mess. Maybe we should delete this and write it again from scratch*/
 
 .popup {
     position: relative;
     display: inline-block;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+}
   
-  /* The actual popup */
-  .popup .popuptext {
+/* The actual popup */
+.popup .popuptext {
     visibility: hidden;
     width: 160px;
     background-color: #555;
@@ -130,12 +126,12 @@ input:focus {
     top: 50%;
     left: 50%;
     margin-left: -80px;
-  }
+}
 
 
-  /* Toggle this class - hide and show the popup */
+/* Toggle this class - hide and show the popup */
 .popup .show {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s;
-  }
+}
