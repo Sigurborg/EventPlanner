@@ -13,18 +13,15 @@ h1 {
     margin:auto;
 }
 
-
-
-
 /* Main page*/
 
 .card {
     width: 324px;
     height: 341px;
-    padding: 35px;
-    border-radius: 4%;
+    border-radius: 5px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     font-family: montserrat;
+    text-align: left; padding: 1cm;
     background-color: white;
 }
 
@@ -53,11 +50,12 @@ nav {
 a {
     text-decoration: none;
     color: black;
+    font-size: large;
 }
 
 .container {
-    text-align: center;
-}
+    padding: 2px 16px;
+  }
 
 .tlogo {
     width: 130px;
@@ -79,4 +77,25 @@ header {
 
 .images {
     width: 100%;
+    border-radius: 5px 5px 0 0;
+    margin: -1cm;
+    width: calc(100% + 2cm);
+
+  }
+
+  .card-button{
+    text-align: center;
+    font-family: montserrat;
+    font-size: 16px;
+    font-weight: bold;
+    color: #F3F4F6;
+    background-color: #64A098;
+    border-radius: 8px;
+    padding: 5px 16px;
+    border: none;
+    box-shadow: rgba(163, 164, 165, 0.3) 0px 1px 1px 0px, rgba(185, 186, 187, 0.15) 0px 2px 6px 2px;
+    cursor: pointer;
+    position: fixed;
+    top: 7%;
+    right: 30%;
   }
