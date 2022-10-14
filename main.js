@@ -1,3 +1,4 @@
+console.log("hallo")
 // Importing functions from API
 import { getEvents, updateEvent } from "../api.js";
 import { deleteEvent } from "./api.js";
@@ -36,6 +37,7 @@ getEvents().then((events) => {
     const startDateElement = document.createElement("p");
     const ownerElement = document.createElement("p");
     const attendBtnElement = document.createElement("button");
+    const imageElement = document.createElement("img")
 
     titleElement.innerText = event.Title;
     categoryElement.innerText = event.Category;
@@ -48,8 +50,19 @@ getEvents().then((events) => {
     ownerElement.innerText = "Added by " + event.Owner;
     attendBtnElement.innerText = "Join";
     otherElements.href = "about-event/about-event.html?eventid=" + event._id;
-
+    if(event.Category==="Confernce"){
+      imageElement.src = "images/conference.jpg"
+    }
+   if(event.Category==="social"){
+    imageElement.src = "images/social.jpg"
+   }
+   if(event.Category==="Vísindaferð"){
+    console.log("insideIfstatement")
+    imageElement.src = "images/visindaferd.jpg"
+   }
+console.log(event.Category)
     // We use the class names here to reference later in CSS for styling
+    imageElement.classList.add("images");
     titleElement.classList.add("card-title");
     categoryElement.classList.add("card-category");
     attendingElement.classList.add("card-attending");
@@ -58,6 +71,7 @@ getEvents().then((events) => {
     cardElement.classList.add("card");
     attendBtnElement.classList.add("card-button");
 
+    otherElements.appendChild(imageElement);
     otherElements.appendChild(titleElement);
     otherElements.appendChild(categoryElement);
     otherElements.appendChild(attendingElement);
