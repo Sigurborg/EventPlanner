@@ -30,7 +30,7 @@ getEvents().then((events) => {
     const cardElement = document.createElement("div");
     const otherElements = document.createElement("a");
 
-    const titleElement = document.createElement("h2");
+    const titleElement = document.createElement("h1");
     const categoryElement = document.createElement("p");
     const attendingElement = document.createElement("p");
     const startDateElement = document.createElement("p");
@@ -46,7 +46,7 @@ getEvents().then((events) => {
       new Date(event.Ending).toLocaleTimeString("is", timeFormat);
 
     ownerElement.innerText = "Added by " + event.Owner;
-    attendBtnElement.innerText = "See you there?";
+    attendBtnElement.innerText = "Join";
     otherElements.href = "about-event/about-event.html?eventid=" + event._id;
 
     // We use the class names here to reference later in CSS for styling
