@@ -5,18 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
+    <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900' rel='stylesheet'>
     <script type="module" defer src="/main.js"></script>
 
     <title>Events</title>
   </head>
   <body>
-    <!--My profile just to test-->
-    <nav>
-      <a href="profile page/profile.html">My profile</a>
-      <a href="create-event/create-event.html">Create event</a>
-      <a href="about-event/about-event.html">About event</a>
-    </nav>
-    <div id="event-list"></div>
+    <!--Comment on navbar here: Each nav-item has a link and icon-->
+      <nav class="navbar">
+        <ul>
+          <li class="nav-item">
+            <a href="profile page/profile.html" class="nav-link">
+              <iconify-icon class="nav-icon" icon="clarity:home-line"></iconify-icon>
+              <span class="link-text">Home</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="create-event/create-event.html" class="nav-link">
+              <img class="create-icon" src="Add Icon.png" alt="create-event">
+              <span class="link-text">Create</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="about-event/about-event.html" class="nav-link">
+              <iconify-icon class="nav-icon" icon="uit:calender"></iconify-icon>
+              <span class="link-text">Events</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    <!--Comment on main here: -->
+      <main>
+      <div id="event-list"></div>
+    </main>
   </body>
 </html>
