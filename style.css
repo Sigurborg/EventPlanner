@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;  
+  box-sizing: border-box;
 }
 
 h1 {
@@ -18,15 +18,11 @@ h1 {
     margin:auto;
 }
 
-<<<<<<< HEAD
 p{
     font-size: 12px;
 }
 
 /* Main page*/
-=======
-/* Main page */
->>>>>>> 795fb8b0e3abdb109e832412f7860d7a00568718
 
 .card {
     width: 324px;
@@ -160,7 +156,6 @@ header {
 
   }
 
-<<<<<<< HEAD
   .card-button{
     text-align: center;
     font-family: montserrat;
@@ -178,8 +173,7 @@ header {
     position: absolute;
   }
 
- 
-=======
+
 /* Small and Large screen settings */
 
   @media only screen and (max-width:500px) {
@@ -213,4 +207,3 @@ header {
         height: 100%;
     }
   }
->>>>>>> 795fb8b0e3abdb109e832412f7860d7a00568718
