@@ -26,9 +26,10 @@
 
     <!--Event form-->
     <div id="add-event-form">
-      <form name="myForm" method="get" action="#">
+      <form name="myForm" method="get" action="#" id="total-form">
         <!--Event title-->
         <div class="input-control">
+          <label for="name"> Event name</label>
           <input
             placeholder="Event name*"
             type="text"
@@ -40,6 +41,7 @@
 
         <!--Event date-->
         <div class="input-control">
+          <label for="event-date">Date</label>
           <input type="date" id="event-date" name="event-date" />
           <div class="error"></div>
         </div>

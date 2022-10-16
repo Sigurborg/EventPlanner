@@ -1,21 +1,85 @@
 h1 {
   font-family: montserrat;
-  align-items: center;
+  text-align: center;
+  margin-bottom: 44px;
 }
 
-type-btn {
+#type-btn {
   text-align: center;
   font-family: montserrat;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 14px;
+  max-width: 322px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#science-button {
+  font-size: 10px;
+  font-family: montserrat;
   color: #f3f4f6;
-  border-radius: 8px;
+  font-weight: bold;
   padding: 5px 16px;
   border: none;
-  box-shadow: rgba(163, 164, 165, 0.3) 0px 1px 1px 0px,
-    rgba(185, 186, 187, 0.15) 0px 2px 6px 2px;
+  background-color: #b26f75;
+  width: 100px;
+  height: 32px;
   cursor: pointer;
-  position: fixed;
-  top: 7%;
-  right: 30%;
+  border-radius: 15px;
+}
+
+#conference-button {
+  font-size: 10px;
+  font-family: montserrat;
+  color: #f3f4f6;
+  font-weight: bold;
+  padding: 5px 16px;
+  border: none;
+  background-color: #5e9991;
+  width: 100px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#social-button {
+  font-size: 10px;
+  font-family: montserrat;
+  color: #f3f4f6;
+  font-weight: bold;
+  padding: 5px 16px;
+  border: none;
+  background-color: #769ab2;
+  width: 100px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#total-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+input,
+textarea {
+  width: 100%;
+  background: #ffffff;
+  margin-top: 16px;
+  border: 1px solid #b3b3b3;
+  border-radius: 10px;
+}
+
+textarea {
+  height: 90px;
+  resize: none;
+}
+
+input {
+  height: 40px;
 }
