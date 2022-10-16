@@ -26,7 +26,13 @@ const dateFormat = {
 // Event list on main page
 getEvents().then((events) => {
   const eventList = document.getElementById("event-list");
-  events.forEach((event) => {
+  events.sort((eventA, eventB) => {
+    if (new Date(eventA.Starting) > new Date(eventB.Starting)) {
+      return 1;
+    }
+    return -1;
+  });
+  events.forEach((event, index) => {
     const cardElement = document.createElement("div");
     const otherElements = document.createElement("a");
 
@@ -36,7 +42,7 @@ getEvents().then((events) => {
     const startDateElement = document.createElement("p");
     const ownerElement = document.createElement("p");
     const attendBtnElement = document.createElement("button");
-    const imageElement = document.createElement("img")
+    const imageElement = document.createElement("img");
 
     attendBtnElement.innerText = "Join";
     titleElement.innerText = event.Title;
@@ -49,16 +55,16 @@ getEvents().then((events) => {
     ownerElement.innerText = "Added by " + event.Owner;
 
     otherElements.href = "about-event/about-event.html?eventid=" + event._id;
-    if(event.Category==="Conference"){
-      imageElement.src = "images/conference.jpg"
+    if (event.Category === "Conference") {
+      imageElement.src = "images/conference.jpg";
     }
-   if(event.Category==="Social"){
-    imageElement.src = "images/social.jpg"
-   }
-   if(event.Category==="Vísindaferð"){
-    imageElement.src = "images/visindaferd.jpg"
-   }
-console.log(event.Category)
+    if (event.Category === "Social") {
+      imageElement.src = "images/social.jpg";
+    }
+    if (event.Category === "Vísindaferð") {
+      imageElement.src = "images/visindaferd.jpg";
+    }
+    console.log(event.Category);
     // We use the class names here to reference later in CSS for styling
     imageElement.classList.add("images");
     titleElement.classList.add("card-title");
@@ -67,6 +73,12 @@ console.log(event.Category)
     startDateElement.classList.add("card-startdate");
     ownerElement.classList.add("card-owner");
     cardElement.classList.add("card");
+
+    // Use this class ("first-card") to style the top event
+    if (index === 0) {
+      cardElement.classList.add("first-card");
+    }
+
     attendBtnElement.classList.add("card-button");
 
     otherElements.appendChild(imageElement);
