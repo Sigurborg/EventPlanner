@@ -44,7 +44,13 @@ getEvents().then((events) => {
     const attendBtnElement = document.createElement("button");
     const imageElement = document.createElement("img");
 
-    attendBtnElement.innerText = "Join";
+    const name = localStorage.getItem("userName");
+    if (event.Attending.includes(name)) {
+      attendBtnElement.innerText = "Going";
+    } else {
+      attendBtnElement.innerText = "Join";
+
+    }
     titleElement.innerText = event.Title;
     categoryElement.innerText = event.Category;
     attendingElement.innerText = event.Attending.length;
@@ -101,10 +107,41 @@ getEvents().then((events) => {
 
     attendBtnElement.onclick = function clickAttend() {
       const name = localStorage.getItem("userName");
-      event.Attending.push(name);
-      updateEvent(event._id, event);
 
+<<<<<<< HEAD
       attendBtnElement.innerText = "Going";
+=======
+      if (event.Attending.includes(name)) {
+        console.log('here');
+          const updatedAddendingList = event.Attending.filter((listName) => {
+            console.log('trying to remove');
+            // if you're it, you're removed
+            if (listName === name) {
+              return false;
+            }
+            // everyone else can come
+            return true;
+          });
+          
+          event.Attending = updatedAddendingList;
+
+          attendBtnElement.innerText = "Join";
+          attendBtnElement.style.backgroundColor = "#5E9991";
+          updateEvent(event._id, event);
+          /*
+          remove the user from the array of attending
+          reset the button to original state
+          run updateEvent method from api
+        */
+      } else {
+        console.log('trying to add');
+        event.Attending.push(name);
+        updateEvent(event._id, event);
+  
+        attendBtnElement.style.backgroundColor = "#5E9991";
+        attendBtnElement.innerText = "Going";
+      }
+>>>>>>> 4edeb0476c07debcd08b3812d8743e5b7fbd5c1b
     };
   });
   /*
