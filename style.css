@@ -13,6 +13,10 @@ h1 {
     margin:auto;
 }
 
+p{
+    font-size: 12px;
+}
+
 /* Main page*/
 
 .card {
@@ -23,6 +27,7 @@ h1 {
     font-family: montserrat;
     text-align: left; padding: 1cm;
     background-color: white;
+    position: relative;
 }
 
 #event-list {
@@ -95,7 +100,9 @@ header {
     border: none;
     box-shadow: rgba(163, 164, 165, 0.3) 0px 1px 1px 0px, rgba(185, 186, 187, 0.15) 0px 2px 6px 2px;
     cursor: pointer;
-    position: fixed;
-    top: 7%;
-    right: 30%;
+    top: 4%;
+    right: 4%;
+    position: absolute;
   }
+
+ 
