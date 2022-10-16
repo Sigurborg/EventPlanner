@@ -6,36 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" type="text/css" href="about-styles.css" />
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900' rel='stylesheet'>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
     <script type="module" defer src="./about-event.js"></script>
     <title>About event</title>
   </head>
   <body>
-
     <div id="container">
-
-     <div id="about-event"></div> 
+      <div id="about-event"></div>
       <div>
-        <button id="attendingButton" class="popup">Who's attending?
+        <button id="attendingButton" class="popup">
+          Who's attending?
           <span class="popuptext" id="myPopup"></span>
         </button>
       </div>
 
       <div id="headline">
-          <h1>Event chat</h1>
+        <h1>Event chat</h1>
       </div>
 
       <div id="chatBox">
-        <p id="noCommentsYetMessage">No messages have been added to this event yet.</p>
-        <div id="chatMessages">
-        </div>
+        <p id="noCommentsYetMessage">
+          No messages have been added to this event yet.
+        </p>
+        <div id="chatMessages"></div>
 
         <div id="inputBox">
-            <input type="text" placeholder="Type a message..." id="inputField">
-            <button id="addMessageButton">➤</button>
+          <input type="text" placeholder="Type a message..." id="inputField" />
+          <button id="addMessageButton">➤</button>
         </div>
       </div>
     </div>
-
   </body>
 </html>

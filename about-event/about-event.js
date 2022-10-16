@@ -64,63 +64,61 @@ getEvents().then((events) => {
     cardElement.appendChild(attendBtnElement);
     eventList.appendChild(cardElement);
 
-     // Attend button
-//    attendBtnElement.setAttribute("data-events_id", event._id)
-//    attendBtnElement.onclick = function clickAttend() {
-//      const name = localStorage.getItem("userName");
-//      event.Attending.push(name);
-//      updateEvent(event._id, event);
-//
-//      attendBtnElement.style.backgroundColor = "green";
-//      attendBtnElement.innerText = "Going";
-//    };
+    // Attend button
+    //    attendBtnElement.setAttribute("data-events_id", event._id)
+    //    attendBtnElement.onclick = function clickAttend() {
+    //      const name = localStorage.getItem("userName");
+    //      event.Attending.push(name);
+    //      updateEvent(event._id, event);
+    //
+    //      attendBtnElement.style.backgroundColor = "green";
+    //      attendBtnElement.innerText = "Going";
+    //    };
 
-const name = localStorage.getItem("userName");
-if (event.Attending.includes(name)) {
-  attendBtnElement.innerText = "Going";
-} else {
-  attendBtnElement.innerText = "Join";
-
-}
-
-attendBtnElement.setAttribute("data-events_id", event._id);
-
-attendBtnElement.onclick = function clickAttend() {
-  const name = localStorage.getItem("userName");
-
-  if (event.Attending.includes(name)) {
-    console.log('here');
-      const updatedAddendingList = event.Attending.filter((listName) => {
-        console.log('trying to remove');
-        // if you're it, you're removed
-        if (listName === name) {
-          return false;
-        }
-        // everyone else can come
-        return true;
-      });
-      
-      event.Attending = updatedAddendingList;
-
+    const name = localStorage.getItem("userName");
+    if (event.Attending.includes(name)) {
+      attendBtnElement.innerText = "Going";
+    } else {
       attendBtnElement.innerText = "Join";
-      attendBtnElement.style.backgroundColor = "#5E9991";
-      updateEvent(event._id, event);
-      /*
+    }
+
+    attendBtnElement.setAttribute("data-events_id", event._id);
+
+    attendBtnElement.onclick = function clickAttend() {
+      const name = localStorage.getItem("userName");
+
+      if (event.Attending.includes(name)) {
+        console.log("here");
+        const updatedAddendingList = event.Attending.filter((listName) => {
+          console.log("trying to remove");
+          // if you're it, you're removed
+          if (listName === name) {
+            return false;
+          }
+          // everyone else can come
+          return true;
+        });
+
+        event.Attending = updatedAddendingList;
+
+        attendBtnElement.innerText = "Join";
+        attendBtnElement.style.backgroundColor = "#5E9991";
+        updateEvent(event._id, event);
+        /*
       remove the user from the array of attending
       reset the button to original state
       run updateEvent method from api
     */
-  } else {
-    console.log('trying to add');
-    event.Attending.push(name);
-    updateEvent(event._id, event);
+      } else {
+        console.log("trying to add");
+        event.Attending.push(name);
+        updateEvent(event._id, event);
 
-    attendBtnElement.style.backgroundColor = "#5E9991";
-    attendBtnElement.innerText = "Going";
-  }
-};
-
-});
+        attendBtnElement.style.backgroundColor = "#5E9991";
+        attendBtnElement.innerText = "Going";
+      }
+    };
+  });
 
   let attendingButton = document.getElementById("attendingButton");
 
@@ -142,10 +140,11 @@ attendBtnElement.onclick = function clickAttend() {
 
 //
 
-let inputField = document.getElementById("inputField");
-let addMessageButton = document.getElementById("addMessageButton");
-let chatMessages = document.getElementById("chatMessages");
-let noCommentsYetMessage = document.getElementById("noCommentsYetMessage");
+const inputField = document.getElementById("inputField");
+const addMessageButton = document.getElementById("addMessageButton");
+const chatMessages = document.getElementById("chatMessages");
+const noCommentsYetMessage = document.getElementById("noCommentsYetMessage");
+const userComment = localStorage.getItem("userName");
 
 function getName() {
   const userName = new URL(window.location.href).searchParams.get("name");
@@ -173,17 +172,21 @@ function emptyInput() {
   }
 }
 
+// Chatbox
 addMessageButton.addEventListener("click", function () {
   if (emptyInput()) return;
   noCommentsYetMessage.remove();
   var theDate = document.createElement("p");
   var paragraph = document.createElement("p");
+  const commenterName = document.createElement("p");
+  commenterName.textContent = userComment;
   theDate.classList.add("date-styling");
   theDate.innerText = new Date().toLocaleString("is", dateFormat);
   paragraph.innerText = inputField.value;
   paragraph.classList.add("message-styling");
-  chatMessages.appendChild(theDate);
+  chatMessages.appendChild(commenterName);
   chatMessages.appendChild(paragraph);
+  chatMessages.appendChild(theDate);
   inputField.value = "";
 });
 
