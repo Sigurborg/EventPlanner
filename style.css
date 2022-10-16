@@ -38,8 +38,6 @@ h1 {
     margin:auto;
 }
 
-/* The code below is for profile*/
-
 body {
     margin: 0;
     background-color: #F3F4F6;
@@ -51,6 +49,7 @@ main {
     padding-bottom: 80px;
 }
 
+/* Navigationbar settings */
 .navbar {
     list-style-type: none;
     position: fixed;
