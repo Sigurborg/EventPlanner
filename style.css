@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
 
 h1 {
     text-align: left;
@@ -13,11 +18,15 @@ h1 {
     margin:auto;
 }
 
+<<<<<<< HEAD
 p{
     font-size: 12px;
 }
 
 /* Main page*/
+=======
+/* Main page */
+>>>>>>> 795fb8b0e3abdb109e832412f7860d7a00568718
 
 .card {
     width: 324px;
@@ -30,6 +39,23 @@ p{
     position: relative;
 }
 
+.card-button{
+    text-align: center;
+    font-family: montserrat;
+    font-size: 16px;
+    font-weight: bold;
+    color: #F3F4F6;
+    background-color: #64A098;
+    border-radius: 8px;
+    padding: 5px 16px;
+    border: none;
+    box-shadow: rgba(163, 164, 165, 0.3) 0px 1px 1px 0px, rgba(185, 186, 187, 0.15) 0px 2px 6px 2px;
+    cursor: pointer;
+    position: fixed;
+    top: 7%;
+    right: 30%;
+  }
+
 #event-list {
     display: flex;
     flex-direction: column;
@@ -38,24 +64,70 @@ p{
     margin:auto;
 }
 
-/* The code below is for profile*/
-
 body {
-    background-color: E5E5E5;
     margin: 0;
     background-color: #F3F4F6;
 }
 
-nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+main {
+    margin-left: 0;
+    padding-top: 44px;
+    padding-bottom: 80px;
 }
+
+/* Navigationbar settings */
+.navbar {
+    list-style-type: none;
+    position: fixed;
+    background-color: #f0f2f4;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar ul{
+    list-style-type: none;
+  }
 
 a {
     text-decoration: none;
     color: black;
+}
+
+.nav-item{
+    margin-top:40px;
+}
+
+.nav-link {
+    text-decoration: none;
+    display:flex;
+    min-width: 2rem;
+    margin: 0 1.5rem;
+    color: #808080;
     font-size: large;
+    align-items: center;
+    height: 4rem;
+    color: #808080;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-link:hover {
+    color: black;
+    transform: rotate(0deg);
+}
+
+.nav-icon{
+    font-size: 2rem;
+    padding-bottom: 5px;
+}
+
+img.create-icon {
+    height: 3rem;
+}
+
+.link-text{
+    font-size: 14px;
 }
 
 .container {
@@ -88,6 +160,7 @@ header {
 
   }
 
+<<<<<<< HEAD
   .card-button{
     text-align: center;
     font-family: montserrat;
@@ -106,3 +179,38 @@ header {
   }
 
  
+=======
+/* Small and Large screen settings */
+
+  @media only screen and (max-width:500px) {
+    .navbar {
+        bottom: 0;
+        width: 100%;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+    }
+    .nav-item{
+        margin-top:5px;
+    }
+    .navbar ul{
+        display: flex;
+        flex-direction: row;
+    }
+    img.create-icon {
+        height: 2.5rem;
+    }
+    .nav-icon{
+        font-size: 2rem;
+    }
+    .link-text{
+        font-size: 12px;
+    }
+  }
+
+  @media only screen and (min-width:501px) {
+    .navbar {
+        height: 100%;
+    }
+  }
+>>>>>>> 795fb8b0e3abdb109e832412f7860d7a00568718

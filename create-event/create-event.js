@@ -1,6 +1,8 @@
 // Importing functions from API
 import { addEvent } from "../api.js";
 
+let eventCategory = "Vísindaferð";
+
 const clearForm = () => {
   document.getElementById("event-name").value = "";
   document.getElementById("event-date").value = "";
@@ -42,7 +44,7 @@ const submitEvent = () => {
   // New event function. This is how the information is displayed. We use the values from submitEvent.
   const newEvent = {
     Title: eventTitle,
-    Category: "Vísindaferð",
+    Category: eventCategory,
     Attending: [],
     Owner: eventOwner,
     Description: eventDescription,
@@ -55,16 +57,41 @@ const submitEvent = () => {
 
 const submitButton = document.getElementById("add-event");
 
+const scienceButton = document.getElementById("science-button");
+const conferenceButton = document.getElementById("conference-button");
+const socialButton = document.getElementById("social-button");
+
+scienceButton === "Vísindaferð";
+conferenceButton === "Conference";
+socialButton === "Social";
+
+//scienceButton = newEvent.Category.Conference
+console.log(scienceButton);
+
+scienceButton.addEventListener("click", function onClick() {
+  scienceButton.style.backgroundColor = "greenyellow";
+  scienceButton.style.color = "black";
+  eventCategory = "Vísindaferð";
+});
+
+conferenceButton.addEventListener("click", function onClick() {
+  conferenceButton.style.backgroundColor = "greenyellow";
+  conferenceButton.style.color = "black";
+  eventCategory = "Conference";
+});
+socialButton.addEventListener("click", function onClick() {
+  socialButton.style.backgroundColor = "greenyellow";
+  socialButton.style.color = "black";
+  eventCategory = "Social";
+});
+
+//scienceButton.addEventListener("click", )
+
 /*submitButton.addEventListener("click", submitEvent);*/
 
 /* The code section above is the basic function that adds a new event to the main - do not change! */
 
-/**
-submitButton.addEventListener('click', function onClick() {
-  submitButton.style.backgroundColor = 'greenyellow';
-  submitButton.style.color = 'black';
-});
-btn.addEventListener('click', function handleClick() {
+/*btn.addEventListener('click', function handleClick() {
   btn.textContent = "Your event has been created";
 });
 **/
