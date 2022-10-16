@@ -49,7 +49,6 @@ getEvents().then((events) => {
       attendBtnElement.innerText = "Going";
     } else {
       attendBtnElement.innerText = "Join";
-
     }
     titleElement.innerText = event.Title;
     categoryElement.innerText = event.Category;
@@ -61,15 +60,15 @@ getEvents().then((events) => {
     ownerElement.innerText = "Added by " + event.Owner;
 
     otherElements.href = "about-event/about-event.html?eventid=" + event._id;
-    if (event.Category === "Conference") {
+    if (event.Category.toLowerCase() === "conference") {
       imageElement.src = "images/conference.jpg";
       attendBtnElement.style.backgroundColor = "#B26F75";
     }
-    if (event.Category === "Social") {
+    if (event.Category.toLowerCase() === "social") {
       imageElement.src = "images/social.jpg";
       attendBtnElement.style.backgroundColor = "#769AB2";
     }
-    if (event.Category === "Vísindaferð") {
+    if (event.Category.toLowerCase() === "vísindaferð") {
       imageElement.src = "images/visindaferd.jpg";
       attendBtnElement.style.backgroundColor = "#5E9991";
     }
@@ -108,40 +107,34 @@ getEvents().then((events) => {
     attendBtnElement.onclick = function clickAttend() {
       const name = localStorage.getItem("userName");
 
-<<<<<<< HEAD
-      attendBtnElement.innerText = "Going";
-=======
       if (event.Attending.includes(name)) {
-        console.log('here');
-          const updatedAddendingList = event.Attending.filter((listName) => {
-            console.log('trying to remove');
-            // if you're it, you're removed
-            if (listName === name) {
-              return false;
-            }
-            // everyone else can come
-            return true;
-          });
-          
-          event.Attending = updatedAddendingList;
+        console.log("here");
+        const updatedAddendingList = event.Attending.filter((listName) => {
+          console.log("trying to remove");
+          // if you're it, you're removed
+          if (listName === name) {
+            return false;
+          }
+          // everyone else can come
+          return true;
+        });
 
-          attendBtnElement.innerText = "Join";
-          attendBtnElement.style.backgroundColor = "#5E9991";
-          updateEvent(event._id, event);
-          /*
+        event.Attending = updatedAddendingList;
+
+        attendBtnElement.innerText = "Join";
+        updateEvent(event._id, event);
+        /*
           remove the user from the array of attending
           reset the button to original state
           run updateEvent method from api
         */
       } else {
-        console.log('trying to add');
+        console.log("trying to add");
         event.Attending.push(name);
         updateEvent(event._id, event);
-  
-        attendBtnElement.style.backgroundColor = "#5E9991";
+
         attendBtnElement.innerText = "Going";
       }
->>>>>>> 4edeb0476c07debcd08b3812d8743e5b7fbd5c1b
     };
   });
   /*
