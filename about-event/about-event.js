@@ -18,6 +18,7 @@ getEvents().then((events) => {
     const startDateElement = document.createElement("p");
     const ownerElement = document.createElement("p");
     const attendBtnElement = document.createElement("button");
+    const imageElement = document.createElement("img");
 
     titleElement.innerText = event.Title;
     categoryElement.innerText = event.Category;
@@ -30,7 +31,22 @@ getEvents().then((events) => {
     ownerElement.innerText = "Added by " + event.Owner;
     attendBtnElement.innerText = "See you there?";
 
+    if (event.Category === "Conference") {
+      imageElement.src = "/images/conference.jpg";
+      attendBtnElement.style.backgroundColor = "#B26F75";
+    }
+    if (event.Category === "Social") {
+      imageElement.src = "/images/social.jpg";
+      attendBtnElement.style.backgroundColor = "#769AB2";
+    }
+
+    if (event.Category === "Vísindaferð") {
+      imageElement.src = "/images/visindaferd.jpg";
+      attendBtnElement.style.backgroundColor = "#5E9991";
+    }
+
     // We use the class names here to reference later in CSS for styling
+    imageElement.classList.add("images");
     titleElement.classList.add("card-title");
     categoryElement.classList.add("card-category");
     attendingElement.classList.add("card-attending");
@@ -39,6 +55,7 @@ getEvents().then((events) => {
     cardElement.classList.add("card");
     attendBtnElement.classList.add("card-button");
 
+    cardElement.appendChild(imageElement);
     cardElement.appendChild(titleElement);
     cardElement.appendChild(categoryElement);
     cardElement.appendChild(attendingElement);
@@ -47,43 +64,33 @@ getEvents().then((events) => {
     cardElement.appendChild(attendBtnElement);
     eventList.appendChild(cardElement);
 
-     // Attend button
-     attendBtnElement.setAttribute("data-events_id", event._id)
-     attendBtnElement.onclick = function clickAttend() {
-       const name = localStorage.getItem("userName");
-       event.Attending.push(name);
-       updateEvent(event._id, event);
+    // Attend button
+    attendBtnElement.setAttribute("data-events_id", event._id);
+    attendBtnElement.onclick = function clickAttend() {
+      const name = localStorage.getItem("userName");
+      event.Attending.push(name);
+      updateEvent(event._id, event);
 
-       attendBtnElement.style.backgroundColor = "green";
-       attendBtnElement.innerText = "Going";
-     };
+      attendBtnElement.innerText = "Going";
+    };
   });
-
-
-
-
 
   let attendingButton = document.getElementById("attendingButton");
 
-
-  let test = document.createElement('ul')
-  console.log("test", result[0].Attending)
-  result[0].Attending.forEach(studentName => {
-    let listItem = document.createElement('li')
+  let test = document.createElement("ul");
+  console.log("test", result[0].Attending);
+  result[0].Attending.forEach((studentName) => {
+    let listItem = document.createElement("li");
     listItem.innerText = studentName;
-    test.appendChild(listItem)
-  })
-  test.classList.add("popup")
-  
+    test.appendChild(listItem);
+  });
+  test.classList.add("popup");
+
   attendingButton.addEventListener("click", function () {
     var popup = document.getElementById("myPopup");
     popup.classList.toggle("show");
     popup.appendChild(test);
   });
-
-
-
-
 });
 
 //
@@ -139,42 +146,21 @@ inputField.addEventListener("keypress", function (addByEnterBtn) {
   }
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // test.innerText = Attending.userName
 
 // const attendingUsers = event.Attending.values();
 
-
 // We want the value from the attending button.
 // Instead of the lenght, we want the names.
 
-
-
 // // Attend button
 // attendBtnElement.setAttribute("data-events_id", event._id);
-// 
+//
 // attendBtnElement.onclick = function clickAttend() {
 //   const name = localStorage.getItem("userName");
 //   event.Attending.push(name);
 //   updateEvent(event._id, event);
-// 
+//
 //   attendBtnElement.style.backgroundColor = "green";
 //   attendBtnElement.innerText = "Going";
 // };

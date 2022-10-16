@@ -57,12 +57,15 @@ getEvents().then((events) => {
     otherElements.href = "about-event/about-event.html?eventid=" + event._id;
     if (event.Category === "Conference") {
       imageElement.src = "images/conference.jpg";
+      attendBtnElement.style.backgroundColor = "#B26F75";
     }
     if (event.Category === "Social") {
       imageElement.src = "images/social.jpg";
+      attendBtnElement.style.backgroundColor = "#769AB2";
     }
     if (event.Category === "Vísindaferð") {
       imageElement.src = "images/visindaferd.jpg";
+      attendBtnElement.style.backgroundColor = "#5E9991";
     }
     console.log(event.Category);
     // We use the class names here to reference later in CSS for styling
@@ -101,7 +104,6 @@ getEvents().then((events) => {
       event.Attending.push(name);
       updateEvent(event._id, event);
 
-      attendBtnElement.style.backgroundColor = "#5E9991";
       attendBtnElement.innerText = "Going";
     };
   });
