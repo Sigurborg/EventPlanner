@@ -15,7 +15,34 @@
   </head>
   <body>
     <div id="container">
-      <div id="about-event"></div>
+      <div id="about-event">
+        <div class="card-1">
+          <img id="event-image" class="images" />
+
+          <h2 id="title" class="card-title"></h2>
+          <p id="category" class="card-category label"></p>
+
+          <p class="label">date</p>
+          <p id="date" class="label"></p>
+
+          <p class="label">time</p>
+          <p id="time" class="label"></p>
+
+          <button id="attend-button" class="card-button"></button>
+
+          <button id="expand-button" class="expand-button">
+            <img id="expand-icon" src="/dropdown.png" />
+          </button>
+          <div id="bottom-area" class="bottom-area">
+            <div id="content" class="content">
+              <p class="label">Created by</p>
+              <p id="owner" class="card-owner"></p>
+              <p class="label">Description</p>
+              <p id="description" class="description"></p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div>
         <button id="attendingButton" class="popup">
           Who's attending?
