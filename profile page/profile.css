@@ -5,11 +5,6 @@
   font-family: montserrat;
 }
 
-body {
-    margin: 0;
-    background-color: #f3f4f6;
-  }
-
 h1 {
   text-align: left;
   font-weight: 400;
@@ -40,12 +35,12 @@ p {
 
 /* Main page*/
 
-
 .card {
   width: 324px;
   height: 341px;
   border-radius: 5px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   font-family: montserrat;
   text-align: left;
   padding: 1cm;
@@ -78,8 +73,13 @@ p {
   margin: auto;
 }
 
+body {
+  margin: 0;
+  background-color: #f3f4f6;
+}
+
 main {
-  margin-left: ;
+  margin-left: 0;
   padding-top: 44px;
   padding-bottom: 80px;
 }
@@ -193,7 +193,6 @@ header {
 @media only screen and (max-width: 500px) {
   .navbar {
     bottom: 0;
-    left: 0;
     width: 100%;
     position: fixed;
     display: flex;
