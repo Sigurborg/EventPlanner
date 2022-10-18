@@ -1,41 +1,39 @@
 import { getEvents, updateEvent } from "../api.js";
 
 getEvents().then((events) => {
-  const eventList = document.getElementById("about-event");
   const idLink = new URL(window.location.href).searchParams.get("eventid");
-  console.log(events);
   const result = events.filter((event) => {
     return idLink == event._id;
     //return event.Attending.includes(localStorage.getItem("userName"));
   });
 
   result.forEach((event) => {
-    console.log(event);
-    const cardElement = document.createElement("div");
-    const titleElement = document.createElement("h2");
-    const categoryElement = document.createElement("p");
-    const attendingElement = document.createElement("p");
-    const startDateElement = document.createElement("p");
-    const ownerElement = document.createElement("p");
-    const attendBtnElement = document.createElement("button");
-    const imageElement = document.createElement("img");
-    const expanderBtnElement = document.createElement("button");
-    const contentElement = document.createElement("div");
-    const descriptionElement = document.createElement("p");
-    const bottomAreaElement = document.createElement("div");
-
+    const titleElement = document.getElementById("title");
     titleElement.innerText = event.Title;
+
+    const categoryElement = document.getElementById("category");
     categoryElement.innerText = event.Category;
-    attendingElement.innerText = event.Attending.length;
-    startDateElement.innerText =
-      new Date(event.Starting).toLocaleString("is", dateFormat) +
-      " - " +
-      new Date(event.Ending).toLocaleTimeString("is", timeFormat);
+
+    const dateElement = document.getElementById("date");
+    dateElement.innerText = new Date(event.Starting).toLocaleString(
+      "is",
+      dateFormat
+    );
+
+    const timeElement = document.getElementById("time");
+    timeElement.innerText = new Date(event.Starting).toLocaleTimeString(
+      "is",
+      timeFormat
+    );
+
+    const ownerElement = document.getElementById("owner");
+    ownerElement.innerText = event.Owner;
+
+    const descriptionElement = document.getElementById("description");
     descriptionElement.innerText = event.Description;
 
-    ownerElement.innerText = "Added by " + event.Owner;
-    // attendBtnElement.innerText = "See you there?";
-
+    const imageElement = document.getElementById("event-image");
+    const attendBtnElement = document.getElementById("attend-button");
     if (event.Category === "Conference") {
       imageElement.src = "/images/conference.jpg";
       attendBtnElement.style.backgroundColor = "#B26F75";
@@ -50,53 +48,17 @@ getEvents().then((events) => {
       attendBtnElement.style.backgroundColor = "#5E9991";
     }
 
-    // We use the class names here to reference later in CSS for styling
-    imageElement.classList.add("images");
-    titleElement.classList.add("card-title");
-    categoryElement.classList.add("card-category");
-    attendingElement.classList.add("card-attending");
-    startDateElement.classList.add("card-startdate");
-    ownerElement.classList.add("card-owner");
-    cardElement.classList.add("card-1");
-    attendBtnElement.classList.add("card-button");
-    expanderBtnElement.classList.add("expand-button");
-    contentElement.classList.add("content");
-    bottomAreaElement.classList.add("bottom-area");
-
-    cardElement.appendChild(imageElement);
-    cardElement.appendChild(titleElement);
-    cardElement.appendChild(categoryElement);
-    cardElement.appendChild(attendingElement);
-    cardElement.appendChild(startDateElement);
-    cardElement.appendChild(ownerElement);
-    cardElement.appendChild(attendBtnElement);
-    cardElement.appendChild(expanderBtnElement);
-    cardElement.appendChild(bottomAreaElement);
-    eventList.appendChild(cardElement);
-
+    // Expanded area on card
+    const bottomAreaElement = document.getElementById("bottom-area");
+    const expanderBtnElement = document.getElementById("expand-button");
     expanderBtnElement.addEventListener("click", function () {
-      console.log("hello!");
-      contentElement.appendChild(descriptionElement);
-      bottomAreaElement.appendChild(contentElement);
-      this.classList.toggle("active");
-      var content = this.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
+      expanderBtnElement.classList.toggle("active");
+      if (bottomAreaElement.style.display === "block") {
+        bottomAreaElement.style.display = "none";
       } else {
-        content.style.display = "block";
+        bottomAreaElement.style.display = "block";
       }
     });
-
-    // Attend button
-    //    attendBtnElement.setAttribute("data-events_id", event._id)
-    //    attendBtnElement.onclick = function clickAttend() {
-    //      const name = localStorage.getItem("userName");
-    //      event.Attending.push(name);
-    //      updateEvent(event._id, event);
-    //
-    //      attendBtnElement.style.backgroundColor = "green";
-    //      attendBtnElement.innerText = "Going";
-    //    };
 
     const name = localStorage.getItem("userName");
     if (event.Attending.includes(name)) {
@@ -108,12 +70,8 @@ getEvents().then((events) => {
     attendBtnElement.setAttribute("data-events_id", event._id);
 
     attendBtnElement.onclick = function clickAttend() {
-      const name = localStorage.getItem("userName");
-
       if (event.Attending.includes(name)) {
-        console.log("here");
         const updatedAddendingList = event.Attending.filter((listName) => {
-          console.log("trying to remove");
           // if you're it, you're removed
           if (listName === name) {
             return false;
@@ -184,7 +142,6 @@ const dateFormat = {
   weekday: "short",
   month: "long",
   day: "2-digit",
-  ...timeFormat,
 };
 
 function emptyInput() {
@@ -218,22 +175,3 @@ inputField.addEventListener("keypress", function (addByEnterBtn) {
     addMessageButton.click();
   }
 });
-
-// test.innerText = Attending.userName
-
-// const attendingUsers = event.Attending.values();
-
-// We want the value from the attending button.
-// Instead of the lenght, we want the names.
-
-// // Attend button
-// attendBtnElement.setAttribute("data-events_id", event._id);
-//
-// attendBtnElement.onclick = function clickAttend() {
-//   const name = localStorage.getItem("userName");
-//   event.Attending.push(name);
-//   updateEvent(event._id, event);
-//
-//   attendBtnElement.style.backgroundColor = "green";
-//   attendBtnElement.innerText = "Going";
-// };
