@@ -4,6 +4,19 @@
   padding: 10px 50px 0 50px;
 }
 
+.card-1 {
+  width: 324px;
+  height: 341px;
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  font-family: montserrat;
+  text-align: left;
+  padding: 1cm 1cm 0cm 1cm;
+  background-color: white;
+  position: relative;
+}
+
 input:focus {
   border: none;
 }
@@ -132,4 +145,30 @@ input {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
+}
+/* END OF POP UP*/
+
+/* Dropdown area on card*/
+.expand-button {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  margin-top: 40px;
+}
+
+.active, .expand-button:hover {
+  background-color: #ccc;
+}
+
+.content {
+  padding: 0 18px;
+  overflow: hidden;
+  background-color: #f1f1f1;
+
 }

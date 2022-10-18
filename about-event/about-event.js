@@ -19,6 +19,10 @@ getEvents().then((events) => {
     const ownerElement = document.createElement("p");
     const attendBtnElement = document.createElement("button");
     const imageElement = document.createElement("img");
+    const expanderBtnElement = document.createElement("button");
+    const contentElement = document.createElement("div");
+    const descriptionElement = document.createElement("p");
+    const bottomAreaElement = document.createElement("div");
 
     titleElement.innerText = event.Title;
     categoryElement.innerText = event.Category;
@@ -27,6 +31,7 @@ getEvents().then((events) => {
       new Date(event.Starting).toLocaleString("is", dateFormat) +
       " - " +
       new Date(event.Ending).toLocaleTimeString("is", timeFormat);
+    descriptionElement.innerText = event.Description;
 
     ownerElement.innerText = "Added by " + event.Owner;
     // attendBtnElement.innerText = "See you there?";
@@ -52,8 +57,11 @@ getEvents().then((events) => {
     attendingElement.classList.add("card-attending");
     startDateElement.classList.add("card-startdate");
     ownerElement.classList.add("card-owner");
-    cardElement.classList.add("card");
+    cardElement.classList.add("card-1");
     attendBtnElement.classList.add("card-button");
+    expanderBtnElement.classList.add("expand-button");
+    contentElement.classList.add("content");
+    bottomAreaElement.classList.add("bottom-area");
 
     cardElement.appendChild(imageElement);
     cardElement.appendChild(titleElement);
@@ -62,7 +70,22 @@ getEvents().then((events) => {
     cardElement.appendChild(startDateElement);
     cardElement.appendChild(ownerElement);
     cardElement.appendChild(attendBtnElement);
+    cardElement.appendChild(expanderBtnElement);
+    cardElement.appendChild(bottomAreaElement);
     eventList.appendChild(cardElement);
+
+    expanderBtnElement.addEventListener("click", function () {
+      console.log("hello!");
+      contentElement.appendChild(descriptionElement);
+      bottomAreaElement.appendChild(contentElement);
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
 
     // Attend button
     //    attendBtnElement.setAttribute("data-events_id", event._id)
