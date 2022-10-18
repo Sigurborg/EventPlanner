@@ -55,31 +55,39 @@ const submitEvent = () => {
   addEvent(newEvent);
 };
 
+// Getting all buttons
 const submitButton = document.getElementById("add-event");
-
 const scienceButton = document.getElementById("science-button");
 const conferenceButton = document.getElementById("conference-button");
 const socialButton = document.getElementById("social-button");
+const categoryButtons = document.getElementById("type-btn");
 
-scienceButton === "Vísindaferð";
-conferenceButton === "Conference";
-socialButton === "Social";
-
-//scienceButton = newEvent.Category.Conference
-console.log(scienceButton);
+// Creating a function that resets button styles back to default
+function resetButtonStyles() {
+  scienceButton.style.backgroundColor = "#b26f75";
+  socialButton.style.backgroundColor = "#769ab2";
+  conferenceButton.style.backgroundColor = "#5e9991";
+  scienceButton.style.color = "#f3f4f6";
+  socialButton.style.color = "#f3f4f6";
+  conferenceButton.style.color = "#f3f4f6";
+}
 
 scienceButton.addEventListener("click", function onClick() {
+  resetButtonStyles();
   scienceButton.style.backgroundColor = "greenyellow";
   scienceButton.style.color = "black";
   eventCategory = "Vísindaferð";
 });
 
 conferenceButton.addEventListener("click", function onClick() {
+  resetButtonStyles();
   conferenceButton.style.backgroundColor = "greenyellow";
   conferenceButton.style.color = "black";
   eventCategory = "Conference";
 });
+
 socialButton.addEventListener("click", function onClick() {
+  resetButtonStyles();
   socialButton.style.backgroundColor = "greenyellow";
   socialButton.style.color = "black";
   eventCategory = "Social";
