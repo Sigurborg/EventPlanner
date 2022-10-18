@@ -25,14 +25,6 @@ h2 {
   font-family: montserrat;
 }
 
-#add-event-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 310px;
-  margin: auto;
-}
-
 p {
   font-size: 10px;
   padding-bottom: 3px;
@@ -40,6 +32,24 @@ p {
 
 /* Main page*/
 
+.destkop-heading{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 310px;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-top: 3px;
+    padding-bottom: 3px; 
+}
+
+h2.destkop-heading {
+    border-top: 1px solid #000;
+    padding-top: 3px;
+    padding-bottom: 3px;
+
+}
 
 .card {
   width: 324px;
@@ -70,7 +80,7 @@ p {
   right: 30%;
 }
 
-#event-list {
+.events {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -79,7 +89,7 @@ p {
 }
 
 main {
-  margin-left: ;
+  margin-left: 0;
   padding-top: 44px;
   padding-bottom: 80px;
 }
@@ -127,6 +137,13 @@ a {
 .nav-link:hover {
   color: black;
   transform: rotate(0deg);
+}
+
+.active .nav-link {
+    color: black !important;
+    transform: rotate(0deg) !important; 
+    border-bottom: 1px solid #000 !important;
+    padding-bottom: 3px !important;
 }
 
 .nav-icon {
@@ -220,5 +237,32 @@ header {
 @media only screen and (min-width: 501px) {
   .navbar {
     height: 100%;
+    width: 96px;
   }
+  main{
+    position: absolute;
+    left: 96px;
+    width: calc(100% - 96px);
+  }
+  .destkop-heading{
+    width: 90%;
+    max-width:100%;
+    margin-left:5%;
+    text-align:left;
+    float:left;
+  }
+  .events{
+    max-width: 100%;
+    margin-left: 5%;
+    gap: 80px;
+  }
+  #first-event{
+    float:left;
+  }
+
+  #event-list{
+    flex-direction:row;
+    float:left;
+  }
+
 }

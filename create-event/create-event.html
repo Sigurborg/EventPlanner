@@ -6,82 +6,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="create-event.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
-      rel="stylesheet"
-    />
+    <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900' rel='stylesheet'>
     <script type="module" defer src="./create-event.js"></script>
     <title>Create Event</title>
   </head>
 
   <body>
-    <div>
-      <h1>Create an event</h1>
-    </div>
-    <div id="type-btn">
-      <button id="science-button">Vísindaferð</button>
-      <button id="conference-button">Conference</button>
-      <button id="social-button">Social event</button>
-    </div>
+    <main>
+      <div>
+        <h1>Create an event</h1>
+      </div>
+      <div id="type-btn">
+        <button id="science-button">Vísindaferð</button>
+        <button id="conference-button">Conference</button>
+        <button id="social-button">Social event</button>
+      </div>
 
-    <!--Event form-->
-    <div id="add-event-form">
-      <form name="myForm" method="get" action="#" id="total-form">
-        <!--Event title-->
-        <div class="input-control">
-          <label for="name"> Event name</label>
-          <input
-            placeholder="Event name"
-            type="text"
-            id="event-name"
-            name="name"
-          />
-          <div class="error"></div>
-        </div>
+      <!--Event form-->
+      <div id="add-event-form">
+        <form name="myForm" method="get" action="#" id="total-form">
+          <!--Event title-->
+          <div class="input-control">
+            <label for="name"> Event name</label>
+            <input
+              placeholder="Event name"
+              type="text"
+              id="event-name"
+              name="name"
+            />
+            <div class="error"></div>
+          </div>
 
-        <!--Event date-->
-        <div class="input-control">
-          <label for="event-date">Date</label>
-          <input type="date" id="event-date" name="event-date" />
-          <div class="error"></div>
-        </div>
+          <!--Event date-->
+          <div class="input-control">
+            <label for="event-date">Date</label>
+            <input type="date" id="event-date" name="event-date" />
+            <div class="error"></div>
+          </div>
 
-        <!--Start time-->
-        <div class="input-control">
-          <label for="start-time">Starts at:</label>
-          <input type="time" id="start-time" name="start-time" value="12:00" />
-          <div class="error"></div>
-        </div>
+          <!--Start time-->
+          <div class="input-control">
+            <label for="start-time">Starts at:</label>
+            <input type="time" id="start-time" name="start-time" value="12:00" />
+            <div class="error"></div>
+          </div>
 
-        <!--End time-->
-        <div class="input-control">
-          <label for="end-time">Ends at:</label>
-          <input type="time" id="end-time" name="end-time" value="12:00" />
-          <div class="error"></div>
-        </div>
+          <!--End time-->
+          <div class="input-control">
+            <label for="end-time">Ends at:</label>
+            <input type="time" id="end-time" name="end-time" value="12:00" />
+            <div class="error"></div>
+          </div>
 
-        <!--Text box-->
-        <div class="input-control">
-          <label for="description">Description</label>
-          <textarea
-            placeholder="About this event..."
-            id="event-description"
-            name="description"
-          ></textarea>
-          <div class="error"></div>
-        </div>
+          <!--Text box-->
+          <div class="input-control">
+            <label for="description">Description</label>
+            <textarea
+              placeholder="About this event..."
+              id="event-description"
+              name="description"
+            ></textarea>
+            <div class="error"></div>
+          </div>
 
-        <!--Submit button-->
-        <button id="add-event">Add event</button>
+          <!--Submit button-->
+          <button id="add-event">Add event</button>
 
-        <!--<div class="popup" id="popup">
-        <img src="tick.png">
-        <h2>Thank you!</h2>
-        <p>The event has been added.</p>
-        <button type="button" onclick="closePopup()">OK</button>
-    </div>
-  -->
-      </form>
-    </div>
+          <!--<div class="popup" id="popup">
+          <img src="tick.png">
+          <h2>Thank you!</h2>
+          <p>The event has been added.</p>
+          <button type="button" onclick="closePopup()">OK</button>
+      </div>
+    -->
+        </form>
+      </div>
+    </main>
+    <nav class="navbar">
+      <ul>
+        <li class="nav-item">
+          <a href="/index.html" class="nav-link">
+            <iconify-icon class="nav-icon" icon="clarity:home-line"></iconify-icon>
+            <span class="link-text">Home</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="create-event.html" class="nav-link">
+            <img class="create-icon" src="/Add Icon.png" alt="create-event">
+            <span class="link-text">Create</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/profile page/profile.html" class="nav-link">
+            <iconify-icon class="nav-icon" icon="uit:calender"></iconify-icon>
+            <span class="link-text">Events</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </body>
 </html>

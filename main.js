@@ -26,7 +26,9 @@ const dateFormat = {
 const generateEventList = () => {
   getEvents().then((events) => {
     const eventList = document.getElementById("event-list");
+    const firstEvent = document.getElementById("first-event"); // SHH adds
     eventList.innerHTML = "";
+    firstEvent.innerHTML = ""; // SHH adds
     events.sort((eventA, eventB) => {
       if (new Date(eventA.Starting) > new Date(eventB.Starting)) {
         return 1;
@@ -83,11 +85,6 @@ const generateEventList = () => {
       ownerElement.classList.add("card-owner");
       cardElement.classList.add("card");
 
-      // Use this class ("first-card") to style the top event
-      if (index === 0) {
-        cardElement.classList.add("first-card");
-      }
-
       attendBtnElement.classList.add("card-button");
 
       otherElements.appendChild(imageElement);
@@ -100,7 +97,13 @@ const generateEventList = () => {
       cardElement.appendChild(otherElements);
       cardElement.appendChild(attendBtnElement);
 
-      eventList.appendChild(cardElement);
+      // Use this class ("first-card") to style the top event
+      if (index === 0) {
+        // cardElement.classList.add("first-card");
+        firstEvent.appendChild(cardElement);
+      } else{
+        eventList.appendChild(cardElement);
+      }
 
       // Attend button
       attendBtnElement.setAttribute("data-events_id", event._id);

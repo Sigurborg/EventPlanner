@@ -29,6 +29,7 @@ getEvents().then((events) => {
     const startDateElement = document.createElement("p");
     const ownerElement = document.createElement("p");
     const attendBtnElement = document.createElement("button");
+    const imageElement = document.createElement("img");
 
     titleElement.innerText = event.Title;
     categoryElement.innerText = event.Category;
@@ -39,7 +40,21 @@ getEvents().then((events) => {
       new Date(event.Ending).toLocaleTimeString("is", timeFormat);
 
     ownerElement.innerText = "Added by " + event.Owner;
-    attendBtnElement.innerText = "See you there?";
+    attendBtnElement.innerText = "Going";
+
+    if (event.Category.toLowerCase() === "conference") {
+      imageElement.src = "../images/conference.jpg";
+      attendBtnElement.style.backgroundColor = "#B26F75";
+    }
+    if (event.Category.toLowerCase() === "social") {
+      imageElement.src = "../images/social.jpg";
+      attendBtnElement.style.backgroundColor = "#769AB2";
+    }
+    if (event.Category.toLowerCase() === "vísindaferð") {
+      imageElement.src = "../images/visindaferd.jpg";
+      attendBtnElement.style.backgroundColor = "#5E9991";
+    }
+    console.log(event.Category);
 
     // We use the class names here to reference later in CSS for styling
     titleElement.classList.add("card-title");
@@ -49,7 +64,9 @@ getEvents().then((events) => {
     ownerElement.classList.add("card-owner");
     cardElement.classList.add("card");
     attendBtnElement.classList.add("card-button");
+    imageElement.classList.add("images");
 
+    cardElement.appendChild(imageElement);
     cardElement.appendChild(titleElement);
     cardElement.appendChild(categoryElement);
     cardElement.appendChild(attendingElement);
