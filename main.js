@@ -4,8 +4,13 @@ import { deleteEvent } from "./api.js";
 
 /* Using local storage to "get" and "set" name from browser and storing it inside a variable (userName)*/
 function getName() {
-  const userName = new URL(window.location.href).searchParams.get("name");
-  localStorage.setItem("userName", userName);
+  if (
+    localStorage.getItem("userName") === null ||
+    localStorage.getItem("userName") === "null"
+  ) {
+    const userName = new URL(window.location.href).searchParams.get("name");
+    localStorage.setItem("userName", userName);
+  }
 }
 // We run this function immediately upon opening to get the username
 getName();
@@ -27,6 +32,7 @@ const dateFormat = {
 /* Here we are generating the list of events*/
 const generateEventList = () => {
   getEvents().then((events) => {
+    console.log({ events });
     const eventList = document.getElementById("event-list");
     const firstEvent = document.getElementById("first-event");
     eventList.innerHTML = "";
@@ -51,18 +57,10 @@ const generateEventList = () => {
       const attendBtnElement = document.createElement("button");
       const imageElement = document.createElement("img");
 
-      // Getting username from local storage if it matches a name in Attending array then the attending buttton toggles Going, if not Join.
-      const name = localStorage.getItem("userName");
-      if (event.Attending.includes(name)) {
-        attendBtnElement.innerText = "Going";
-      } else {
-        attendBtnElement.innerText = "Join";
-      }
-
       // We are assigning the value of properties of the event object to the different elements
       titleElement.innerText = event.Title;
       categoryElement.innerText = event.Category;
-      attendingElement.innerText = event.Attending.length;
+      attendingElement.innerText = event.Attending.length + " people are going";
       startDateElement.innerText =
         new Date(event.Starting).toLocaleString("is", dateFormat) +
         " - " +
@@ -112,43 +110,42 @@ const generateEventList = () => {
         eventList.appendChild(cardElement);
       }
 
-      // Attend button. It holds onto the event id and gets userName from local storage and attaches that to the id
-      attendBtnElement.setAttribute("data-events_id", event._id);
+      // Getting username from local storage if it matches a name in Attending array then the attending buttton toggles Going, if not Join.
+      const name = localStorage.getItem("userName");
+      if (event.Attending.includes(name)) {
+        attendBtnElement.innerText = "Going";
+      } else {
+        attendBtnElement.innerText = "Join";
+      }
 
+      // Attend button click event
       attendBtnElement.onclick = function clickAttend() {
-        const name = localStorage.getItem("userName");
         if (event.Attending.includes(name)) {
-          const updatedAddendingList = event.Attending.filter((listName) => {
+          event.Attending = event.Attending.filter((listName) => {
             /*
             remove the user from the array of attending
             reset the button to original state
             run updateEvent method from api*/
 
-            if (listName === name) {
-              return false;
-            }
-            // everyone else can come
-            return true;
+            return listName !== name;
           });
-          event.Attending = updatedAddendingList;
 
           attendBtnElement.innerText = "Join";
           updateEvent(event._id, event);
         } else {
           event.Attending.push(name);
-          updateEvent(event._id, event);
           attendBtnElement.innerText = "Going";
+          updateEvent(event._id, event);
         }
       };
     });
-    /*
-    //If we need to delete test events:
-    events.forEach((event, i) => {
-      if (i < 3) return;
-      deleteEvent(event._id);
-    });*/
 
-    console.log(events);
+    /*//If we need to delete test events:
+    events.forEach((event, i) => {
+      if (i < 0) return;
+      deleteEvent(event._id);
+    });
+    console.log(events);*/
   });
 };
 

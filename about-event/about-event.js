@@ -72,7 +72,7 @@ getEvents().then((events) => {
       attendBtnElement.innerText = "Join";
     }
 
-    attendBtnElement.setAttribute("data-events_id", event._id);
+    // attendBtnElement.setAttribute("data-events_id", event._id);
 
     attendBtnElement.onclick = function clickAttend() {
       if (event.Attending.includes(name)) {
