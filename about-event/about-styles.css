@@ -1,7 +1,9 @@
 #container {
   width: 400px;
   margin: 0 auto;
-  padding: 10px 50px 0 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .card-1 {
@@ -117,36 +119,6 @@ input {
   border-radius: 22px;
 }
 
-/* The following are the styles for the pop up... this is a total mess. Maybe we should delete this and write it again from scratch*/
-
-.popup {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-/* The actual popup */
-.popup .popuptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-/* Toggle this class - hide and show the popup */
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-/* END OF POP UP*/
 
 /* Dropdown area on card*/
 .expand-button {
@@ -187,3 +159,85 @@ transform: rotateX(180deg);
   transition: 200ms;
 }
 
+
+#myBtn {
+  border-radius: 40px;
+  padding: 20px;
+  margin-top: 30px;
+  text-align: center;
+  width: 330px;
+  margin-top: 35px;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 40px 50px 40px 50px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+#listOfPeople {
+  font-size: 20px;
+  list-style: none;
+  line-height: 40px;
+}
+
+.list-style {
+  list-style: circle;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 390px) {
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 40px 30px 40px 50px;
+    border: 1px solid #888;
+    width: 90%; /* Could be more or less, depending on screen size */
+  }
+
+  #listOfPeople {
+    font-size: 13px;
+    list-style: none;
+    line-height: 40px;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+}
