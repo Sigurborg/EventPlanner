@@ -6,41 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
     <script src="https://code.iconify.design/iconify-icon/1.0.1/iconify-icon.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900' rel='stylesheet'>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
     <script type="module" defer src="/main.js"></script>
-   
+
     <title>Events</title>
   </head>
   <body>
-      <!--Comment on main here: -->
-      <main>
-        <h1 class="destkop-heading">Coming up</h1>
-        <div id="first-event" class="events"></div>
-        <h2 class="destkop-heading">Where to go next</h2>
-        <div id="event-list" class="events"></div>
-      </main>
-      <!--Comment on navbar here: Each nav-item has a link and icon-->
-      <nav class="navbar">
-        <ul>
-          <li class="nav-item active">
-            <a href="index.html" class="nav-link">
-              <iconify-icon class="nav-icon" icon="uit:calender"></iconify-icon>
-              <span class="link-text">Events</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="create-event/create-event.html" class="nav-link">
-              <img class="create-icon" src="Add Icon.png" alt="create-event">
-              <span class="link-text">Create</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="profile page/profile.html" class="nav-link">
-              <iconify-icon class="nav-icon" icon="bi:check-square" width="28" height="28"></iconify-icon>
-              <span class="link-text">Going</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+    <!--Headings an upcoming event -->
+    <main>
+      <h1 class="destkop-heading">Coming up</h1>
+      <div id="first-event" class="events"></div>
+      <!-- Event list-->
+      <h2 class="destkop-heading">Where to go next</h2>
+      <div id="event-list" class="events"></div>
+    </main>
+    <!--Navbar. Each nav-item has a link and icon-->
+    <nav class="navbar">
+      <ul>
+        <li class="nav-item active">
+          <a href="index.html" class="nav-link">
+            <iconify-icon class="nav-icon" icon="uit:calender"></iconify-icon>
+            <span class="link-text">Events</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="create-event/create-event.html" class="nav-link">
+            <img class="create-icon" src="Add Icon.png" alt="create-event" />
+            <span class="link-text">Create</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="profile page/profile.html" class="nav-link">
+            <iconify-icon
+              class="nav-icon"
+              icon="bi:check-square"
+              width="28"
+              height="28"
+            ></iconify-icon>
+            <span class="link-text">Going</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </body>
 </html>

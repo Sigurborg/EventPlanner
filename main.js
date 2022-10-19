@@ -1,15 +1,16 @@
-// Importing functions from API
+/* Importing functions from API*/
 import { getEvents, updateEvent } from "../api.js";
 import { deleteEvent } from "./api.js";
 
+/* Using local storage to "get" and "set" name from browser and storing it inside a variable (userName)*/
 function getName() {
   const userName = new URL(window.location.href).searchParams.get("name");
   localStorage.setItem("userName", userName);
 }
-
+// We run this function immediately upon opening to get the username
 getName();
 
-// Configuration for displayed time format (make it human readable)
+/* Setting the displayed time and date format (make it human readable)*/
 const timeFormat = {
   hour: "2-digit",
   minute: "2-digit",
@@ -23,18 +24,21 @@ const dateFormat = {
   ...timeFormat,
 };
 
+/* Here we are generating the list of events*/
 const generateEventList = () => {
   getEvents().then((events) => {
     const eventList = document.getElementById("event-list");
-    const firstEvent = document.getElementById("first-event"); // SHH adds
+    const firstEvent = document.getElementById("first-event");
     eventList.innerHTML = "";
-    firstEvent.innerHTML = ""; // SHH adds
+    firstEvent.innerHTML = "";
+    // Sorting events by date, putting the oldest at the top of list
     events.sort((eventA, eventB) => {
       if (new Date(eventA.Starting) > new Date(eventB.Starting)) {
         return 1;
       }
       return -1;
     });
+    // Creating the elements that go on each card
     events.forEach((event, index) => {
       const cardElement = document.createElement("div");
       const otherElements = document.createElement("a");
@@ -47,12 +51,15 @@ const generateEventList = () => {
       const attendBtnElement = document.createElement("button");
       const imageElement = document.createElement("img");
 
+      // Getting username from local storage if it matches a name in Attending array then the attending buttton toggles Going, if not Join.
       const name = localStorage.getItem("userName");
       if (event.Attending.includes(name)) {
         attendBtnElement.innerText = "Going";
       } else {
         attendBtnElement.innerText = "Join";
       }
+
+      // We are assigning the value of properties of the event object to the different elements
       titleElement.innerText = event.Title;
       categoryElement.innerText = event.Category;
       attendingElement.innerText = event.Attending.length;
@@ -62,6 +69,7 @@ const generateEventList = () => {
         new Date(event.Ending).toLocaleTimeString("is", timeFormat);
       ownerElement.innerText = "Added by " + event.Owner;
 
+      // Assigning different event categories to the apropriate images and colors
       otherElements.href = "about-event/about-event.html?eventid=" + event._id;
       if (event.Category.toLowerCase() === "conference") {
         imageElement.src = "images/conference.jpg";
@@ -75,7 +83,7 @@ const generateEventList = () => {
         imageElement.src = "images/visindaferd.jpg";
         attendBtnElement.style.backgroundColor = "#5E9991";
       }
-      console.log(event.Category);
+
       // We use the class names here to reference later in CSS for styling
       imageElement.classList.add("images");
       titleElement.classList.add("card-title");
@@ -84,16 +92,15 @@ const generateEventList = () => {
       startDateElement.classList.add("card-startdate");
       ownerElement.classList.add("card-owner");
       cardElement.classList.add("card");
-
       attendBtnElement.classList.add("card-button");
 
+      // Appending the elements so they appear in the right order
       otherElements.appendChild(imageElement);
       otherElements.appendChild(titleElement);
       otherElements.appendChild(categoryElement);
       otherElements.appendChild(attendingElement);
       otherElements.appendChild(startDateElement);
       otherElements.appendChild(ownerElement);
-
       cardElement.appendChild(otherElements);
       cardElement.appendChild(attendBtnElement);
 
@@ -101,39 +108,33 @@ const generateEventList = () => {
       if (index === 0) {
         // cardElement.classList.add("first-card");
         firstEvent.appendChild(cardElement);
-      } else{
+      } else {
         eventList.appendChild(cardElement);
       }
 
-      // Attend button
+      // Attend button. It holds onto the event id and gets userName from local storage and attaches that to the id
       attendBtnElement.setAttribute("data-events_id", event._id);
 
       attendBtnElement.onclick = function clickAttend() {
         const name = localStorage.getItem("userName");
-
         if (event.Attending.includes(name)) {
-          console.log("here");
           const updatedAddendingList = event.Attending.filter((listName) => {
-            console.log("trying to remove");
-            // if you're it, you're removed
+            /*
+            remove the user from the array of attending
+            reset the button to original state
+            run updateEvent method from api*/
+
             if (listName === name) {
               return false;
             }
             // everyone else can come
             return true;
           });
-
           event.Attending = updatedAddendingList;
 
           attendBtnElement.innerText = "Join";
           updateEvent(event._id, event);
-          /*
-            remove the user from the array of attending
-            reset the button to original state
-            run updateEvent method from api
-          */
         } else {
-          console.log("trying to add");
           event.Attending.push(name);
           updateEvent(event._id, event);
           attendBtnElement.innerText = "Going";
@@ -156,6 +157,6 @@ generateEventList();
 
 // Event list on main page
 setInterval(() => {
-  // called once every five seconds
+  // called once every five seconds, to prevent having to refresh to see changes
   generateEventList();
 }, 5000);
