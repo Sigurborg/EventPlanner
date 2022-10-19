@@ -12,6 +12,7 @@ const clearForm = () => {
   document.getElementById("end-time").value = "12:00";
   document.getElementById("event-description").value = "";
 };
+console.log(window.location);
 
 // Taking values from "Create event" input boxes and turning them into variables
 const submitEvent = () => {
@@ -53,6 +54,8 @@ const submitEvent = () => {
     Starting: startDate,
     Ending: endDate,
   };
+
+  console.log("newevent:", newEvent);
 
   addEvent(newEvent);
 };
