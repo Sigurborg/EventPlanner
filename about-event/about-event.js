@@ -51,8 +51,10 @@ getEvents().then((events) => {
     // Expanded area on card
     const bottomAreaElement = document.getElementById("bottom-area");
     const expanderBtnElement = document.getElementById("expand-button");
+    const expandIconElement = document.getElementById("expand-icon");
     expanderBtnElement.addEventListener("click", function () {
       expanderBtnElement.classList.toggle("active");
+      expandIconElement.classList.toggle("flipped");
       if (bottomAreaElement.style.display === "block") {
         bottomAreaElement.style.display = "none";
       } else {
