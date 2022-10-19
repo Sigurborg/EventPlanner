@@ -101,27 +101,49 @@ getEvents().then((events) => {
         attendBtnElement.innerText = "Going";
       }
     };
-  });
 
-  let attendingButton = document.getElementById("attendingButton");
+   // Get the modal
+var modal = document.getElementById("myModal");
 
-  let test = document.createElement("ul");
-  console.log("test", result[0].Attending);
-  result[0].Attending.forEach((studentName) => {
-    let listItem = document.createElement("li");
-    listItem.innerText = studentName;
-    test.appendChild(listItem);
-  });
-  test.classList.add("popup");
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
 
-  attendingButton.addEventListener("click", function () {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
-    popup.appendChild(test);
-  });
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+let attendingList = document.createElement("ul");
+attendingList.classList.add('list-style')
+
+result[0].Attending.forEach((studentName) => {
+let listItem = document.createElement("li");
+listItem.innerText = studentName;
+attendingList.appendChild(listItem);
 });
 
-//
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+  listOfPeople.appendChild(attendingList);
+} 
+  });
+
+});
+
+
 
 const inputField = document.getElementById("inputField");
 const addMessageButton = document.getElementById("addMessageButton");
