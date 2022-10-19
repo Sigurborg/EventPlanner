@@ -6,9 +6,9 @@
 }
 
 body {
-    margin: 0;
-    background-color: #f3f4f6;
-  }
+  margin: 0;
+  background-color: #f3f4f6;
+}
 
 h1 {
   text-align: left;
@@ -32,30 +32,30 @@ p {
 
 /* Main page*/
 
-.destkop-heading{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 310px;
-    margin: auto;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    padding-top: 3px;
-    padding-bottom: 3px; 
+.destkop-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 310px;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 h2.destkop-heading {
-    border-top: 1px solid #000;
-    padding-top: 3px;
-    padding-bottom: 3px;
-
+  border-top: 1px solid #000;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 .card {
   width: 324px;
   height: 341px;
   border-radius: 5px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   font-family: montserrat;
   text-align: left;
   padding: 1cm;
@@ -140,10 +140,10 @@ a {
 }
 
 .active .nav-link {
-    color: black !important;
-    transform: rotate(0deg) !important; 
-    border-bottom: 1px solid #000 !important;
-    padding-bottom: 3px !important;
+  color: black !important;
+  transform: rotate(0deg) !important;
+  border-bottom: 1px solid #000 !important;
+  padding-bottom: 3px !important;
 }
 
 .nav-icon {
@@ -239,30 +239,29 @@ header {
     height: 100%;
     width: 96px;
   }
-  main{
+  main {
     position: absolute;
     left: 96px;
     width: calc(100% - 96px);
   }
-  .destkop-heading{
+  .destkop-heading {
     width: 90%;
-    max-width:100%;
-    margin-left:5%;
-    text-align:left;
-    float:left;
+    max-width: 100%;
+    margin-left: 5%;
+    text-align: left;
+    float: left;
   }
-  .events{
+  .events {
     max-width: 100%;
     margin-left: 5%;
     gap: 80px;
   }
-  #first-event{
-    float:left;
+  #first-event {
+    float: left;
   }
 
-  #event-list{
-    flex-direction:row;
-    float:left;
+  #event-list {
+    flex-direction: row;
+    float: left;
   }
-
 }
