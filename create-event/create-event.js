@@ -74,22 +74,22 @@ function resetButtonStyles() {
 
 scienceButton.addEventListener("click", function onClick() {
   resetButtonStyles();
-  scienceButton.style.backgroundColor = "greenyellow";
-  scienceButton.style.color = "black";
+  scienceButton.style.backgroundColor = "#303a49";
+  scienceButton.style.color = "white";
   eventCategory = "Vísindaferð";
 });
 
 conferenceButton.addEventListener("click", function onClick() {
   resetButtonStyles();
-  conferenceButton.style.backgroundColor = "greenyellow";
-  conferenceButton.style.color = "black";
+  conferenceButton.style.backgroundColor = "#303a49";
+  conferenceButton.style.color = "white";
   eventCategory = "Conference";
 });
 
 socialButton.addEventListener("click", function onClick() {
   resetButtonStyles();
-  socialButton.style.backgroundColor = "greenyellow";
-  socialButton.style.color = "black";
+  socialButton.style.backgroundColor = "#303a49";
+  socialButton.style.color = "white";
   eventCategory = "Social";
 });
 
