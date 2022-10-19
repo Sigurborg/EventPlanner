@@ -19,8 +19,6 @@
   position: relative;
 }
 
-
-
 input:focus {
   border: none;
 }
@@ -329,3 +327,34 @@ input {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+@media only screen and (max-width: 500px) {
+  
+}
+
+@media only screen and (min-width: 501px) {
+  #container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+  .destkop-heading {
+    font-size:48px;
+  }
+  #about-event{
+    width:50%;
+    max-width:600px;
+    margin-top:0px;
+    float: left;
+  }
+  #comment-section{
+    width: 50%;
+    max-width:600px;
+    margin-top:0px;
+    float: right;
+  }
+
+  #myBtn{
+    margin-top:0px;
+  }
+}

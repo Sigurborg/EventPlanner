@@ -259,9 +259,12 @@ header {
   #first-event {
     float: left;
   }
-
   #event-list {
+    flex-wrap: wrap;
     flex-direction: row;
     float: left;
+  }
+  .card{
+
   }
 }
