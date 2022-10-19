@@ -9,7 +9,7 @@
 .card-1 {
   width: 324px;
   min-height: 341px;
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   font-family: montserrat;
@@ -39,13 +39,12 @@ input:focus {
 }
 
 #noCommentsYetMessage {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 35px;
-  padding: 10px 10px 10px 10px;
-  border: 2px solid #dfdfdf;
-  background: #dfdfdf;
+  padding: 12px 12px 12px 12px;
+  background: white;
   border-radius: 22px;
-  color: black;
+  color: #b3b3b3;
   line-height: 25px;
   font-style: italic;
 }
@@ -71,7 +70,7 @@ input {
   vertical-align: middle;
   cursor: pointer;
   color: white;
-  background-color: red;
+  background-color: #303a49;
   border-radius: 22px;
 }
 
@@ -79,9 +78,10 @@ input {
   display: flex;
   align-items: center;
   position: relative;
-  border: 1px solid #686868;
-  border-radius: 22px;
+  border: 1px solid #b3b3b3;
+  border-radius: 10px;
   margin-bottom: 10px;
+  height: 40px;
 }
 
 #chatMessages {
@@ -92,33 +92,26 @@ input {
 }
 
 #chatBox {
-  border: 1px solid rgb(195, 195, 195);
+  padding: 35px;
   margin-bottom: 10px;
-  width: 323px;
+  margin-top: 10px;
+  width: 394px;
+  height: 412px;
+  background: #fefefe;
+  border-top: 1px solid #b0b0b0;
 }
 
 .message-styling {
   font-size: 18px;
   line-height: 35px;
-  border: 2px solid #dde2ff;
-  background: #dde2ff;
-  border-radius: 22px;
-  color: black;
+  border: 2px solid #e5e5e5;
+  background: #e5e5e5;
+  border-radius: 10px;
+  color: #303a49;
   line-height: 25px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-
-#attendingButton {
-  width: 400px;
-  height: 40px;
-  font-size: 16px;
-  border: 1px;
-  background: transparent;
-  cursor: pointer;
-  border-radius: 22px;
-}
-
 
 /* Dropdown area on card*/
 .expand-button {
@@ -134,10 +127,7 @@ input {
   right: 0;
   display: flex;
   justify-content: flex-end;
-
-
 }
-
 
 .bottom-area {
   width: 100%;
@@ -152,23 +142,24 @@ input {
 }
 
 .flipped {
-transform: rotateX(180deg);
+  transform: rotateX(180deg);
 }
 
 #expand-icon {
   transition: 200ms;
 }
 
-
 #myBtn {
   border-radius: 40px;
-  padding: 20px;
+  padding: 10px;
   margin-top: 30px;
   text-align: center;
-  width: 330px;
+  width: 324px;
   margin-top: 35px;
+  border-color: #303a49;
+  font-size: 16px;
+  border: 1px solid #303a49;
 }
-
 
 /* The Modal (background) */
 .modal {
@@ -180,8 +171,8 @@ transform: rotateX(180deg);
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
@@ -217,7 +208,6 @@ transform: rotateX(180deg);
   text-decoration: none;
   cursor: pointer;
 }
-
 
 @media only screen and (max-width: 390px) {
   .modal-content {
