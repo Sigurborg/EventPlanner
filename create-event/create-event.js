@@ -1,8 +1,10 @@
 // Importing functions from API
 import { addEvent } from "../api.js";
 
+// Giving this variable a default value
 let eventCategory = "Vísindaferð";
 
+// Creating a function to clear out the form and reset the time
 const clearForm = () => {
   document.getElementById("event-name").value = "";
   document.getElementById("event-date").value = "";
@@ -60,7 +62,6 @@ const submitButton = document.getElementById("add-event");
 const scienceButton = document.getElementById("science-button");
 const conferenceButton = document.getElementById("conference-button");
 const socialButton = document.getElementById("social-button");
-const categoryButtons = document.getElementById("type-btn");
 
 // Creating a function that resets button styles back to default
 function resetButtonStyles() {
@@ -93,37 +94,7 @@ socialButton.addEventListener("click", function onClick() {
   eventCategory = "Social";
 });
 
-//scienceButton.addEventListener("click", )
-
-/*submitButton.addEventListener("click", submitEvent);*/
-
-/* The code section above is the basic function that adds a new event to the main - do not change! */
-
-/*btn.addEventListener('click', function handleClick() {
-  btn.textContent = "Your event has been created";
-});
-**/
-/** The form validation code is written below
-const validateForm = ()=> {
-  return(
-      validateInput("ename")
-      && validateInput("createdby")
-      && validateInput("description")
-  )
-}
-console.log(validateForm)
-function validateInput(name) {
-  let y = document.forms["myForm"][name].value;
-  if (y == "") {
-    alert("Mandatory fields(*) cannot be left blank!");
-    return false;
-  }
-  return true;
-}
-document.querySelector('form').addEventListener('submit', validateForm);
-**/
-
-// Checking if it is an emty string or does it have a value. If it is empty there will be a error message
+// Checking if the input has an empty string or does it have a value. If it is empty there will be a error message
 const setError = (element, message) => {
   const inputControl = element.parentElement;
   const errorDisplay = inputControl.querySelector(".error");
@@ -158,6 +129,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
   // Check if description is not empty
   if (eventDescriptionValue === "") {
     setError(eventDescription, "Description is required");
+    eventDescription.style.color = "red";
     errorCount++;
   } else {
     setSuccess(eventDescription);

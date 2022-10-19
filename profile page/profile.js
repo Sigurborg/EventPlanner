@@ -1,3 +1,4 @@
+// Importing function from api
 import { getEvents } from "../api.js";
 
 // Configuration for displayed time format (make it human readable)
@@ -14,7 +15,7 @@ const dateFormat = {
   ...timeFormat,
 };
 
-// Event list on main page
+// Event list on main page. Same code but here we are filtering through them by username in Attending array
 getEvents().then((events) => {
   const eventList = document.getElementById("my-events");
   const result = events.filter((event) => {
@@ -54,7 +55,6 @@ getEvents().then((events) => {
       imageElement.src = "../images/visindaferd.jpg";
       attendBtnElement.style.backgroundColor = "#5E9991";
     }
-    console.log(event.Category);
 
     // We use the class names here to reference later in CSS for styling
     titleElement.classList.add("card-title");

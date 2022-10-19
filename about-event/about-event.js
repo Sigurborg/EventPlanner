@@ -1,10 +1,11 @@
+// Importing functions from api
 import { getEvents, updateEvent } from "../api.js";
 
+// Getting the event that matches the id on the event that was clicked on the main page
 getEvents().then((events) => {
   const idLink = new URL(window.location.href).searchParams.get("eventid");
   const result = events.filter((event) => {
     return idLink == event._id;
-    //return event.Attending.includes(localStorage.getItem("userName"));
   });
 
   result.forEach((event) => {
@@ -52,6 +53,7 @@ getEvents().then((events) => {
     const bottomAreaElement = document.getElementById("bottom-area");
     const expanderBtnElement = document.getElementById("expand-button");
     const expandIconElement = document.getElementById("expand-icon");
+
     expanderBtnElement.addEventListener("click", function () {
       expanderBtnElement.classList.toggle("active");
       expandIconElement.classList.toggle("flipped");
@@ -62,6 +64,7 @@ getEvents().then((events) => {
       }
     });
 
+    // Making the attend button work on this page
     const name = localStorage.getItem("userName");
     if (event.Attending.includes(name)) {
       attendBtnElement.innerText = "Going";
@@ -102,60 +105,59 @@ getEvents().then((events) => {
       }
     };
 
-   // Get the modal
-var modal = document.getElementById("myModal");
+    /* Creating the pop-up/ modal */
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+    // Get the modal
+    var modal = document.getElementById("myModal");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+    // When the user clicks on the button, open the modal
+    btn.onclick = function () {
+      modal.style.display = "block";
+    };
 
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
 
-let attendingList = document.createElement("ul");
-attendingList.classList.add('list-style')
+    let attendingList = document.createElement("ul");
+    attendingList.classList.add("list-style");
 
-result[0].Attending.forEach((studentName) => {
-let listItem = document.createElement("li");
-listItem.innerText = studentName;
-attendingList.appendChild(listItem);
-});
+    result[0].Attending.forEach((studentName) => {
+      let listItem = document.createElement("li");
+      listItem.innerText = studentName;
+      attendingList.appendChild(listItem);
+    });
 
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-  listOfPeople.appendChild(attendingList);
-} 
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+      listOfPeople.appendChild(attendingList);
+    };
   });
-
 });
 
-
-
+/* Chatbox */
 const inputField = document.getElementById("inputField");
 const addMessageButton = document.getElementById("addMessageButton");
 const chatMessages = document.getElementById("chatMessages");
 const noCommentsYetMessage = document.getElementById("noCommentsYetMessage");
 const userComment = localStorage.getItem("userName");
 
+// Getting username
 function getName() {
   const userName = new URL(window.location.href).searchParams.get("name");
   localStorage.setItem("userName", userName);
 }
-
+// Date and time display
 const timeFormat = {
   hour: "2-digit",
   minute: "2-digit",
@@ -168,6 +170,7 @@ const dateFormat = {
   day: "2-digit",
 };
 
+// Clearing the input
 function emptyInput() {
   if (inputField.value === "") {
     return true;
@@ -176,7 +179,7 @@ function emptyInput() {
   }
 }
 
-// Chatbox
+// Pasting the messages from the input field to the page
 addMessageButton.addEventListener("click", function () {
   if (emptyInput()) return;
   noCommentsYetMessage.remove();
@@ -193,7 +196,7 @@ addMessageButton.addEventListener("click", function () {
   chatMessages.appendChild(theDate);
   inputField.value = "";
 });
-
+// Allows you to press enter to post messages
 inputField.addEventListener("keypress", function (addByEnterBtn) {
   if (addByEnterBtn.key === "Enter") {
     addMessageButton.click();

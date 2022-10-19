@@ -15,6 +15,7 @@
   </head>
   <body>
     <div id="container">
+      <!--Event card-->
       <div id="about-event">
         <div class="card-1">
           <img id="event-image" class="images" />
@@ -29,7 +30,7 @@
           <p id="time" class="label"></p>
 
           <button id="attend-button" class="card-button"></button>
-
+          <!--Expandable area on card-->
           <button id="expand-button" class="expand-button">
             <img id="expand-icon" src="/dropdown.png" />
           </button>
@@ -44,21 +45,19 @@
         </div>
       </div>
 
-<!-- Trigger/Open The Modal -->
-<button id="myBtn">Who's going?</button>
+      <!-- Trigger/Open The Modal -->
+      <button id="myBtn">Who's going?</button>
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="listOfPeople"></p>
+        </div>
+      </div>
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p id="listOfPeople" ></p>
-  </div>
-
-</div>
-
-
+      <!--Chatbox-->
       <div id="headline">
         <h1>Event chat</h1>
       </div>

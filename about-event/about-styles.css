@@ -19,6 +19,127 @@
   position: relative;
 }
 
+
+/* Dropdown area on card*/
+.expand-button {
+  background-color: white;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.bottom-area {
+  width: 100%;
+  display: none;
+  margin-top: 16px;
+}
+
+.content {
+  overflow: hidden;
+  background-color: white;
+}
+
+.flipped {
+transform: rotateX(180deg);
+}
+
+#expand-icon {
+  transition: 200ms;
+}
+
+/* Modal button*/
+#myBtn {
+  border-radius: 40px;
+  padding: 20px;
+  margin-top: 30px;
+  text-align: center;
+  width: 330px;
+  margin-top: 35px;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 40px 50px 40px 50px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+#listOfPeople {
+  font-size: 20px;
+  list-style: none;
+  line-height: 40px;
+}
+
+.list-style {
+  list-style: circle;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*For mobile*/
+@media only screen and (max-width: 390px) {
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 40px 30px 40px 50px;
+    border: 1px solid #888;
+    width: 90%; /* Could be more or less, depending on screen size */
+  }
+
+  #listOfPeople {
+    font-size: 13px;
+    list-style: none;
+    line-height: 40px;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+}
+
+/* Chatbox*/
 input:focus {
   border: none;
 }
@@ -107,137 +228,4 @@ input {
   line-height: 25px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-#attendingButton {
-  width: 400px;
-  height: 40px;
-  font-size: 16px;
-  border: 1px;
-  background: transparent;
-  cursor: pointer;
-  border-radius: 22px;
-}
-
-
-/* Dropdown area on card*/
-.expand-button {
-  background-color: white;
-  cursor: pointer;
-  padding: 5px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  justify-content: flex-end;
-
-
-}
-
-
-.bottom-area {
-  width: 100%;
-  display: none;
-  margin-top: 16px;
-}
-
-.content {
-  /*padding: 0 18px;*/
-  overflow: hidden;
-  background-color: white;
-}
-
-.flipped {
-transform: rotateX(180deg);
-}
-
-#expand-icon {
-  transition: 200ms;
-}
-
-
-#myBtn {
-  border-radius: 40px;
-  padding: 20px;
-  margin-top: 30px;
-  text-align: center;
-  width: 330px;
-  margin-top: 35px;
-}
-
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 40px 50px 40px 50px;
-  border: 1px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
-}
-
-#listOfPeople {
-  font-size: 20px;
-  list-style: none;
-  line-height: 40px;
-}
-
-.list-style {
-  list-style: circle;
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
-@media only screen and (max-width: 390px) {
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 40px 30px 40px 50px;
-    border: 1px solid #888;
-    width: 90%; /* Could be more or less, depending on screen size */
-  }
-
-  #listOfPeople {
-    font-size: 13px;
-    list-style: none;
-    line-height: 40px;
-  }
-
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
 }
