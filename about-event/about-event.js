@@ -168,6 +168,7 @@ const dateFormat = {
   weekday: "short",
   month: "long",
   day: "2-digit",
+  ...timeFormat,
 };
 
 // Clearing the input
@@ -187,13 +188,14 @@ addMessageButton.addEventListener("click", function () {
   var paragraph = document.createElement("p");
   const commenterName = document.createElement("p");
   commenterName.textContent = userComment;
+  commenterName.classList.add("commentor-name-style")
   theDate.classList.add("date-styling");
   theDate.innerText = new Date().toLocaleString("is", dateFormat);
   paragraph.innerText = inputField.value;
   paragraph.classList.add("message-styling");
   chatMessages.appendChild(commenterName);
-  chatMessages.appendChild(paragraph);
   chatMessages.appendChild(theDate);
+  chatMessages.appendChild(paragraph);
   inputField.value = "";
 });
 // Allows you to press enter to post messages
