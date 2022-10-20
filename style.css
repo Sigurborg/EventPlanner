@@ -13,7 +13,7 @@ body {
 h1 {
   text-align: left;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 20px;
   margin-top: 45px;
 }
 
@@ -30,6 +30,24 @@ p {
   padding-bottom: 3px;
 }
 
+p.card-category {
+  font-size: 10px;
+  line-height: 11.25px;
+}
+
+p.card-attending {
+  margin-top: 10px;
+}
+
+p.card-startdate {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+p.card-owner {
+  margin-top: 10px;
+}
+
 /* Main page*/
 
 .destkop-heading {
@@ -42,12 +60,14 @@ p {
   margin-bottom: 25px;
   padding-top: 3px;
   padding-bottom: 3px;
+  font-size: 48px;
 }
 
 h2.destkop-heading {
   border-top: 1px solid #000;
-  padding-top: 3px;
+  padding-top: 10px;
   padding-bottom: 3px;
+  font-size: 32px;
 }
 
 .card {
@@ -263,8 +283,5 @@ header {
     flex-wrap: wrap;
     flex-direction: row;
     float: left;
-  }
-  .card{
-
   }
 }
