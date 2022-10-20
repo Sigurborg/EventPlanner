@@ -1,0 +1,40 @@
+main {
+    padding-top: 40px;
+}
+
+h1 {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 310px;
+    width: calc(100% - 96px);
+    margin-left: 45px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-size: 48px;
+    line-height: 96px;
+  }
+
+  /* Small and Large screen settings */
+
+@media only screen and (max-width: 500px) {
+    h1 {
+      font-size: 22px;
+      margin-left: 20px;
+      width: 90%;
+      max-width: 100%;
+      margin-left: 10%;
+      text-align: left;
+      float: left;
+    }
+
+
+  main {
+        padding-top: 0px;
+        display: flex;
+        flex-direction: column;
+
+  }
+}

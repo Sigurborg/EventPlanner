@@ -148,12 +148,41 @@ input {
   background-color: white;
 }
 
+p.label {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+p.date {
+  margin-top: 10px;
+}
+
+p#date.label {
+  font-size: 12px;
+  margin-top: 0px;
+}
+
+p.time {
+  margin-top: 10px;
+}
+
+p#time.label {
+  font-size: 12px;
+  margin-top: 0;
+}
+
+p#owner.card-owner {
+  margin-top: 0;
+}
+
 .flipped {
   transform: rotateX(180deg);
 }
 
 #expand-icon {
   transition: 200ms;
+  padding-right: 5px;
+  
 }
 
 

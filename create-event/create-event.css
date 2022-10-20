@@ -1,8 +1,3 @@
-h1 {
-  font-family: montserrat;
-  margin-bottom: 44px;
-  text-align: center;
-}
 
 #type-btn {
   text-align: center;
@@ -21,7 +16,7 @@ h1 {
   font-size: 10px;
   font-family: montserrat;
   color: #f3f4f6;
-  font-weight: bold;
+  font-weight: 500;
   padding: 5px 16px;
   border: none;
   background-color: #b26f75;
@@ -35,7 +30,7 @@ h1 {
   font-size: 10px;
   font-family: montserrat;
   color: #f3f4f6;
-  font-weight: bold;
+  font-weight: 500;
   padding: 5px 16px;
   border: none;
   background-color: #5e9991;
@@ -49,7 +44,7 @@ h1 {
   font-size: 10px;
   font-family: montserrat;
   color: #f3f4f6;
-  font-weight: bold;
+  font-weight: 500;
   padding: 5px 16px;
   border: none;
   background-color: #769ab2;
@@ -127,7 +122,7 @@ input {
 
 @media only screen and (min-width: 501px) {
   #type-btn{
-    max-width:80%;
+    max-width:50%;
   }
 
   #add-event-form{
@@ -137,5 +132,10 @@ input {
   #science-button, #conference-button, #social-button{
     width:25%;
     font-size: 14px;
+  }
+
+  #add-event {
+    width: 50%;
+    margin-left: 25%;
   }
 }
