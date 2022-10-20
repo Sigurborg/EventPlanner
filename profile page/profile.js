@@ -1,5 +1,5 @@
 // Importing function from api
-import { getEvents } from "../api.js";
+import { getEvents, updateEvent } from "../api.js";
 
 // Configuration for displayed time format (make it human readable)
 const timeFormat = {
@@ -24,6 +24,7 @@ getEvents().then((events) => {
 
   result.forEach((event) => {
     const cardElement = document.createElement("div");
+    const otherElements = document.createElement("a");
     const titleElement = document.createElement("h2");
     const categoryElement = document.createElement("p");
     const attendingElement = document.createElement("p");
@@ -40,8 +41,10 @@ getEvents().then((events) => {
       " - " +
       new Date(event.Ending).toLocaleTimeString("is", timeFormat);
 
-    ownerElement.innerText = "Added by " + event.Owner;
+    ownerElement.innerText = "Created by " + event.Owner;
     attendBtnElement.innerText = "Going";
+
+    otherElements.href = "/about-event/about-event.html?eventid=" + event._id;
 
     if (event.Category.toLowerCase() === "conference") {
       imageElement.src = "../images/conference.jpg";
@@ -66,14 +69,40 @@ getEvents().then((events) => {
     attendBtnElement.classList.add("card-button");
     imageElement.classList.add("images");
 
-    cardElement.appendChild(imageElement);
-    cardElement.appendChild(titleElement);
-    cardElement.appendChild(categoryElement);
-    cardElement.appendChild(attendingElement);
-    cardElement.appendChild(startDateElement);
-    cardElement.appendChild(ownerElement);
+    otherElements.appendChild(imageElement);
+    otherElements.appendChild(titleElement);
+    otherElements.appendChild(categoryElement);
+    otherElements.appendChild(attendingElement);
+    otherElements.appendChild(startDateElement);
+    otherElements.appendChild(ownerElement);
     cardElement.appendChild(attendBtnElement);
+    cardElement.appendChild(otherElements);
     eventList.appendChild(cardElement);
+
+    const name = localStorage.getItem("userName");
+    if (event.Attending.includes(name)) {
+      attendBtnElement.innerText = "Going";
+    } else {
+      attendBtnElement.innerText = "Join";
+    }
+
+    // Attend  button
+    attendBtnElement.onclick = function clickAttend() {
+      if (event.Attending.includes(name)) {
+        event.Attending = event.Attending.filter((listName) => {
+          return listName !== name;
+        });
+
+        attendBtnElement.innerText = "Join";
+        updateEvent(event._id, event);
+      } else {
+        console.log("trying to add");
+        attendBtnElement.innerText = "Going";
+        event.Attending.push(name);
+        updateEvent(event._id, event);
+        console.log("name pushed");
+      }
+    };
   });
 
   console.log(result);

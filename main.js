@@ -122,14 +122,8 @@ const generateEventList = () => {
       attendBtnElement.onclick = function clickAttend() {
         if (event.Attending.includes(name)) {
           event.Attending = event.Attending.filter((listName) => {
-            /*
-            remove the user from the array of attending
-            reset the button to original state
-            run updateEvent method from api*/
-
             return listName !== name;
           });
-
           attendBtnElement.innerText = "Join";
           updateEvent(event._id, event);
         } else {
@@ -139,7 +133,6 @@ const generateEventList = () => {
         }
       };
     });
-
     /*//If we need to delete test events:
     events.forEach((event, i) => {
       if (i < 0) return;
