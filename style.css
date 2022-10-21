@@ -50,7 +50,7 @@ p.card-owner {
 
 /* Main page*/
 
-.destkop-heading {
+.desktop-heading {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -64,7 +64,7 @@ p.card-owner {
   line-height: 96px;
 }
 
-h2.destkop-heading {
+h2.desktop-heading {
   border-top: 1px solid #000;
   font-size: 32px;
   line-height: 40px;
@@ -267,11 +267,11 @@ header {
     font-size: 12px;
   }
 
-  .destkop-heading {
+  .desktop-heading {
     font-size: 22px;
   }
 
-  h2.destkop-heading {
+  h2.desktop-heading {
     font-size: 20px;
   }
   .page-heading{
@@ -290,7 +290,7 @@ header {
     left: 96px;
     width: calc(100% - 96px);
   }
-  .destkop-heading {
+  .desktop-heading {
     width: 90%;
     max-width: 100%;
     margin-left: 5%;
