@@ -27,6 +27,7 @@
       <!--Event form-->
       <div id="add-event-form">
         <form name="myForm" method="get" action="#" id="total-form">
+          
           <!--Event title-->
           <div class="input-control">
             <label for="name"> Event name</label>
@@ -35,6 +36,18 @@
               type="text"
               id="event-name"
               name="name"
+            />
+            <div class="error"></div>
+          </div>
+
+          <!--Event location-->
+          <div class="input-control">
+            <label for="location"> Location</label>
+            <input
+              placeholder="Add location"
+              type="text"
+              id="event-location"
+              name="location"
             />
             <div class="error"></div>
           </div>

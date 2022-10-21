@@ -11,6 +11,7 @@ const clearForm = () => {
   document.getElementById("start-time").value = "12:00";
   document.getElementById("end-time").value = "12:00";
   document.getElementById("event-description").value = "";
+  document.getElementById("event-location").value = "";//
 };
 console.log(window.location);
 
@@ -22,6 +23,8 @@ const submitEvent = () => {
   const endTime = document.getElementById("end-time").value;
   const eventDescription = document.getElementById("event-description").value;
   const eventOwner = localStorage.getItem("userName");
+  const eventLocation = document.getElementById("event-location")//
+
 
   // Using split to get value from date input so that we can construct a "start datetime" and "end datetime" date object
   const dateSplit = eventDate.split("-"); // returns [year, month, day]
@@ -48,6 +51,7 @@ const submitEvent = () => {
   const newEvent = {
     Title: eventTitle,
     Category: eventCategory,
+    Location: eventLocation, //
     Attending: [],
     Owner: eventOwner,
     Description: eventDescription,
@@ -118,12 +122,16 @@ document.querySelector("form").addEventListener("submit", (e) => {
   e.preventDefault();
   const eventTitle = document.getElementById("event-name");
   const eventDescription = document.getElementById("event-description");
+  const eventLocation = document.getElementById("event-location");
 
   const eventTitleValue = eventTitle.value.trim();
   const eventDescriptionValue = eventDescription.value.trim();
+  const eventLocationValue = eventLocation.value.trim();
+  
 
+  // Check if event title is empty
   if (eventTitleValue === "") {
-    setError(eventTitle, "Event title is required");
+    setError(eventTitle, "Event name is required");
     errorCount++;
   } else {
     setSuccess(eventTitle);
@@ -132,15 +140,24 @@ document.querySelector("form").addEventListener("submit", (e) => {
   // Check if description is not empty
   if (eventDescriptionValue === "") {
     setError(eventDescription, "Description is required");
-    eventDescription.style.color = "red";
     errorCount++;
   } else {
     setSuccess(eventDescription);
   }
+
+  //check if location is empty
+  if (eventLocationValue ==="") {
+    setError(eventLocation, "Location is required");
+    errorCount++;
+  } else {
+    setSuccess(eventLocation)
+  }
+
+
   if (errorCount === 0) {
     submitButton.style.backgroundColor = "greenyellow";
     submitButton.style.color = "black";
-    submitButton.textContent = "Your event has been added/created";
+    submitButton.textContent = "Your event has been created";
     submitEvent();
     clearForm();
   }
