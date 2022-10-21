@@ -138,9 +138,9 @@ document.querySelector("form").addEventListener("submit", (e) => {
     setSuccess(eventDescription);
   }
   if (errorCount === 0) {
-    submitButton.style.backgroundColor = "greenyellow";
-    submitButton.style.color = "black";
-    submitButton.textContent = "Your event has been added/created";
+    submitButton.style.backgroundColor = "#159d40";
+    submitButton.style.color = "white";
+    submitButton.textContent = "Your event has been added";
     submitEvent();
     clearForm();
   }
