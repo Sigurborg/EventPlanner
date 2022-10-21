@@ -205,7 +205,7 @@ const showChatMessages = (name, date, comment) => {
   commentWrapper.appendChild(paragraph);
   chatMessages.appendChild(commentWrapper)
   // chatMessages.scroll (10000,10000)
-  chatMessages.scrollTo(0,0)
+  chatMessages.scrollTo(0,-100000)
   console.log(chatMessages.scrollTop)
 }
 
