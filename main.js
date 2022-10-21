@@ -52,7 +52,9 @@ const generateEventList = () => {
       const titleElement = document.createElement("h1");
       const categoryElement = document.createElement("p");
       const attendingElement = document.createElement("p");
+      const startDateLabel = document.createElement("label");
       const startDateElement = document.createElement("p");
+      const startTimeLabel =document.createElement("label");
       const startTimeElement = document.createElement("p");
       const endTimeElement = document.createElement("p");
       const ownerElement = document.createElement("p");
@@ -65,10 +67,12 @@ const generateEventList = () => {
       categoryElement.innerText = event.Category;
       attendingElement.innerText = event.Attending.length + " people are going";
 
+      startDateLabel.innerText = "Date";
       startDateElement.innerText = new Date(event.Starting).toLocaleDateString(
         "is",
         dateFormat
       );
+      startTimeLabel.innerText = "Time";
       startTimeElement.innerText = new Date(event.Starting).toLocaleTimeString(
         "is",
         timeFormat
@@ -97,7 +101,9 @@ const generateEventList = () => {
       titleElement.classList.add("card-title");
       categoryElement.classList.add("card-category");
       attendingElement.classList.add("card-attending");
+      startDateLabel.classList.add("date-title");
       startDateElement.classList.add("card-startdate");
+      startTimeLabel.classList.add("time-title");
       startTimeElement.classList.add("card-starttime");
       endTimeElement.classList.add("card-endtime");
       ownerElement.classList.add("card-owner");
@@ -109,9 +115,11 @@ const generateEventList = () => {
       otherElements.appendChild(imageElement);
       otherElements.appendChild(titleElement);
       otherElements.appendChild(categoryElement);
-      otherElements.appendChild(locationElement)//
+      otherElements.appendChild(locationElement);
       otherElements.appendChild(attendingElement);
+      otherElements.appendChild(startDateLabel);
       otherElements.appendChild(startDateElement);
+      otherElements.appendChild(startTimeLabel);
       otherElements.appendChild(startTimeElement);
       otherElements.appendChild(endTimeElement);
       cardElement.appendChild(otherElements);
