@@ -53,6 +53,27 @@
   border-radius: 15px;
 }
 
+#science-button:hover {
+  color: black;
+}
+
+#conference-button:hover {
+  color: black;
+}
+
+#social-button:hover {
+  color: black;
+}
+
+#add-event:hover {
+color: black;
+background-color: white;
+border-color: black;
+border: 1px solid;
+cursor: pointer;
+}
+
+
 #total-form {
   display: flex;
   flex-direction: column;
