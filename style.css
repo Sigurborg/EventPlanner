@@ -30,18 +30,18 @@ p {
   padding-bottom: 3px;
 }
 
-p.card-category {
+.card-category {
   font-size: 10px;
   line-height: 11.25px;
 }
 
-p.card-attending {
+.card-attending {
   margin-top: 10px;
 }
 
 /* Events main page card */
 
-p.card-startdate {
+.card-startdate {
   font-size: 12px;
   margin-top: 10px;
 }
@@ -59,7 +59,7 @@ label.time-title {
   display: inline;
 }
 
-p.card-owner {
+.card-owner {
   margin-top: 10px;
 }
 

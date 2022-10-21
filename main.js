@@ -51,6 +51,8 @@ const generateEventList = () => {
 
       const titleElement = document.createElement("h1");
       const categoryElement = document.createElement("p");
+      const locationLabel = document.createElement("label");
+      const locationElement = document.createElement("p");
       const attendingElement = document.createElement("p");
       const startDateLabel = document.createElement("label");
       const startDateElement = document.createElement("p");
@@ -60,11 +62,11 @@ const generateEventList = () => {
       const ownerElement = document.createElement("p");
       const attendBtnElement = document.createElement("button");
       const imageElement = document.createElement("img");
-      const locationElement = document.createElement("p");
 
       // We are assigning the value of properties of the event object to the different elements
       titleElement.innerText = event.Title;
-      locationElement.innerText = "Location: " + event.Location;
+      locationLabel.innerText = "Location";
+      locationElement.innerText = event.Location;
       categoryElement.innerText = event.Category;
       attendingElement.innerText = event.Attending.length + " people are going";
 
@@ -101,6 +103,8 @@ const generateEventList = () => {
       imageElement.classList.add("images");
       titleElement.classList.add("card-title");
       categoryElement.classList.add("card-category");
+      locationLabel.classList.add("card-title")
+      locationElement.classList.add("card-location");
       attendingElement.classList.add("card-attending");
       startDateLabel.classList.add("date-title");
       startDateElement.classList.add("card-startdate");
@@ -110,12 +114,12 @@ const generateEventList = () => {
       ownerElement.classList.add("card-owner");
       cardElement.classList.add("card");
       attendBtnElement.classList.add("card-button");
-      locationElement.classList.add("card-location") //
 
       // Appending the elements so they appear in the right order
       otherElements.appendChild(imageElement);
       otherElements.appendChild(titleElement);
       otherElements.appendChild(categoryElement);
+      otherElements.appendChild(locationLabel);
       otherElements.appendChild(locationElement);
       otherElements.appendChild(startDateLabel);
       otherElements.appendChild(startDateElement);

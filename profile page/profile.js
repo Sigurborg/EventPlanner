@@ -27,19 +27,35 @@ getEvents().then((events) => {
     const otherElements = document.createElement("a");
     const titleElement = document.createElement("h2");
     const categoryElement = document.createElement("p");
+    const locationLabel = document.createElement("label");
+    const locationElement = document.createElement("p");
     const attendingElement = document.createElement("p");
+    const startDateLabel = document.createElement("label");
     const startDateElement = document.createElement("p");
+    const startTimeLabel =document.createElement("label");
+    const startTimeElement = document.createElement("p");
+    const endTimeElement = document.createElement("p");
     const ownerElement = document.createElement("p");
     const attendBtnElement = document.createElement("button");
     const imageElement = document.createElement("img");
 
     titleElement.innerText = event.Title;
     categoryElement.innerText = event.Category;
+    locationLabel.innerText = "Location";
+    locationElement.innerText = event.Location;
     attendingElement.innerText = event.Attending.length;
-    startDateElement.innerText =
-      new Date(event.Starting).toLocaleString("is", dateFormat) +
-      " - " +
-      new Date(event.Ending).toLocaleTimeString("is", timeFormat);
+    startDateLabel.innerText = "Date";
+      startDateElement.innerText = new Date(event.Starting).toLocaleDateString(
+        "is",
+        dateFormat
+      );
+      startTimeLabel.innerText = "Time";
+      startTimeElement.innerText = new Date(event.Starting).toLocaleTimeString(
+        "is",
+        timeFormat
+      );
+      endTimeElement.innerText =
+        " - " + new Date(event.Ending).toLocaleTimeString("is", timeFormat);
 
     ownerElement.innerText = "Created by " + event.Owner;
     attendBtnElement.innerText = "Going";
@@ -62,8 +78,14 @@ getEvents().then((events) => {
     // We use the class names here to reference later in CSS for styling
     titleElement.classList.add("card-title");
     categoryElement.classList.add("card-category");
+    locationLabel.classList.add("card-title")
+    locationElement.classList.add("card-location");
     attendingElement.classList.add("card-attending");
+    startDateLabel.classList.add("date-title");
     startDateElement.classList.add("card-startdate");
+    startTimeLabel.classList.add("time-title");
+    startTimeElement.classList.add("card-starttime");
+    endTimeElement.classList.add("card-endtime");
     ownerElement.classList.add("card-owner");
     cardElement.classList.add("card");
     attendBtnElement.classList.add("card-button");
@@ -72,9 +94,13 @@ getEvents().then((events) => {
     otherElements.appendChild(imageElement);
     otherElements.appendChild(titleElement);
     otherElements.appendChild(categoryElement);
-    otherElements.appendChild(attendingElement);
+    otherElements.appendChild(locationLabel);
+    otherElements.appendChild(locationElement);
+    otherElements.appendChild(startDateLabel);
     otherElements.appendChild(startDateElement);
-    otherElements.appendChild(ownerElement);
+    otherElements.appendChild(startTimeLabel);
+    otherElements.appendChild(startTimeElement);
+    otherElements.appendChild(endTimeElement);
     cardElement.appendChild(attendBtnElement);
     cardElement.appendChild(otherElements);
     eventList.appendChild(cardElement);
