@@ -26,7 +26,6 @@ const dateFormat = {
   weekday: "short",
   month: "long",
   day: "2-digit",
-  ...timeFormat,
 };
 
 /* Here we are generating the list of events*/
@@ -53,6 +52,8 @@ const generateEventList = () => {
       const categoryElement = document.createElement("p");
       const attendingElement = document.createElement("p");
       const startDateElement = document.createElement("p");
+      const startTimeElement = document.createElement("p");
+      const endTimeElement = document.createElement("p");
       const ownerElement = document.createElement("p");
       const attendBtnElement = document.createElement("button");
       const imageElement = document.createElement("img");
@@ -61,11 +62,16 @@ const generateEventList = () => {
       titleElement.innerText = event.Title;
       categoryElement.innerText = event.Category;
       attendingElement.innerText = event.Attending.length + " people are going";
-      startDateElement.innerText =
-        new Date(event.Starting).toLocaleString("is", dateFormat) +
-        " - " +
-        new Date(event.Ending).toLocaleTimeString("is", timeFormat);
-      ownerElement.innerText = "Added by " + event.Owner;
+      startDateElement.innerText = new Date(event.Starting).toLocaleDateString(
+        "is",
+        dateFormat
+      );
+      startTimeElement.innerText = new Date(event.Starting).toLocaleTimeString(
+        "is",
+        timeFormat
+      );
+      endTimeElement.innerText =
+        " - " + new Date(event.Ending).toLocaleTimeString("is", timeFormat);
 
       // Assigning different event categories to the apropriate images and colors
       otherElements.href = "about-event/about-event.html?eventid=" + event._id;
@@ -88,6 +94,8 @@ const generateEventList = () => {
       categoryElement.classList.add("card-category");
       attendingElement.classList.add("card-attending");
       startDateElement.classList.add("card-startdate");
+      startTimeElement.classList.add("card-starttime");
+      endTimeElement.classList.add("card-endtime");
       ownerElement.classList.add("card-owner");
       cardElement.classList.add("card");
       attendBtnElement.classList.add("card-button");
@@ -98,7 +106,8 @@ const generateEventList = () => {
       otherElements.appendChild(categoryElement);
       otherElements.appendChild(attendingElement);
       otherElements.appendChild(startDateElement);
-      otherElements.appendChild(ownerElement);
+      otherElements.appendChild(startTimeElement);
+      otherElements.appendChild(endTimeElement);
       cardElement.appendChild(otherElements);
       cardElement.appendChild(attendBtnElement);
 
