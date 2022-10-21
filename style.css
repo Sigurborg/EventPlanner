@@ -87,12 +87,20 @@ p {
   font-size: 10px;
   display: block;
   font-size: 10px;
-  margin-top: 5px;
+  margin-top: 15px;
+}
+
+.subtitle-time {
+  margin-left: 143px;
 }
 
 .info-text {
   font-size: 14px;
   display:inline;
+}
+
+.info-text-start {
+  margin-left: 40px;
 }
 
 .date-time {

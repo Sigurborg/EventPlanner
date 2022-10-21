@@ -63,13 +63,14 @@ const generateEventList = () => {
       const attendBtnElement = document.createElement("button");
       const imageElement = document.createElement("img");
       const dateTime = document.createElement("div");
+      const dateTimeValue = document.createElement("div");
 
 // Putting the date and time inside of a div
       dateTime.appendChild(startDateLabel);
-      dateTime.appendChild(startDateElement);
+      dateTimeValue.appendChild(startDateElement);
       dateTime.appendChild(startTimeLabel);
-      dateTime.appendChild(startTimeElement);
-      dateTime.appendChild(endTimeElement);
+      dateTimeValue.appendChild(startTimeElement);
+      dateTimeValue.appendChild(endTimeElement);
 
 
       // We are assigning the value of properties of the event object to the different elements
@@ -117,9 +118,9 @@ const generateEventList = () => {
       attendingElement.classList.add("card-attending");
       startDateLabel.classList.add("subtitle");
       startDateElement.classList.add("info-text");
-      startTimeLabel.classList.add("subtitle");
-      startTimeElement.classList.add("info-text");
-      endTimeElement.classList.add("info-text");
+      startTimeLabel.classList.add("subtitle", "subtitle-time");
+      startTimeElement.classList.add("info-text", "info-text-start");
+      endTimeElement.classList.add("info-text", "info-text-end");
       ownerElement.classList.add("card-owner");
       cardElement.classList.add("card");
       attendBtnElement.classList.add("card-button");
@@ -133,6 +134,7 @@ const generateEventList = () => {
       otherElements.appendChild(locationLabel);
       otherElements.appendChild(locationElement);
       otherElements.appendChild(dateTime);
+      otherElements.appendChild(dateTimeValue);
       cardElement.appendChild(otherElements);
       cardElement.appendChild(attendBtnElement);
 
