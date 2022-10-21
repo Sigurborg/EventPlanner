@@ -2,7 +2,6 @@
 import { getEvents, updateEvent } from "../api.js";
 import { deleteEvent } from "./api.js";
 
-
 /* Using local storage to "get" and "set" name from browser and storing it inside a variable (userName)*/
 function getName() {
   if (
@@ -56,7 +55,7 @@ const generateEventList = () => {
       const attendingElement = document.createElement("p");
       const startDateLabel = document.createElement("label");
       const startDateElement = document.createElement("p");
-      const startTimeLabel =document.createElement("label");
+      const startTimeLabel = document.createElement("label");
       const startTimeElement = document.createElement("p");
       const endTimeElement = document.createElement("p");
       const ownerElement = document.createElement("p");
@@ -83,7 +82,6 @@ const generateEventList = () => {
       endTimeElement.innerText =
         " - " + new Date(event.Ending).toLocaleTimeString("is", timeFormat);
 
-
       // Assigning different event categories to the apropriate images and colors
       otherElements.href = "about-event/about-event.html?eventid=" + event._id;
       if (event.Category.toLowerCase() === "conference") {
@@ -103,7 +101,7 @@ const generateEventList = () => {
       imageElement.classList.add("images");
       titleElement.classList.add("card-title");
       categoryElement.classList.add("card-category");
-      locationLabel.classList.add("card-title")
+      locationLabel.classList.add("card-title");
       locationElement.classList.add("card-location");
       attendingElement.classList.add("card-attending");
       startDateLabel.classList.add("date-title");
