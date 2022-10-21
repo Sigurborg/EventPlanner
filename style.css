@@ -232,6 +232,11 @@ header {
   position: absolute;
 }
 
+.card-button:hover {
+    color: black;
+    box-shadow: none;
+}
+
 
 .page-heading {
   display: flex;
