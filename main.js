@@ -103,14 +103,14 @@ const generateEventList = () => {
       imageElement.classList.add("images");
       titleElement.classList.add("card-title");
       categoryElement.classList.add("card-category");
-      locationLabel.classList.add("card-title")
-      locationElement.classList.add("card-location");
+      locationLabel.classList.add("subtitle")
+      locationElement.classList.add("info-text");
       attendingElement.classList.add("card-attending");
-      startDateLabel.classList.add("date-title");
-      startDateElement.classList.add("card-startdate");
-      startTimeLabel.classList.add("time-title");
-      startTimeElement.classList.add("card-starttime");
-      endTimeElement.classList.add("card-endtime");
+      startDateLabel.classList.add("subtitle");
+      startDateElement.classList.add("info-text");
+      startTimeLabel.classList.add("subtitle");
+      startTimeElement.classList.add("info-text");
+      endTimeElement.classList.add("info-text");
       ownerElement.classList.add("card-owner");
       cardElement.classList.add("card");
       attendBtnElement.classList.add("card-button");
