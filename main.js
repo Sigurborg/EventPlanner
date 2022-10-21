@@ -62,6 +62,15 @@ const generateEventList = () => {
       const ownerElement = document.createElement("p");
       const attendBtnElement = document.createElement("button");
       const imageElement = document.createElement("img");
+      const dateTime = document.createElement("div");
+
+// Putting the date and time inside of a div
+      dateTime.appendChild(startDateLabel);
+      dateTime.appendChild(startDateElement);
+      dateTime.appendChild(startTimeLabel);
+      dateTime.appendChild(startTimeElement);
+      dateTime.appendChild(endTimeElement);
+
 
       // We are assigning the value of properties of the event object to the different elements
       titleElement.innerText = event.Title;
@@ -115,17 +124,15 @@ const generateEventList = () => {
       cardElement.classList.add("card");
       attendBtnElement.classList.add("card-button");
 
+      dateTime.classList.add("date-time");
+
       // Appending the elements so they appear in the right order
       otherElements.appendChild(imageElement);
       otherElements.appendChild(titleElement);
       otherElements.appendChild(categoryElement);
       otherElements.appendChild(locationLabel);
       otherElements.appendChild(locationElement);
-      otherElements.appendChild(startDateLabel);
-      otherElements.appendChild(startDateElement);
-      otherElements.appendChild(startTimeLabel);
-      otherElements.appendChild(startTimeElement);
-      otherElements.appendChild(endTimeElement);
+      otherElements.appendChild(dateTime);
       cardElement.appendChild(otherElements);
       cardElement.appendChild(attendBtnElement);
 

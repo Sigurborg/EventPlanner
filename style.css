@@ -95,6 +95,12 @@ p {
   display:inline;
 }
 
+.date-time {
+  display: flex;
+  flex-direction: row;
+  
+}
+
 .card-owner {
   margin-top: 10px;
 }
