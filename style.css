@@ -39,9 +39,24 @@ p.card-attending {
   margin-top: 10px;
 }
 
+/* Events main page card */
+
 p.card-startdate {
   font-size: 12px;
   margin-top: 10px;
+}
+
+label.time-title {
+  display: block;
+  font-size: 10px;
+}
+
+.card-starttime {
+  display:inline;
+}
+
+.card-endtime {
+  display: inline;
 }
 
 p.card-owner {

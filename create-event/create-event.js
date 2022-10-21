@@ -23,7 +23,7 @@ const submitEvent = () => {
   const endTime = document.getElementById("end-time").value;
   const eventDescription = document.getElementById("event-description").value;
   const eventOwner = localStorage.getItem("userName");
-  const eventLocation = document.getElementById("event-location")//
+  const eventLocation = document.getElementById("event-location").value;
 
 
   // Using split to get value from date input so that we can construct a "start datetime" and "end datetime" date object

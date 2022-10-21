@@ -60,10 +60,11 @@ const generateEventList = () => {
       const ownerElement = document.createElement("p");
       const attendBtnElement = document.createElement("button");
       const imageElement = document.createElement("img");
-      const locationElement = document.createElement("p") //
+      const locationElement = document.createElement("p");
 
       // We are assigning the value of properties of the event object to the different elements
       titleElement.innerText = event.Title;
+      locationElement.innerText = "Location: " + event.Location;
       categoryElement.innerText = event.Category;
       attendingElement.innerText = event.Attending.length + " people are going";
 
@@ -116,7 +117,6 @@ const generateEventList = () => {
       otherElements.appendChild(titleElement);
       otherElements.appendChild(categoryElement);
       otherElements.appendChild(locationElement);
-      otherElements.appendChild(attendingElement);
       otherElements.appendChild(startDateLabel);
       otherElements.appendChild(startDateElement);
       otherElements.appendChild(startTimeLabel);
