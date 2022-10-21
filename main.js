@@ -2,6 +2,7 @@
 import { getEvents, updateEvent } from "../api.js";
 import { deleteEvent } from "./api.js";
 
+
 /* Using local storage to "get" and "set" name from browser and storing it inside a variable (userName)*/
 function getName() {
   if (
@@ -57,11 +58,13 @@ const generateEventList = () => {
       const ownerElement = document.createElement("p");
       const attendBtnElement = document.createElement("button");
       const imageElement = document.createElement("img");
+      const locationElement = document.createElement("p") //
 
       // We are assigning the value of properties of the event object to the different elements
       titleElement.innerText = event.Title;
       categoryElement.innerText = event.Category;
       attendingElement.innerText = event.Attending.length + " people are going";
+
       startDateElement.innerText = new Date(event.Starting).toLocaleDateString(
         "is",
         dateFormat
@@ -72,6 +75,7 @@ const generateEventList = () => {
       );
       endTimeElement.innerText =
         " - " + new Date(event.Ending).toLocaleTimeString("is", timeFormat);
+
 
       // Assigning different event categories to the apropriate images and colors
       otherElements.href = "about-event/about-event.html?eventid=" + event._id;
@@ -99,11 +103,13 @@ const generateEventList = () => {
       ownerElement.classList.add("card-owner");
       cardElement.classList.add("card");
       attendBtnElement.classList.add("card-button");
+      locationElement.classList.add("card-location") //
 
       // Appending the elements so they appear in the right order
       otherElements.appendChild(imageElement);
       otherElements.appendChild(titleElement);
       otherElements.appendChild(categoryElement);
+      otherElements.appendChild(locationElement)//
       otherElements.appendChild(attendingElement);
       otherElements.appendChild(startDateElement);
       otherElements.appendChild(startTimeElement);
