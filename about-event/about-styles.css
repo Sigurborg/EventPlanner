@@ -19,6 +19,39 @@
   position: relative;
 }
 
+.info-text-about {
+  font-size: 14px;
+  display:inline;
+}
+
+.subtitle-about {
+  font-size: 10px;
+  display: block;
+  font-size: 10px;
+  margin-top: 15px;
+}
+
+.card-title-about {
+  text-align: left;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 45px;
+}
+
+.card-category-about {
+  font-size: 8px;
+  line-height: 11px;
+}
+
+.date-box{
+  display: flex;
+  flex-direction: row;
+}
+
+.time-about{
+margin-left: 40px;
+}
+
 input:focus {
   border: none;
 }
@@ -147,6 +180,11 @@ input {
   background-color: white;
 }
 
+.info-text {
+  font-size: 14px;
+  display:inline;
+}
+/*
 p.label {
   font-size: 12px;
   margin-top: 10px;
@@ -168,7 +206,7 @@ p.time {
 p#time.label {
   font-size: 12px;
   margin-top: 0;
-}
+}*/
 
 p#owner.card-owner {
   margin-top: 0;
@@ -181,7 +219,7 @@ p#owner.card-owner {
 #expand-icon {
   transition: 200ms;
   padding-right: 5px;
-  
+
 }
 
 
@@ -386,7 +424,7 @@ input {
 }
 
 @media only screen and (max-width: 500px) {
-  
+
 }
 
 @media only screen and (min-width: 501px) {

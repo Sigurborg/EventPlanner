@@ -1,7 +1,7 @@
 // Importing functions from api
 import { getEvents, updateEvent } from "../api.js";
 
-let thisEvent = {}
+let thisEvent = {};
 
 // Getting the event that matches the id on the event that was clicked on the main page
 getEvents().then((events) => {
@@ -11,13 +11,16 @@ getEvents().then((events) => {
   });
 
   result.forEach((event) => {
-    thisEvent = event
-    console.log(event)
+    thisEvent = event;
+    console.log(event);
     const titleElement = document.getElementById("title");
     titleElement.innerText = event.Title;
 
     const categoryElement = document.getElementById("category");
     categoryElement.innerText = event.Category;
+
+    const locationElement = document.getElementById("location");
+    locationElement.innerText = event.Location;
 
     const dateElement = document.getElementById("date");
     dateElement.innerText = new Date(event.Starting).toLocaleString(
@@ -30,6 +33,10 @@ getEvents().then((events) => {
       "is",
       timeFormat
     );
+
+    const endTimeElement = document.getElementById("end-time");
+    endTimeElement.innerText =
+      " - " + new Date(event.Starting).toLocaleTimeString("is", timeFormat);
 
     const ownerElement = document.getElementById("owner");
     ownerElement.innerText = event.Owner;
@@ -146,8 +153,8 @@ getEvents().then((events) => {
     };
 
     event.ChatMessages.forEach((message) => {
-      showChatMessages(message.name, message.date, message.comment)
-    })
+      showChatMessages(message.name, message.date, message.comment);
+    });
   });
 });
 
@@ -172,9 +179,8 @@ const timeFormat = {
 
 const dateFormat = {
   weekday: "short",
-  month: "long",
+  month: "short",
   day: "2-digit",
-  ...timeFormat,
 };
 
 // Clearing the input
@@ -192,20 +198,20 @@ const showChatMessages = (name, date, comment) => {
   var paragraph = document.createElement("p");
   const commenterName = document.createElement("p");
   commenterName.textContent = name;
-  commenterName.classList.add("commentor-name-style")
+  commenterName.classList.add("commentor-name-style");
   theDate.classList.add("date-styling");
   theDate.innerText = date;
   paragraph.innerText = comment;
   paragraph.classList.add("message-styling");
-  const commentWrapper = document.createElement('div')
+  const commentWrapper = document.createElement("div");
   commentWrapper.appendChild(commenterName);
   commentWrapper.appendChild(theDate);
   commentWrapper.appendChild(paragraph);
-  chatMessages.appendChild(commentWrapper)
+  chatMessages.appendChild(commentWrapper);
   // chatMessages.scroll (10000,10000)
-  chatMessages.scrollTo(0,-100000)
-  console.log(chatMessages.scrollTop)
-}
+  chatMessages.scrollTo(0, -100000);
+  console.log(chatMessages.scrollTop);
+};
 
 // Pasting the messages from the input field to the page
 addMessageButton.addEventListener("click", function () {
@@ -216,11 +222,11 @@ addMessageButton.addEventListener("click", function () {
   // commentWrapper.classList.add('commentWrapper')
   inputField.value = "";
   if (!thisEvent.ChatMessages) {
-    thisEvent.ChatMessages = []
+    thisEvent.ChatMessages = [];
   }
-  thisEvent.ChatMessages.push({name, date, comment})
-  updateEvent(thisEvent._id, thisEvent)
-  showChatMessages(name, date, comment)
+  thisEvent.ChatMessages.push({ name, date, comment });
+  updateEvent(thisEvent._id, thisEvent);
+  showChatMessages(name, date, comment);
 });
 // Allows you to press enter to post messages
 inputField.addEventListener("keypress", function (addByEnterBtn) {
