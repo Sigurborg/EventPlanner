@@ -1,8 +1,7 @@
 // Importing functions from API
 import { addEvent } from "../api.js";
 
-// Giving this variable a default value
-let eventCategory = "Vísindaferð";
+
 
 // Creating a function to clear out the form and reset the time
 const clearForm = () => {
@@ -77,8 +76,12 @@ function resetButtonStyles() {
   conferenceButton.style.backgroundColor = "#5e9991";
   scienceButton.style.color = "#f3f4f6";
   socialButton.style.color = "#f3f4f6";
-  conferenceButton.style.color = "#f3f4f6";
+  conferenceButton.style.color = "#f3f4f6";0
+
 }
+// Giving this variable a default value
+let eventCategory = "Vísindaferð";
+
 
 scienceButton.addEventListener("click", function onClick() {
   resetButtonStyles();
