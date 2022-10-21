@@ -1,6 +1,8 @@
 // Importing functions from api
 import { getEvents, updateEvent } from "../api.js";
 
+let thisEvent = {}
+
 // Getting the event that matches the id on the event that was clicked on the main page
 getEvents().then((events) => {
   const idLink = new URL(window.location.href).searchParams.get("eventid");
@@ -9,6 +11,8 @@ getEvents().then((events) => {
   });
 
   result.forEach((event) => {
+    thisEvent = event
+    console.log(event)
     const titleElement = document.getElementById("title");
     titleElement.innerText = event.Title;
 
@@ -142,6 +146,10 @@ getEvents().then((events) => {
       }
       listOfPeople.appendChild(attendingList);
     };
+
+    event.ChatMessages.forEach((message) => {
+      showChatMessages(message.name, message.date, message.comment)
+    })
   });
 });
 
@@ -180,23 +188,41 @@ function emptyInput() {
   }
 }
 
-// Pasting the messages from the input field to the page
-addMessageButton.addEventListener("click", function () {
-  if (emptyInput()) return;
+const showChatMessages = (name, date, comment) => {
   noCommentsYetMessage.remove();
   var theDate = document.createElement("p");
   var paragraph = document.createElement("p");
   const commenterName = document.createElement("p");
-  commenterName.textContent = userComment;
+  commenterName.textContent = name;
   commenterName.classList.add("commentor-name-style")
   theDate.classList.add("date-styling");
-  theDate.innerText = new Date().toLocaleString("is", dateFormat);
-  paragraph.innerText = inputField.value;
+  theDate.innerText = date;
+  paragraph.innerText = comment;
   paragraph.classList.add("message-styling");
-  chatMessages.appendChild(commenterName);
-  chatMessages.appendChild(theDate);
-  chatMessages.appendChild(paragraph);
+  const commentWrapper = document.createElement('div')
+  commentWrapper.appendChild(commenterName);
+  commentWrapper.appendChild(theDate);
+  commentWrapper.appendChild(paragraph);
+  chatMessages.appendChild(commentWrapper)
+  // chatMessages.scroll (10000,10000)
+  chatMessages.scrollTo(0,0)
+  console.log(chatMessages.scrollTop)
+}
+
+// Pasting the messages from the input field to the page
+addMessageButton.addEventListener("click", function () {
+  if (emptyInput()) return;
+  const name = userComment;
+  const date = new Date().toLocaleString("is", dateFormat);
+  const comment = inputField.value;
+  // commentWrapper.classList.add('commentWrapper')
   inputField.value = "";
+  if (!thisEvent.ChatMessages) {
+    thisEvent.ChatMessages = []
+  }
+  thisEvent.ChatMessages.push({name, date, comment})
+  updateEvent(thisEvent._id, thisEvent)
+  showChatMessages(name, date, comment)
 });
 // Allows you to press enter to post messages
 inputField.addEventListener("keypress", function (addByEnterBtn) {
