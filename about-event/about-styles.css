@@ -118,7 +118,6 @@ input {
   font-size: 12px;
   font-weight: bold;
   margin-top: 20px;
-  margin-bottom: -13px;
 }
 
 /* Dropdown area on card*/
@@ -308,7 +307,6 @@ input:focus {
   font-size: 10px;
   text-align: left;
   font-style: italic;
-  margin-bottom: -12px;
   color: #6f6f6f;
 }
 
@@ -362,7 +360,7 @@ input {
 
 #chatMessages {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 16px;
   margin-bottom: 16px;
   max-height: 230px;
