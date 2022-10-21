@@ -103,6 +103,11 @@ h2.desktop-heading {
   right: 30%;
 }
 
+.card-button:hover {
+  box-shadow: rgba(82, 82, 82, 0.3) 2px 7px 7px 0px,
+    rgba(85, 85, 85, 0.15) 0px 2px 6px 2px;
+}
+
 .events {
   display: flex;
   flex-direction: column;
@@ -227,16 +232,16 @@ header {
   position: absolute;
 }
 
-.page-heading{
+.page-heading {
   display: flex;
   flex-direction: column;
   gap: 20px;
   margin: auto;
-  margin-left:50px;
-  margin-bottom:50px;
-  margin-top:50px;
-  font-size:48px;
-  line-height:96px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  font-size: 48px;
+  line-height: 96px;
 }
 
 /* Small and Large screen settings */
@@ -274,10 +279,9 @@ header {
   h2.desktop-heading {
     font-size: 20px;
   }
-  .page-heading{
+  .page-heading {
     font-size: 22px;
   }
-
 }
 
 @media only screen and (min-width: 501px) {
