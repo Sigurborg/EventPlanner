@@ -362,6 +362,7 @@ input {
   display: flex;
   flex-direction: column-reverse;
   gap: 16px;
+  margin-top: 10px;
   margin-bottom: 16px;
   max-height: 230px;
   overflow: scroll;
