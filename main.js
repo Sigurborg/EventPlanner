@@ -25,7 +25,7 @@ const timeFormat = {
 
 const dateFormat = {
   weekday: "short",
-  month: "long",
+  month: "short",
   day: "2-digit",
 };
 
