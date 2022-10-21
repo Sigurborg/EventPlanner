@@ -108,13 +108,6 @@ h2.desktop-heading {
   right: 30%;
 }
 
-.card-button:hover {
-    color: black;
-    box-shadow: none;
-}
-
-
-
 .events {
   display: flex;
   flex-direction: column;
