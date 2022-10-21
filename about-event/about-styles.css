@@ -38,6 +38,20 @@
   margin-top: 45px;
 }
 
+.label {
+  margin-top: 10px;
+}
+
+#description.label {
+  margin-top: 0%;
+}
+
+#description {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+
 .card-category-about {
   font-size: 8px;
   line-height: 11px;
@@ -184,33 +198,14 @@ input {
   font-size: 14px;
   display:inline;
 }
-/*
-p.label {
-  font-size: 12px;
-  margin-top: 10px;
+
+#owner{
+  font-size: 14px;
+    margin-top: 0;
+
 }
 
-p.date {
-  margin-top: 10px;
-}
 
-p#date.label {
-  font-size: 12px;
-  margin-top: 0px;
-}
-
-p.time {
-  margin-top: 10px;
-}
-
-p#time.label {
-  font-size: 12px;
-  margin-top: 0;
-}*/
-
-p#owner.card-owner {
-  margin-top: 0;
-}
 
 .flipped {
   transform: rotateX(180deg);
