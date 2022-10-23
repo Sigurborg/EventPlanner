@@ -74,7 +74,6 @@ function resetButtonStyles() {
   scienceButton.style.color = "#f3f4f6";
   socialButton.style.color = "#f3f4f6";
   conferenceButton.style.color = "#f3f4f6";
-  0;
 }
 // Giving this variable a default value
 let eventCategory = "Vísindaferð";
