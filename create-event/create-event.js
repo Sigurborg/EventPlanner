@@ -57,7 +57,7 @@ const submitEvent = () => {
 
   console.log("newevent:", newEvent);
 
-  // addEvent(newEvent);
+  addEvent(newEvent);
 };
 
 // Getting all buttons
