@@ -68,6 +68,7 @@ const generateEventList = () => {
       dateTime.appendChild(startDateLabel);
       dateTimeValue.appendChild(startDateElement);
       dateTime.appendChild(startTimeLabel);
+
       dateTimeValue.appendChild(startTimeElement);
       dateTimeValue.appendChild(endTimeElement);
 
@@ -172,6 +173,7 @@ const generateEventList = () => {
       if (i < 0) return;
       deleteEvent(event._id); 
     }); */
+
     console.log(events);
   });
 };

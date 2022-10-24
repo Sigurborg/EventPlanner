@@ -36,7 +36,7 @@ getEvents().then((events) => {
 
     const endTimeElement = document.getElementById("end-time");
     endTimeElement.innerText =
-      " - " + new Date(event.Starting).toLocaleTimeString("is", timeFormat);
+      " - " + new Date(event.Ending).toLocaleTimeString("is", timeFormat);
 
     const ownerElement = document.getElementById("owner");
     ownerElement.innerText = event.Owner;
