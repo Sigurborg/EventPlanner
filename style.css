@@ -295,9 +295,17 @@ header {
   h2.desktop-heading {
     font-size: 20px;
   }
+
+  h2.create-heading {
+    font-size: 16px;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 30px;
+    max-width: 310px;
+  }
+
   .page-heading {
     font-size: 22px;
-    margin-bottom: 50px;
   }
 }
 
@@ -323,6 +331,13 @@ header {
     text-align: left;
     float: left;
   }
+
+  h2.create-heading {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
   .events {
     max-width: 100%;
     margin-left: 5%;

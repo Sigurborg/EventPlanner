@@ -12,8 +12,115 @@
 }
 
 #science-button {
-  font-size: 10px;
-  font-family: montserrat;
+  background-color: white;
+  color: black;
+  border: solid 1px;
+  border-color: black;
+  padding: 5px 16px;
+  width: 100px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#conference-button {
+  background-color: white;
+  color: black;
+  border: solid 1px;
+  border-color: black;
+  padding: 5px 16px;
+  width: 100px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#social-button {
+  background-color: white;
+  color: black;
+  border: solid 1px;
+  border-color: black;
+  padding: 5px 16px;
+  width: 100px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#conference-button:hover {
+  background-color: #b26f75; 
+  color: #f3f4f6;
+  border: none;
+  padding: 5px 16px;
+  width: 100px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#science-button:hover {
+  color: #f3f4f6;
+  font-weight: 500;
+  padding: 5px 16px;
+  border: none;
+  background-color: #5e9991;
+  width: 100px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#social-button:hover {
+  color: #f3f4f6;
+  font-weight: 500;
+  padding: 5px 16px;
+  border: none;
+  background-color: #769ab2;
+  width: 100px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#science-button:focus {
+  color: #f3f4f6;
+  font-weight: 500;
+  padding: 5px 16px;
+  border: none;
+  background-color: #5e9991;
+  width: 100px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#conference-button:focus {
+  color: #f3f4f6;
+  font-weight: 500;
+  padding: 5px 16px;
+  border: none;
+  background-color: #b26f75;
+  width: 100px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+#social-button:focus {
+  color: #f3f4f6;
+  font-weight: 500;
+  padding: 5px 16px;
+  border: none;
+  background-color: #769ab2;
+  width: 100px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+
+/*
+#science-button {
   color: #f3f4f6;
   font-weight: 500;
   padding: 5px 16px;
@@ -55,15 +162,39 @@
 
 #science-button:hover {
   color: black;
+
+}
+
+#science-button:focus {
+  background-color: white;
+  color: black;
+  border: solid 1px;
+  border-color: black;
 }
 
 #conference-button:hover {
   color: black;
 }
 
+#conference-button:focus {
+  background-color: white;
+  color: black;
+  border: solid 1px;
+  border-color: black;
+}
+
 #social-button:hover {
   color: black;
 }
+
+#social-button:focus {
+  background-color: white;
+  color: black;
+  border: solid 1px;
+  border-color: black;
+}
+
+*/
 
 #add-event:hover {
 color: black;
@@ -159,8 +290,44 @@ input {
     font-size: 14px;
   }
 
+  #science-button:hover,
+  #conference-button:hover,
+  #social-button:hover {
+    width: 25%;
+    font-size: 14px;
+  }
+
+  #social-button:focus,
+  #conference-button:focus,
+  #science-button:focus
+   {
+    width: 25%;
+    font-size: 14px;
+  }
+
   #add-event {
     width: 50%;
     margin-left: 25%;
   }
+
+  .desktop-heading {
+    width: calc(100% - 96px);
+  }
 }
+
+@media only screen and (max-width: 500px) {
+#social-button {
+  font-size: 11px;
+}
+
+#conference-button {
+  font-size: 11px;
+}
+
+#science-button {
+  font-size: 11px;
+}
+
+}
+
+

@@ -75,29 +75,6 @@ function resetButtonStyles() {
   socialButton.style.color = "#f3f4f6";
   conferenceButton.style.color = "#f3f4f6";
 }
-// Giving this variable a default value
-let eventCategory = "Vísindaferð";
-
-scienceButton.addEventListener("click", function onClick() {
-  resetButtonStyles();
-  scienceButton.style.backgroundColor = "#303a49";
-  scienceButton.style.color = "white";
-  eventCategory = "Vísindaferð";
-});
-
-conferenceButton.addEventListener("click", function onClick() {
-  resetButtonStyles();
-  conferenceButton.style.backgroundColor = "#303a49";
-  conferenceButton.style.color = "white";
-  eventCategory = "Conference";
-});
-
-socialButton.addEventListener("click", function onClick() {
-  resetButtonStyles();
-  socialButton.style.backgroundColor = "#303a49";
-  socialButton.style.color = "white";
-  eventCategory = "Social";
-});
 
 // Checking if the input has an empty string or does it have a value. If it is empty there will be a error message
 const setError = (element, message) => {
