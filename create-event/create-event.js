@@ -68,13 +68,37 @@ const socialButton = document.getElementById("social-button");
 
 // Creating a function that resets button styles back to default
 function resetButtonStyles() {
-  scienceButton.style.backgroundColor = "#b26f75";
-  socialButton.style.backgroundColor = "#769ab2";
-  conferenceButton.style.backgroundColor = "#5e9991";
-  scienceButton.style.color = "#f3f4f6";
-  socialButton.style.color = "#f3f4f6";
-  conferenceButton.style.color = "#f3f4f6";
+  scienceButton.style.backgroundColor = "white";
+  socialButton.style.backgroundColor = "white";
+  conferenceButton.style.backgroundColor = "white";
+  scienceButton.style.color = "black";
+  socialButton.style.color = "black";
+  conferenceButton.style.color = "black";
 }
+
+// Giving this variable a default value
+let eventCategory = "Vísindaferð";
+
+scienceButton.addEventListener("click", function onClick() {
+  resetButtonStyles();
+  scienceButton.style.backgroundColor = "#5e9991";
+  scienceButton.style.color = "white";
+  eventCategory = "Vísindaferð";
+});
+
+conferenceButton.addEventListener("click", function onClick() {
+  resetButtonStyles();
+  conferenceButton.style.backgroundColor = "#b26f75";
+  conferenceButton.style.color = "white";
+  eventCategory = "Conference";
+});
+
+socialButton.addEventListener("click", function onClick() {
+  resetButtonStyles();
+  socialButton.style.backgroundColor = "#769ab2";
+  socialButton.style.color = "white";
+  eventCategory = "Social";
+});
 
 // Checking if the input has an empty string or does it have a value. If it is empty there will be a error message
 const setError = (element, message) => {

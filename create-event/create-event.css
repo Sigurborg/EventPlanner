@@ -15,7 +15,6 @@
   background-color: white;
   color: black;
   border: solid 1px;
-  border-color: black;
   padding: 5px 16px;
   width: 100px;
   height: 32px;
@@ -27,7 +26,6 @@
   background-color: white;
   color: black;
   border: solid 1px;
-  border-color: black;
   padding: 5px 16px;
   width: 100px;
   height: 32px;
@@ -39,7 +37,6 @@
   background-color: white;
   color: black;
   border: solid 1px;
-  border-color: black;
   padding: 5px 16px;
   width: 100px;
   height: 32px;
@@ -82,7 +79,7 @@
   border-radius: 15px;
 }
 
-#science-button:focus {
+/* #science-button:focus {
   color: #f3f4f6;
   font-weight: 500;
   padding: 5px 16px;
@@ -117,9 +114,6 @@
   cursor: pointer;
   border-radius: 15px;
 }
-
-
-/*
 #science-button {
   color: #f3f4f6;
   font-weight: 500;
