@@ -172,6 +172,7 @@ const generateEventList = () => {
       if (i < 0) return;
       deleteEvent(event._id); 
     }); */
+
     console.log(events);
   });
 };
