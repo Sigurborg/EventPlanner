@@ -30,64 +30,7 @@ p {
   padding-bottom: 3px;
 }
 
-.card-category {
-  font-size: 10px;
-  line-height: 11.25px;
-}
-
-.card-attending {
-  margin-top: 10px;
-}
-
-/* Events main page card */
-
-.card-startdate {
-  font-size: 12px;
-  margin-top: 10px;
-}
-
-label.time-title {
-  display: block;
-  font-size: 10px;
-}
-
-.card-starttime {
-  display:inline;
-}
-
-.card-endtime {
-  display: inline;
-}
-
-.card-owner {
-  margin-top: 10px;
-}
-
-/* Main page*/
-
-.desktop-heading {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 310px;
-  margin: auto;
-  margin-top: 25px;
-  margin-bottom: 25px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  font-size: 48px;
-  line-height: 96px;
-}
-
-h2.desktop-heading {
-  border-top: 1px solid #000;
-  font-size: 32px;
-  line-height: 40px;
-  padding-top: 20px;
-  margin-top: 60px;
-  margin-bottom: 50px;
-}
-
+/* Card Style */
 .card {
   width: 324px;
   height: 341px;
@@ -118,9 +61,77 @@ h2.desktop-heading {
   box-shadow: rgba(163, 164, 165, 0.3) 0px 1px 1px 0px,
     rgba(185, 186, 187, 0.15) 0px 2px 6px 2px;
   cursor: pointer;
-  position: fixed;
-  top: 7%;
-  right: 30%;
+  top: 4%;
+  right: 4%;
+  position: absolute;
+}
+
+.card-button:hover {
+    color: black;
+    box-shadow: none;
+}
+
+.card-title {
+  text-align: left;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 45px;
+}
+
+.card-category {
+  font-size: 8px;
+  line-height: 11px;
+}
+
+.subtitle {
+  font-size: 10px;
+  display: block;
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+.info-text {
+  font-size: 14px;
+  display:inline;
+}
+
+.date-time {
+  display: flex;
+  flex-direction: row;
+  
+}
+
+.card-owner {
+  margin-top: 10px;
+}
+
+.card-attending {
+  margin-top: 10px;
+}
+
+/* Main page*/
+
+.desktop-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 310px;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 48px;
+  line-height: 96px;
+}
+
+h2.desktop-heading {
+  border-top: 1px solid #000;
+  font-size: 32px;
+  line-height: 40px;
+  padding-top: 20px;
+  margin-top: 60px;
+  margin-bottom: 50px;
 }
 
 .events {
@@ -229,29 +240,6 @@ header {
   margin: -1cm;
   width: calc(100% + 2cm);
 }
-
-.card-button {
-  text-align: center;
-  font-family: montserrat;
-  font-size: 16px;
-  font-weight: bold;
-  color: #f3f4f6;
-  border-radius: 8px;
-  padding: 5px 16px;
-  border: none;
-  box-shadow: rgba(163, 164, 165, 0.3) 0px 1px 1px 0px,
-    rgba(185, 186, 187, 0.15) 0px 2px 6px 2px;
-  cursor: pointer;
-  top: 4%;
-  right: 4%;
-  position: absolute;
-}
-
-.card-button:hover {
-    color: black;
-    box-shadow: none;
-}
-
 
 .page-heading {
   display: flex;

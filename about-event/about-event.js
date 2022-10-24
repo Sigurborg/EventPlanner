@@ -92,7 +92,7 @@ getEvents().then((events) => {
         event.Attending = updatedAddendingList;
 
         attendBtnElement.innerText = "Join";
-        attendBtnElement.style.backgroundColor = "#5E9991";
+
         updateEvent(event._id, event);
         /*
       remove the user from the array of attending
@@ -103,8 +103,6 @@ getEvents().then((events) => {
         console.log("trying to add");
         event.Attending.push(name);
         updateEvent(event._id, event);
-
-        attendBtnElement.style.backgroundColor = "#5E9991";
         attendBtnElement.innerText = "Going";
       }
     };
