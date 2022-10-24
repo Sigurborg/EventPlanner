@@ -31,7 +31,6 @@ const dateFormat = {
 /* Here we are generating the list of events*/
 const generateEventList = () => {
   getEvents().then((events) => {
-    console.log({ events });
     const eventList = document.getElementById("event-list");
     const firstEvent = document.getElementById("first-event");
     eventList.innerHTML = "";
@@ -63,14 +62,6 @@ const generateEventList = () => {
       const imageElement = document.createElement("img");
       const dateTime = document.createElement("div");
       const dateTimeValue = document.createElement("div");
-
-      // Putting the date and time inside of a div
-      dateTime.appendChild(startDateLabel);
-      dateTimeValue.appendChild(startDateElement);
-      dateTime.appendChild(startTimeLabel);
-
-      dateTimeValue.appendChild(startTimeElement);
-      dateTimeValue.appendChild(endTimeElement);
 
       // We are assigning the value of properties of the event object to the different elements
       titleElement.innerText = event.Title;
@@ -135,6 +126,14 @@ const generateEventList = () => {
       otherElements.appendChild(dateTimeValue);
       cardElement.appendChild(otherElements);
       cardElement.appendChild(attendBtnElement);
+
+      // Putting the date and time inside of a div
+      dateTime.appendChild(startDateLabel);
+      dateTimeValue.appendChild(startDateElement);
+      dateTime.appendChild(startTimeLabel);
+
+      dateTimeValue.appendChild(startTimeElement);
+      dateTimeValue.appendChild(endTimeElement);
 
       // Use this class ("first-card") to style the top event
       if (index === 0) {
