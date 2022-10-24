@@ -2,7 +2,6 @@
 import { getEvents, updateEvent } from "../api.js";
 import { deleteEvent } from "./api.js";
 
-
 /* Using local storage to "get" and "set" name from browser and storing it inside a variable (userName)*/
 function getName() {
   if (
@@ -56,7 +55,7 @@ const generateEventList = () => {
       const attendingElement = document.createElement("p");
       const startDateLabel = document.createElement("label");
       const startDateElement = document.createElement("p");
-      const startTimeLabel =document.createElement("label");
+      const startTimeLabel = document.createElement("label");
       const startTimeElement = document.createElement("p");
       const endTimeElement = document.createElement("p");
       const ownerElement = document.createElement("p");
@@ -65,13 +64,12 @@ const generateEventList = () => {
       const dateTime = document.createElement("div");
       const dateTimeValue = document.createElement("div");
 
-// Putting the date and time inside of a div
+      // Putting the date and time inside of a div
       dateTime.appendChild(startDateLabel);
       dateTimeValue.appendChild(startDateElement);
       dateTime.appendChild(startTimeLabel);
       dateTimeValue.appendChild(startTimeElement);
       dateTimeValue.appendChild(endTimeElement);
-
 
       // We are assigning the value of properties of the event object to the different elements
       titleElement.innerText = event.Title;
@@ -93,7 +91,6 @@ const generateEventList = () => {
       endTimeElement.innerText =
         " - " + new Date(event.Ending).toLocaleTimeString("is", timeFormat);
 
-
       // Assigning different event categories to the apropriate images and colors
       otherElements.href = "about-event/about-event.html?eventid=" + event._id;
       if (event.Category.toLowerCase() === "conference") {
@@ -113,7 +110,7 @@ const generateEventList = () => {
       imageElement.classList.add("images");
       titleElement.classList.add("card-title");
       categoryElement.classList.add("card-category");
-      locationLabel.classList.add("subtitle")
+      locationLabel.classList.add("subtitle");
       locationElement.classList.add("info-text");
       attendingElement.classList.add("card-attending");
       startDateLabel.classList.add("subtitle");
@@ -158,14 +155,8 @@ const generateEventList = () => {
       attendBtnElement.onclick = function clickAttend() {
         if (event.Attending.includes(name)) {
           event.Attending = event.Attending.filter((listName) => {
-            /*
-            remove the user from the array of attending
-            reset the button to original state
-            run updateEvent method from api*/
-
             return listName !== name;
           });
-
           attendBtnElement.innerText = "Join";
           updateEvent(event._id, event);
         } else {
@@ -175,13 +166,13 @@ const generateEventList = () => {
         }
       };
     });
-
-    /*//If we need to delete test events:
+    /*
+    //If we need to delete test events:
     events.forEach((event, i) => {
       if (i < 0) return;
-      deleteEvent(event._id);
-    });
-    console.log(events);*/
+      deleteEvent(event._id); 
+    }); */
+    console.log(events);
   });
 };
 
