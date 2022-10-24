@@ -19,6 +19,53 @@
   position: relative;
 }
 
+.info-text-about {
+  font-size: 14px;
+  display:inline;
+}
+
+.subtitle-about {
+  font-size: 10px;
+  display: block;
+  font-size: 10px;
+  margin-top: 15px;
+}
+
+.card-title-about {
+  text-align: left;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 45px;
+}
+
+.label {
+  margin-top: 10px;
+}
+
+#description.label {
+  margin-top: 0%;
+}
+
+#description {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+
+.card-category-about {
+  font-size: 8px;
+  line-height: 11px;
+}
+
+.date-box{
+  display: flex;
+  flex-direction: row;
+}
+
+.time-about{
+margin-left: 40px;
+}
+
 input:focus {
   border: none;
 }
@@ -147,32 +194,18 @@ input {
   background-color: white;
 }
 
-p.label {
-  font-size: 12px;
-  margin-top: 10px;
+.info-text {
+  font-size: 14px;
+  display:inline;
 }
 
-p.date {
-  margin-top: 10px;
+#owner{
+  font-size: 14px;
+    margin-top: 0;
+
 }
 
-p#date.label {
-  font-size: 12px;
-  margin-top: 0px;
-}
 
-p.time {
-  margin-top: 10px;
-}
-
-p#time.label {
-  font-size: 12px;
-  margin-top: 0;
-}
-
-p#owner.card-owner {
-  margin-top: 0;
-}
 
 .flipped {
   transform: rotateX(180deg);
@@ -181,7 +214,7 @@ p#owner.card-owner {
 #expand-icon {
   transition: 200ms;
   padding-right: 5px;
-  
+
 }
 
 
@@ -386,7 +419,7 @@ input {
 }
 
 @media only screen and (max-width: 500px) {
-  
+
 }
 
 @media only screen and (min-width: 501px) {

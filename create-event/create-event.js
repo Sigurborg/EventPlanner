@@ -1,8 +1,6 @@
 // Importing functions from API
 import { addEvent } from "../api.js";
 
-
-
 // Creating a function to clear out the form and reset the time
 const clearForm = () => {
   document.getElementById("event-name").value = "";
@@ -10,7 +8,7 @@ const clearForm = () => {
   document.getElementById("start-time").value = "12:00";
   document.getElementById("end-time").value = "12:00";
   document.getElementById("event-description").value = "";
-  document.getElementById("event-location").value = "";//
+  document.getElementById("event-location").value = ""; //
 };
 console.log(window.location);
 
@@ -24,7 +22,6 @@ const submitEvent = () => {
   const eventOwner = localStorage.getItem("userName");
   const eventLocation = document.getElementById("event-location").value;
 
-
   // Using split to get value from date input so that we can construct a "start datetime" and "end datetime" date object
   const dateSplit = eventDate.split("-"); // returns [year, month, day]
   const startTimeSplit = startTime.split(":"); // returns [hour, minute]
@@ -32,7 +29,7 @@ const submitEvent = () => {
 
   const startDate = new Date(
     dateSplit[0], // year
-    dateSplit[1], // month
+    dateSplit[1] - 1, // month
     dateSplit[2], // day
     startTimeSplit[0], // hour
     startTimeSplit[1] // minute
@@ -40,7 +37,7 @@ const submitEvent = () => {
 
   const endDate = new Date(
     dateSplit[0], // year
-    dateSplit[1], // month
+    dateSplit[1] - 1, // month
     dateSplit[2], // day
     endTimeSplit[0], // hour
     endTimeSplit[1] // minute
@@ -76,12 +73,10 @@ function resetButtonStyles() {
   conferenceButton.style.backgroundColor = "#5e9991";
   scienceButton.style.color = "#f3f4f6";
   socialButton.style.color = "#f3f4f6";
-  conferenceButton.style.color = "#f3f4f6";0
-
+  conferenceButton.style.color = "#f3f4f6";
 }
 // Giving this variable a default value
 let eventCategory = "Vísindaferð";
-
 
 scienceButton.addEventListener("click", function onClick() {
   resetButtonStyles();
@@ -130,7 +125,6 @@ document.querySelector("form").addEventListener("submit", (e) => {
   const eventTitleValue = eventTitle.value.trim();
   const eventDescriptionValue = eventDescription.value.trim();
   const eventLocationValue = eventLocation.value.trim();
-  
 
   // Check if event title is empty
   if (eventTitleValue === "") {
@@ -149,16 +143,14 @@ document.querySelector("form").addEventListener("submit", (e) => {
   }
 
   //check if location is empty
-  if (eventLocationValue ==="") {
+  if (eventLocationValue === "") {
     setError(eventLocation, "Location is required");
     errorCount++;
   } else {
-    setSuccess(eventLocation)
+    setSuccess(eventLocation);
   }
 
-
   if (errorCount === 0) {
-
     submitButton.style.backgroundColor = "#159d40";
     submitButton.style.color = "white";
     submitButton.textContent = "Your event has been added";

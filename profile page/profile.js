@@ -10,9 +10,8 @@ const timeFormat = {
 
 const dateFormat = {
   weekday: "short",
-  month: "long",
+  month: "short",
   day: "2-digit",
-  ...timeFormat,
 };
 
 // Event list on main page. Same code but here we are filtering through them by username in Attending array
@@ -38,7 +37,17 @@ getEvents().then((events) => {
     const ownerElement = document.createElement("p");
     const attendBtnElement = document.createElement("button");
     const imageElement = document.createElement("img");
+    const dateTime = document.createElement("div");
+    const dateTimeValue = document.createElement("div");
 
+    // Putting the date and time inside of a div
+    dateTime.appendChild(startDateLabel);
+    dateTimeValue.appendChild(startDateElement);
+    dateTime.appendChild(startTimeLabel);
+    dateTimeValue.appendChild(startTimeElement);
+    dateTimeValue.appendChild(endTimeElement);
+
+  // We are assigning the value of properties of the event object to the different elements
     titleElement.innerText = event.Title;
     categoryElement.innerText = event.Category;
     locationLabel.innerText = "Location";
@@ -76,31 +85,30 @@ getEvents().then((events) => {
     }
 
     // We use the class names here to reference later in CSS for styling
+    imageElement.classList.add("images");
     titleElement.classList.add("card-title");
     categoryElement.classList.add("card-category");
-    locationLabel.classList.add("card-title")
-    locationElement.classList.add("card-location");
+    locationLabel.classList.add("subtitle")
+    locationElement.classList.add("info-text");
     attendingElement.classList.add("card-attending");
-    startDateLabel.classList.add("date-title");
-    startDateElement.classList.add("card-startdate");
-    startTimeLabel.classList.add("time-title");
-    startTimeElement.classList.add("card-starttime");
-    endTimeElement.classList.add("card-endtime");
+    startDateLabel.classList.add("subtitle");
+    startDateElement.classList.add("info-text");
+    startTimeLabel.classList.add("subtitle", "subtitle-time");
+    startTimeElement.classList.add("info-text", "info-text-start");
+    endTimeElement.classList.add("info-text", "info-text-end");
     ownerElement.classList.add("card-owner");
     cardElement.classList.add("card");
     attendBtnElement.classList.add("card-button");
-    imageElement.classList.add("images");
+
+    dateTime.classList.add("date-time");
 
     otherElements.appendChild(imageElement);
     otherElements.appendChild(titleElement);
     otherElements.appendChild(categoryElement);
     otherElements.appendChild(locationLabel);
     otherElements.appendChild(locationElement);
-    otherElements.appendChild(startDateLabel);
-    otherElements.appendChild(startDateElement);
-    otherElements.appendChild(startTimeLabel);
-    otherElements.appendChild(startTimeElement);
-    otherElements.appendChild(endTimeElement);
+    otherElements.appendChild(dateTime);
+    otherElements.appendChild(dateTimeValue);
     cardElement.appendChild(attendBtnElement);
     cardElement.appendChild(otherElements);
     eventList.appendChild(cardElement);
